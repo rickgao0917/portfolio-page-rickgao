@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Calendar, MapPin, ExternalLink, Github, ChevronDown, Users, Award, Target } from 'lucide-react';
+import { Calendar, MapPin, ExternalLink, Github, ChevronDown, Users, Award } from 'lucide-react';
 import { TimelineItem as TimelineItemType } from '../types/timeline';
 
 interface TimelineItemProps {
@@ -42,9 +42,23 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ item, isExpanded, onToggleE
               ) : (
                 <span className="text-gray-600 text-sm mb-2 block">{item.category}</span>
               )}
-              <p className="text-gray-600 text-sm leading-relaxed">
+              <p className="text-gray-600 text-sm leading-relaxed mb-4">
                 {item.description}
               </p>
+
+              {/* Tech stack - Show in collapsed view */}
+              {item.tech.length > 0 && (
+                <div className="flex flex-wrap gap-2">
+                  {item.tech.map((tech: string, techIndex: number) => (
+                    <span 
+                      key={techIndex}
+                      className="px-2 py-1 text-xs bg-gray-100 text-gray-700 rounded-full border hover:bg-gray-200 transition-colors duration-200"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
             <div className="flex items-center space-x-3 flex-shrink-0 ml-6">
               <div className="flex items-center space-x-1 text-sm text-gray-500">
@@ -64,26 +78,6 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ item, isExpanded, onToggleE
         } overflow-hidden`}>
           <div className="px-6 pb-6 border-t border-gray-50">
             <div className="pt-4 space-y-6">
-              {/* Tech stack */}
-              {item.tech.length > 0 && (
-                <div>
-                  <h4 className="text-sm font-medium text-gray-900 mb-3 flex items-center">
-                    <Target className="w-4 h-4 mr-2 text-gray-600" />
-                    Technologies Used
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {item.tech.map((tech: string, techIndex: number) => (
-                      <span 
-                        key={techIndex}
-                        className="px-3 py-1 text-xs bg-gray-100 text-gray-700 rounded-full border hover:bg-gray-200 transition-colors duration-200"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
-
               {/* Achievements/Features */}
               {(item.type === 'experience' ? item.achievements : item.features)?.length > 0 && (
                 <div>
