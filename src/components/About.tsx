@@ -2,20 +2,19 @@
 import React from 'react';
 
 const About = () => {
-  const skills = [
-    'Python',
-    'C/C++',
-    'SQL',
-    'R',
-    'KDB+',
-    'Q',
-    'PyTorch',
-    'Docker',
-    'AWS',
-    'Git',
-    'NumPy',
-    'Pandas',
-    'SciPy'
+  const skillCategories = [
+    {
+      title: 'Languages',
+      skills: ['Python', 'C/C++', 'SQL', 'R', 'KDB+', 'Q']
+    },
+    {
+      title: 'Frameworks & Libraries',
+      skills: ['PyTorch', 'NumPy', 'Pandas', 'SciPy']
+    },
+    {
+      title: 'Tools & Platforms',
+      skills: ['Docker', 'AWS', 'Git']
+    }
   ];
 
   return (
@@ -59,18 +58,27 @@ const About = () => {
                 </p>
               </div>
               
-              {/* Skills grid */}
+              {/* Skills grid by categories */}
               <div className="pt-8 border-t border-gray-200">
                 <h3 className="text-sm font-mono text-gray-500 mb-6 tracking-wider uppercase">
                   Technical Skills
                 </h3>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  {skills.map((skill, index) => (
-                    <div 
-                      key={index}
-                      className="p-3 bg-white rounded-lg border border-gray-100 hover:border-gray-200 transition-colors duration-200"
-                    >
-                      <span className="text-sm font-medium">{skill}</span>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  {skillCategories.map((category, categoryIndex) => (
+                    <div key={categoryIndex} className="space-y-4">
+                      <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wide">
+                        {category.title}
+                      </h4>
+                      <div className="space-y-2">
+                        {category.skills.map((skill, skillIndex) => (
+                          <div 
+                            key={skillIndex}
+                            className="p-3 bg-white rounded-lg border border-gray-100 hover:border-gray-200 transition-colors duration-200"
+                          >
+                            <span className="text-sm font-medium">{skill}</span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   ))}
                 </div>
