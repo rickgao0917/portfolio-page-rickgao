@@ -11,20 +11,18 @@ const Index = () => {
     <div className="min-h-screen relative">
       {/* Global animated dots background */}
       <AnimatedDotsBackground 
-        dotCount={100}
+        dotCount={120}
         connectionDistance={150}
         speed={0.4}
         maxOpacity={0.6}
       />
       
-      {/* Content sections with background covering the dots */}
+      {/* Content sections - dots visible except under text/boxes */}
       <div className="relative z-10">
         <Hero />
-        <div className="bg-white">
-          <About />
-          <Timeline />
-          <Contact />
-        </div>
+        <About />
+        <Timeline />
+        <Contact />
       </div>
     </div>
   );
