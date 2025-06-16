@@ -68,7 +68,12 @@ const About = () => {
   );
 
   return (
-    <section className="py-24 px-8 lg:px-16 bg-gray-50">
+    <section className="py-24 px-8 lg:px-16 bg-white">
+      {/* Section separator line */}
+      <div className="max-w-7xl mx-auto mb-16">
+        <div className="w-1/3 h-px bg-gray-300"></div>
+      </div>
+      
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-12 gap-16">
           {/* Section number and title */}
