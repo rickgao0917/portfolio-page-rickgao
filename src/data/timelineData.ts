@@ -71,11 +71,12 @@ export const projectData: TimelineItem[] = [
     title: 'Prediction Market Arbitrage/Market-Making',
     category: 'Python, C++, Statsmodels, Research',
     period: 'May 2025 - Present',
-    description: 'Developed fully featured event-driven backtester in C++, including market impact analysis.',
+    description: 'Developed fully featured event-driven backtester in C++ and BDA, including market impact analysis and PCA.',
     features: [
-      'Live trading since May 2025, substantially profitable',
+      'Live trading since May 2025, +22% since inception and largest drawdown of 8%',
       'Event-driven backtesting system built in C++',
       'Market impact analysis and principal component analysis',
+      'Real-time trading implementation'
     ],
     impact: [],
     tech: ['Python', 'C++', 'Statsmodels'],
@@ -89,11 +90,12 @@ export const projectData: TimelineItem[] = [
     title: 'Bond: End-to-End Agentic Market Intelligence Intelligence/Equity Research Platform',
     category: 'Python, PyTorch',
     period: 'May 2025 - Present',
-    description: 'Vector Graph DB market research platform integrating trad+alternative data sources.',
+    description: 'Graph network implementation to determine relevancy of sources for agent research in geopolitical environment and labor cost analysis.',
     features: [
       'RAG + Vector database to ensure data consistency and accurate source citation',
       'Custom ensemble model of Llama, Claude DeepSeek + GRPO, NLP and sentiment analysis models',
-      'Tuned on multimodal data, video, news filings and pricing data + more',
+      'Tuned on multimodal data, video, news filings and pricing data',
+      'Advanced geopolitical and labor cost analysis capabilities'
     ],
     impact: [
       'Currently being trialed by PMs and analysts'
@@ -106,10 +108,31 @@ export const projectData: TimelineItem[] = [
   },
   {
     type: 'project',
+    title: 'QuantRooms',
+    category: 'Chrome Extension, WebSocket, Full-Stack',
+    period: 'Present',
+    description: 'Multiplayer quant finance interview preparation (WIP).',
+    features: [
+      'Multiplayer Chrome extension for QuantGuide.io with real-time collaborative coding',
+      'WebSocket-based synchronization using Socket.io for real-time communication',
+      'ELO-based matchmaking system with competitive scoring',
+      'Complete authentication system with Google OAuth 2.0 and JWT tokens',
+      'PostgreSQL database with user profiles, statistics, and game history',
+      'Auto-cleanup rooms and cross-account support across browser tabs'
+    ],
+    impact: [],
+    tech: ['JavaScript', 'Node.js', 'Express', 'Socket.io', 'PostgreSQL', 'Chrome Extension', 'OAuth 2.0', 'JWT'],
+    links: {
+      demo: '#',
+      github: '#'
+    }
+  },
+  {
+    type: 'project',
     title: 'IMC Prosperity 3',
     category: 'Trading, Research',
     period: 'April 2025',
-    description: 'Developed custom package integrating data cleaning, processing, and exploration in C++, Python for quant trading.',
+    description: 'Developed custom package integrating data cleaning, processing, and exploration in C++, Python.',
     features: [
       'Custom trading package with data processing capabilities',
       'Implemented custom backtester with adversarial trading simulations',
@@ -119,7 +142,7 @@ export const projectData: TimelineItem[] = [
     tech: ['C++', 'Python', 'Bayesian Analysis', 'Monte Carlo'],
     links: {
       demo: '#',
-      github: 'https://github.com/rickgao0917/imc_public'
+      github: '#'
     }
   },
   {
@@ -148,6 +171,10 @@ export const projectData: TimelineItem[] = [
     period: 'March 2025',
     description: 'Designed a multi-modal reasoning model with GRPO and tree-of-thought with recursive tool creation and use.',
     features: [
+      'Multi-modal reasoning capabilities',
+      'GRPO (Generalized Reward Policy Optimization) implementation',
+      'Tree-of-thought reasoning with recursive tool creation',
+      'Advanced problem-solving through recursive methodologies'
     ],
     impact: [],
     tech: ['Python', 'Javascript', 'GRPO', 'Multi-modal AI'],
@@ -163,6 +190,8 @@ export const projectData: TimelineItem[] = [
     period: 'May 2023 - May 2024',
     description: 'Co-authored bioinformatics code generation benchmark consisting of approximately 500 novel bioinformatics-adjacent functions.',
     features: [
+      'Comprehensive bioinformatics code generation benchmark',
+      'Novel dataset of 500+ bioinformatics functions',
       'Evidence-based comparison of domain-specific vs general models',
       'Advanced evaluation metrics for code generation quality'
     ],
