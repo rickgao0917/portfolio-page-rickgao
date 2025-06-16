@@ -175,15 +175,8 @@ const Timeline = () => {
               const isExpanded = expandedItems.includes(index);
               return (
                 <div key={index} className="relative flex items-start group">
-                  {/* Timeline indicator - Diamond shape */}
-                  <div className={`relative z-10 flex-shrink-0 w-4 h-4 mt-3 transform rotate-45 border-2 border-white shadow-lg transition-all duration-300 group-hover:scale-110 ${
-                    item.type === 'experience' 
-                      ? 'bg-gradient-to-br from-blue-400 to-blue-600 group-hover:from-blue-500 group-hover:to-blue-700' 
-                      : 'bg-gradient-to-br from-green-400 to-green-600 group-hover:from-green-500 group-hover:to-green-700'
-                  }`}>
-                    {/* Inner shine effect */}
-                    <div className="absolute inset-1 bg-white opacity-20 rounded-sm"></div>
-                  </div>
+                  {/* Simple timeline indicator */}
+                  <div className="relative z-10 flex-shrink-0 w-4 h-4 mt-3 bg-gray-400 border-2 border-white shadow-sm"></div>
                   
                   {/* Flag-style content */}
                   <div className="ml-8 flex-1 pb-4">
@@ -199,9 +192,7 @@ const Timeline = () => {
                           <div className="flex-1">
                             <div className="flex items-center space-x-2 mb-2">
                               <h3 className="text-lg font-semibold text-gray-900">{item.title}</h3>
-                              <div className={`w-2 h-2 rounded-full ${
-                                item.type === 'experience' ? 'bg-blue-400' : 'bg-green-400'
-                              }`}></div>
+                              <div className="w-2 h-2 rounded-full bg-gray-400"></div>
                             </div>
                             {item.type === 'experience' ? (
                               <div className="flex items-center space-x-4 mb-2">
