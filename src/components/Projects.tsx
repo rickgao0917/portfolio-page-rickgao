@@ -3,6 +3,32 @@ import React from 'react';
 import { ExternalLink, Github } from 'lucide-react';
 
 const Projects = () => {
+  const projects = [
+    {
+      title: "Financial Data Analysis Tool",
+      category: "Finance",
+      year: "2024",
+      description: "Built a comprehensive tool for analyzing financial market data using Python and machine learning algorithms. Implemented real-time data processing and visualization features.",
+      tech: ["Python", "Pandas", "NumPy", "Machine Learning"],
+      image: "/placeholder.svg"
+    },
+    {
+      title: "Bioinformatics Pipeline",
+      category: "Research",
+      year: "2023",
+      description: "Developed an automated pipeline for genomic data analysis during my research at the Gerstein Lab. Streamlined data processing workflows and improved analysis efficiency.",
+      tech: ["Python", "R", "Docker", "AWS"],
+      image: "/placeholder.svg"
+    },
+    {
+      title: "Trading Algorithm System",
+      category: "FinTech",
+      year: "2023",
+      description: "Created algorithmic trading strategies and backtesting framework during my internship at Verizon. Implemented risk management and performance optimization features.",
+      tech: ["Python", "SQL", "KDB+", "Q"],
+      image: "/placeholder.svg"
+    }
+  ];
 
   return (
     <section id="projects" className="py-24 px-8 lg:px-16">
