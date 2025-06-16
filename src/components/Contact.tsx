@@ -61,7 +61,7 @@ const Contact = () => {
                 <input 
                   type="text" 
                   className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-white focus:outline-none transition-colors duration-200"
-                  placeholder="Opportunity inquiry"
+                  placeholder="Subject"
                 />
               </div>
               
@@ -70,7 +70,7 @@ const Contact = () => {
                 <textarea 
                   rows={6}
                   className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-white focus:outline-none transition-colors duration-200 resize-none"
-                  placeholder="Tell me about the opportunity..."
+                  placeholder="Contents"
                 />
               </div>
               
