@@ -31,13 +31,13 @@ const Hero = () => {
                 </a>
                 
                 <div className="flex items-center space-x-4">
-                  <a href="#" className="p-2 hover:bg-gray-50 rounded-full transition-colors duration-200">
+                  <a href="https://github.com/rickgao0917" className="p-2 hover:bg-gray-50 rounded-full transition-colors duration-200">
                     <Github className="w-4 h-4" />
                   </a>
-                  <a href="https://linkedin.com" className="p-2 hover:bg-gray-50 rounded-full transition-colors duration-200">
+                  <a href="https://linkedin.com/rgao09" className="p-2 hover:bg-gray-50 rounded-full transition-colors duration-200">
                     <Linkedin className="w-4 h-4" />
                   </a>
-                  <a href="mailto:rickgaojobs2026@gmail.com" className="p-2 hover:bg-gray-50 rounded-full transition-colors duration-200">
+                  <a href="mailto:rickgao0917@gmail.com" className="p-2 hover:bg-gray-50 rounded-full transition-colors duration-200">
                     <Mail className="w-4 h-4" />
                   </a>
                 </div>

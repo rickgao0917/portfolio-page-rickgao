@@ -54,9 +54,8 @@ const About = () => {
                 </div>
                 
                 <p>
-                  My experience spans from financial technology internships to research 
-                  in computational biology and deep learning. I enjoy building systems 
-                  that solve real-world problems, from trading algorithms to bioinformatics tools.
+                  My experience spans from Fintech internships to research
+                  in computational biology and deep learning. I enjoy solving challenging problems spanning all of tech.
                 </p>
               </div>
               

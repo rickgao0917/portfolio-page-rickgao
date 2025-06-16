@@ -16,11 +16,11 @@ const Timeline = () => {
   const timelineData = [
     {
       type: 'experience',
-      title: 'Incoming Front-Office (Institutional Services) Intern',
-      company: 'Verizon Fund Management LLC',
+      title: 'Institutional Service Intern',
+      company: 'Verition Fund Management LLC',
       location: 'New York, NY',
       period: 'May 2025',
-      description: 'Upcoming internship in institutional services focusing on front-office operations.',
+      description: '',
       achievements: [],
       responsibilities: [],
       tech: []
@@ -28,22 +28,17 @@ const Timeline = () => {
     {
       type: 'experience',
       title: 'Treasury/SWE Intern',
-      company: 'Verizon Fund Management LLC',
+      company: 'Verition Fund Management LLC',
       location: 'New York, NY',
       period: 'May 2024 - May 2025',
-      description: 'Developed trading systems and optimization tools for treasury operations, achieving significant performance improvements.',
+      description: 'Developed tools for treasury operations, achieving financial and performance improvements.',
       achievements: [
-        'Developed end-to-end pipeline for daily cash management optimizations using Python, AWS, SQLAlchemy and React',
-        'Saved the firm thousands daily in sub-optimal interest rate payment amounts',
-        'Developed full-stack stock allocation optimizer using FastAPI for backend services and modern front-end',
-        'Achieved projected savings of $500k per day and reducing manual effort by 3 man-hours daily',
-        'Designed and implemented complete trade execution system for treasury operations using Python, NumPy, SciPy, React, Flask, and PostgreSQL',
-        'Reduced non-book overhead by 80% and reducing operational efficiency by 75 basis points',
-        'Automated daily risk reportings that resulted in 80% speedup through Python and vectorized calculations using NumPy'
+          'Optimized financial systems and saved 10+ man-hours daily and thousands of dollars daily',
+          'Risk management system providing novel capabilities for risk forecasting'
       ],
       responsibilities: [
         'Full-stack development for treasury management systems',
-        'Algorithm design for trade execution and optimization',
+        'Algorithm design for trade optimization',
         'Database design and implementation with PostgreSQL',
         'Performance optimization and risk analysis automation'
       ],
@@ -58,15 +53,10 @@ const Timeline = () => {
       description: 'Conducted research in computational biology and deep learning, focusing on code generation and bioinformatics.',
       achievements: [
         'Co-authored research paper (ISMB 2024) in closed-domain code generation and benchmarking alongside Google Brain researcher',
-        'Implemented Transformer-based deep-learning model in Python and PyTorch that outperforms state-of-the-art results in DNA mutation detection by 10%',
         'Wrote custom parser for GitHub repositories in Python, deployed through Docker and AWS',
-        'Parsed and analyzed 100GB of genomic information and metadata in SciPy, NumPy and PyVCF utilizing random-forest classification'
+        'Parsed and analyzed 100GB of genomic information and metadata in SciPy, NumPy and PyVCF'
       ],
       responsibilities: [
-        'Research in computational biology and machine learning',
-        'Development of bioinformatics tools and parsers',
-        'Genomic data analysis and processing',
-        'Academic paper writing and research collaboration'
       ],
       tech: ['Python', 'PyTorch', 'Docker', 'AWS', 'SciPy', 'NumPy', 'PyVCF']
     },
@@ -78,10 +68,6 @@ const Timeline = () => {
       period: 'May 2023 - Aug. 2023',
       description: 'Led technical projects and database development for educational consulting services.',
       achievements: [
-        'Designed and implemented deep-learning model for pricing guidance in Python resulting in new pricing model',
-        'Generated $50,000 revenue across 5 years',
-        'Led team of 3 volunteers and developed new database system utilizing MongoDB and Python with 99.95% uptime',
-        'Resulted in consolidation of 4 disjoint databases, saving over $200/month in service fees'
       ],
       responsibilities: [
         'Technical project leadership and management',
@@ -104,20 +90,16 @@ const Timeline = () => {
         'Real-time trading implementation'
       ],
       impact: [
-        '+22% returns since inception',
-        'Maximum drawdown limited to 8%',
-        'Successful live trading implementation',
-        'Advanced quantitative analysis capabilities'
       ],
       tech: ['Python', 'C++', 'Statsmodels'],
       links: {
         demo: '#',
-        github: '#'
+        github: 'https://github.com/rickgao0917/kalshi_public'
       }
     },
     {
       type: 'project',
-      title: 'Bond: End-to-End Agentic Intelligence/Equity Research Platform',
+      title: 'Bond: End-to-End Agentic Market Intelligence Intelligence/Equity Research Platform',
       category: 'Python, PyTorch',
       period: 'May 2025 - Present',
       description: 'Graph network implementation to determine relevancy of sources for agent research in geopolitical environment and labor cost analysis.',
@@ -128,10 +110,7 @@ const Timeline = () => {
         'Advanced geopolitical and labor cost analysis capabilities'
       ],
       impact: [
-        'Enhanced research accuracy through multi-source validation',
-        'Improved decision-making through sentiment analysis',
-        'Comprehensive data integration across multiple modalities',
-        'Advanced AI-driven research capabilities'
+        'Currently being trialed by PMs and analysts'
       ],
       tech: ['Python', 'PyTorch', 'RAG', 'Vector Database', 'NLP'],
       links: {
@@ -141,7 +120,7 @@ const Timeline = () => {
     },
     {
       type: 'project',
-      title: 'IMC Prosperity 3 Top 1% (10,000+ entries)',
+      title: 'IMC Prosperity 3',
       category: 'Trading, Research',
       period: 'April 2025',
       description: 'Developed custom package integrating data cleaning, processing, and exploration in C++, Python.',
@@ -149,13 +128,8 @@ const Timeline = () => {
         'Custom trading package with data processing capabilities',
         'Implemented custom backtester with adversarial trading simulations',
         'Bayesian inferencing and Monte Carlo simulations for manual trading rounds',
-        'Top 1% performance among 10,000+ participants'
       ],
       impact: [
-        'Top 1% ranking in international competition',
-        'Advanced algorithmic trading strategies',
-        'Robust backtesting and simulation framework',
-        'Superior risk management implementation'
       ],
       tech: ['C++', 'Python', 'Bayesian Analysis', 'Monte Carlo'],
       links: {
@@ -176,10 +150,6 @@ const Timeline = () => {
         'Intelligent job matching and application optimization'
       ],
       impact: [
-        'Streamlined job application process',
-        'Universal compatibility across platforms',
-        'Automated workflow management',
-        'Enhanced application success rates'
       ],
       tech: ['Python', 'ML', 'NLP'],
       links: {
@@ -200,15 +170,11 @@ const Timeline = () => {
         'Advanced problem-solving through recursive methodologies'
       ],
       impact: [
-        'Innovative approach to multi-modal AI reasoning',
-        'Advanced recursive problem-solving capabilities',
-        'Successful hackathon implementation',
-        'Novel integration of multiple AI techniques'
       ],
       tech: ['Python', 'Javascript', 'GRPO', 'Multi-modal AI'],
       links: {
         demo: '#',
-        github: '#'
+        github: 'https://github.com/lilbillybiscuit/blacksmith'
       }
     },
     {
@@ -224,15 +190,11 @@ const Timeline = () => {
         'Advanced evaluation metrics for code generation quality'
       ],
       impact: [
-        'Provided evidence that smaller, domain-specific models outperform general foundation models',
-        'Contributed to academic research in computational biology',
-        'Enhanced understanding of specialized AI applications',
-        'Established new benchmarks for bioinformatics code generation'
       ],
       tech: ['Python', 'PyTorch', 'ML', 'Bioinformatics'],
       links: {
         demo: '#',
-        github: '#'
+        github: 'https://academic.oup.com/bioinformatics/article/40/Supplement_1/i266/7700865'
       }
     }
   ];

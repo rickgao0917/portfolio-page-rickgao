@@ -15,21 +15,21 @@ const Contact = () => {
             </h2>
             <p className="text-gray-300 leading-relaxed mb-8">
               I'm interested in opportunities in quantitative finance, software engineering, 
-              and research. Let's discuss how we can work together.
+              and research. Happy to chat about anything.
             </p>
             
             <div className="space-y-4 text-sm">
               <div className="flex items-center space-x-3">
                 <Mail className="w-4 h-4 text-gray-400" />
-                <span>rickgaojobs2026@gmail.com</span>
+                <span>rickgao0917@gmail.com</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-4 h-4 text-gray-400" />
-                <span>347-774-1504</span>
+                <span>7187375051</span>
               </div>
               <div className="flex items-center space-x-3">
                 <MapPin className="w-4 h-4 text-gray-400" />
-                <span>New Haven, CT</span>
+                <span>New York, NY</span>
               </div>
             </div>
           </div>
@@ -88,7 +88,7 @@ const Contact = () => {
       {/* Footer */}
       <div className="mt-24 pt-8 border-t border-gray-800 text-center">
         <p className="text-sm text-gray-400">
-          © 2024 Rick Xiao Heng Gao. Built with passion for technology and innovation.
+          © 2025 Rick Gao
         </p>
       </div>
     </section>
