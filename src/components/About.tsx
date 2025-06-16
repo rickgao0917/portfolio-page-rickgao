@@ -3,14 +3,19 @@ import React from 'react';
 
 const About = () => {
   const skills = [
-    'React & Next.js',
-    'TypeScript',
-    'Node.js',
     'Python',
-    'UI/UX Design',
-    'Three.js',
-    'AWS & Docker',
-    'GraphQL'
+    'C/C++',
+    'SQL',
+    'R',
+    'KDB+',
+    'Q',
+    'PyTorch',
+    'Docker',
+    'AWS',
+    'Git',
+    'NumPy',
+    'Pandas',
+    'SciPy'
   ];
 
   return (
@@ -32,20 +37,26 @@ const About = () => {
             <div className="space-y-8">
               <div className="space-y-6 text-gray-700 leading-relaxed">
                 <p className="text-lg md:text-xl font-light">
-                  I'm a creative developer with 6+ years of experience building 
-                  digital products that live at the intersection of design and technology.
+                  I'm a Computer Science student at Yale University with a passion for 
+                  systems programming, data structures, and deep learning applications.
                 </p>
                 
-                <p>
-                  My journey began in graphic design, which taught me the importance 
-                  of visual hierarchy, typography, and user experience. This foundation 
-                  influences every line of code I write today.
-                </p>
+                <div className="bg-white p-6 rounded-lg border border-gray-200">
+                  <h3 className="text-lg font-semibold mb-4">Education</h3>
+                  <div className="space-y-2">
+                    <p className="font-medium">Yale University</p>
+                    <p className="text-gray-600">B.S. in Computer Science, Major GPA: 3.7</p>
+                    <p className="text-sm text-gray-500">Aug. 2022 - Present</p>
+                    <p className="text-sm text-gray-600 mt-2">
+                      Relevant Courses: Systems Programming, Data Structures, Deep Learning Theory and Applications, Bayesian Statistics
+                    </p>
+                  </div>
+                </div>
                 
                 <p>
-                  I specialize in creating performant web applications with React and 
-                  modern JavaScript, while maintaining a keen eye for design details 
-                  and user interaction patterns.
+                  My experience spans from financial technology internships to research 
+                  in computational biology and deep learning. I enjoy building systems 
+                  that solve real-world problems, from trading algorithms to bioinformatics tools.
                 </p>
               </div>
               

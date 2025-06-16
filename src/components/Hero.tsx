@@ -14,15 +14,15 @@ const Hero = () => {
                 Portfolio 2024
               </p>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-light leading-none tracking-tight">
-                <span className="block">Alex</span>
-                <span className="block font-normal">Thompson</span>
+                <span className="block">Rick Xiao</span>
+                <span className="block font-normal">Heng Gao</span>
               </h1>
             </div>
             
             <div className="space-y-6">
               <p className="text-lg md:text-xl text-gray-600 max-w-2xl leading-relaxed">
-                Creative developer crafting digital experiences at the intersection 
-                of design and technology.
+                Computer Science student at Yale University specializing in systems programming, 
+                data structures, and deep learning applications.
               </p>
               
               <div className="flex items-center space-x-6">
@@ -38,10 +38,10 @@ const Hero = () => {
                   <a href="#" className="p-2 hover:bg-gray-50 rounded-full transition-colors duration-200">
                     <Github className="w-4 h-4" />
                   </a>
-                  <a href="#" className="p-2 hover:bg-gray-50 rounded-full transition-colors duration-200">
+                  <a href="https://linkedin.com" className="p-2 hover:bg-gray-50 rounded-full transition-colors duration-200">
                     <Linkedin className="w-4 h-4" />
                   </a>
-                  <a href="#" className="p-2 hover:bg-gray-50 rounded-full transition-colors duration-200">
+                  <a href="mailto:rickgaojobs2026@gmail.com" className="p-2 hover:bg-gray-50 rounded-full transition-colors duration-200">
                     <Mail className="w-4 h-4" />
                   </a>
                 </div>
@@ -54,18 +54,18 @@ const Hero = () => {
             <div className="space-y-4 text-sm text-gray-500">
               <div>
                 <p className="font-mono mb-1">Currently</p>
-                <p>Senior Frontend Developer</p>
-                <p>@ TechCorp Inc.</p>
+                <p>Undergraduate Researcher</p>
+                <p>@ Yale University</p>
               </div>
               
               <div>
                 <p className="font-mono mb-1">Location</p>
-                <p>San Francisco, CA</p>
+                <p>New Haven, CT</p>
               </div>
               
               <div>
-                <p className="font-mono mb-1">Available</p>
-                <p>Q2 2024</p>
+                <p className="font-mono mb-1">Phone</p>
+                <p>347-774-1504</p>
               </div>
             </div>
           </div>

@@ -9,27 +9,27 @@ const Contact = () => {
         <div className="grid grid-cols-12 gap-16">
           {/* Section header */}
           <div className="col-span-12 lg:col-span-4">
-            <span className="font-mono text-sm text-gray-400">03</span>
+            <span className="font-mono text-sm text-gray-400">04</span>
             <h2 className="text-2xl lg:text-3xl font-light mt-2 mb-6">
-              Let's Work Together
+              Let's Connect
             </h2>
             <p className="text-gray-300 leading-relaxed mb-8">
-              I'm currently available for freelance projects and full-time 
-              opportunities. Let's discuss how we can bring your ideas to life.
+              I'm interested in opportunities in quantitative finance, software engineering, 
+              and research. Let's discuss how we can work together.
             </p>
             
             <div className="space-y-4 text-sm">
               <div className="flex items-center space-x-3">
                 <Mail className="w-4 h-4 text-gray-400" />
-                <span>alex.thompson@email.com</span>
+                <span>rickgaojobs2026@gmail.com</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-4 h-4 text-gray-400" />
-                <span>+1 (555) 123-4567</span>
+                <span>347-774-1504</span>
               </div>
               <div className="flex items-center space-x-3">
                 <MapPin className="w-4 h-4 text-gray-400" />
-                <span>San Francisco, CA</span>
+                <span>New Haven, CT</span>
               </div>
             </div>
           </div>
@@ -61,7 +61,7 @@ const Contact = () => {
                 <input 
                   type="text" 
                   className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-white focus:outline-none transition-colors duration-200"
-                  placeholder="Project inquiry"
+                  placeholder="Opportunity inquiry"
                 />
               </div>
               
@@ -70,7 +70,7 @@ const Contact = () => {
                 <textarea 
                   rows={6}
                   className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-white focus:outline-none transition-colors duration-200 resize-none"
-                  placeholder="Tell me about your project..."
+                  placeholder="Tell me about the opportunity..."
                 />
               </div>
               
@@ -88,7 +88,7 @@ const Contact = () => {
       {/* Footer */}
       <div className="mt-24 pt-8 border-t border-gray-800 text-center">
         <p className="text-sm text-gray-400">
-          © 2024 Alex Thompson. Designed & built with care.
+          © 2024 Rick Xiao Heng Gao. Built with passion for technology and innovation.
         </p>
       </div>
     </section>
