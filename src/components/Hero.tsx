@@ -3,6 +3,13 @@ import React from 'react';
 import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react';
 
 const Hero = () => {
+  const scrollToTimeline = () => {
+    const timelineSection = document.querySelector('section:nth-of-type(3)'); // Timeline is the 3rd section (Hero, About, Timeline)
+    if (timelineSection) {
+      timelineSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="min-h-screen flex items-end pb-20 px-8 lg:px-16 relative">
       <div className="w-full max-w-7xl mx-auto relative z-10">
@@ -22,13 +29,13 @@ const Hero = () => {
               </p>
               
               <div className="flex items-center space-x-6">
-                <a 
-                  href="#projects" 
+                <button 
+                  onClick={scrollToTimeline}
                   className="group flex items-center space-x-2 text-sm font-medium tracking-wide hover:text-gray-600 transition-colors duration-200"
                 >
                   <span>View Work</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
-                </a>
+                </button>
                 
                 <div className="flex items-center space-x-4">
                   <a href="https://github.com/rickgao0917" className="p-2 hover:bg-gray-50 rounded-full transition-colors duration-200">
