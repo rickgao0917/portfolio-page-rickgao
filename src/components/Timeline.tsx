@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Calendar, MapPin, ExternalLink, Github, ChevronDown, Users, Award, Target } from 'lucide-react';
 
@@ -177,12 +176,15 @@ const Timeline = () => {
               return (
                 <div key={index} className="relative flex items-start group">
                   {/* Timeline dot */}
-                  <div className={`relative z-10 flex-shrink-0 w-4 h-4 mt-3 rounded-full border-2 border-white shadow-sm transition-all duration-300 ${
-                    item.type === 'experience' ? 'bg-blue-500 group-hover:bg-blue-600' : 'bg-green-500 group-hover:bg-green-600'
+                  <div className={`relative z-10 flex-shrink-0 w-4 h-4 mt-3 rounded-full border-2 border-white shadow-lg transition-all duration-300 transform group-hover:scale-125 ${
+                    item.type === 'experience' 
+                      ? 'bg-blue-500 group-hover:bg-blue-600 group-hover:shadow-blue-200' 
+                      : 'bg-green-500 group-hover:bg-green-600 group-hover:shadow-green-200'
                   }`}>
-                    <div className={`absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${
-                      item.type === 'experience' ? 'bg-blue-500' : 'bg-green-500'
-                    } animate-ping`}></div>
+                    {/* Subtle glow effect on hover */}
+                    <div className={`absolute inset-0 rounded-full opacity-0 group-hover:opacity-30 transition-opacity duration-300 ${
+                      item.type === 'experience' ? 'bg-blue-400' : 'bg-green-400'
+                    } blur-sm`}></div>
                   </div>
                   
                   {/* Flag-style content */}
