@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Calendar, MapPin, ExternalLink, Github, ChevronDown, Users, Award } from 'lucide-react';
+import { Calendar, MapPin, ExternalLink, Github, ChevronDown, Users, Award, Target } from 'lucide-react';
 import { TimelineItem as TimelineItemType } from '../types/timeline';
 
 interface TimelineItemProps {

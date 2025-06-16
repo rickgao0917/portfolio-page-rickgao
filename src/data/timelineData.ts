@@ -87,22 +87,20 @@ export const projectData: TimelineItem[] = [
   },
   {
     type: 'project',
-    title: 'Bond',
-    category: 'Python, React, FastAPI',
-    period: 'Jan 2025 - Mar 2025',
-    description: 'A comprehensive bond trading and analysis platform with real-time market data integration.',
+    title: 'Bond: End-to-End Agentic Market Intelligence Intelligence/Equity Research Platform',
+    category: 'Python, PyTorch',
+    period: 'May 2025 - Present',
+    description: 'Graph network implementation to determine relevancy of sources for agent research in geopolitical environment and labor cost analysis.',
     features: [
-      'Real-time bond pricing and yield calculations',
-      'Portfolio optimization algorithms',
-      'Risk assessment and duration analysis',
-      'Interactive trading interface'
+      'RAG + Vector database to ensure data consistency and accurate source citation',
+      'Custom ensemble model of Llama, Claude DeepSeek + GRPO, NLP and sentiment analysis models',
+      'Tuned on multimodal data, video, news filings and pricing data',
+      'Advanced geopolitical and labor cost analysis capabilities'
     ],
     impact: [
-      'Streamlined bond trading workflow',
-      'Reduced analysis time by 60%',
-      'Improved portfolio risk management'
+      'Currently being trialed by PMs and analysts'
     ],
-    tech: ['Python', 'React', 'FastAPI', 'PostgreSQL', 'WebSocket'],
+    tech: ['Python', 'PyTorch', 'RAG', 'Vector Database', 'NLP'],
     links: {
       demo: '#',
       github: '#'
@@ -110,22 +108,36 @@ export const projectData: TimelineItem[] = [
   },
   {
     type: 'project',
-    title: 'Sidekick',
-    category: 'React, Node.js, AI/ML',
-    period: 'Sep 2024 - Dec 2024',
-    description: 'An AI-powered personal assistant application with natural language processing capabilities.',
+    title: 'IMC Prosperity 3',
+    category: 'Trading, Research',
+    period: 'April 2025',
+    description: 'Developed custom package integrating data cleaning, processing, and exploration in C++, Python.',
     features: [
-      'Natural language processing for task management',
-      'Smart scheduling and calendar integration',
-      'Contextual recommendations and insights',
-      'Multi-platform synchronization'
+      'Custom trading package with data processing capabilities',
+      'Implemented custom backtester with adversarial trading simulations',
+      'Bayesian inferencing and Monte Carlo simulations for manual trading rounds'
     ],
-    impact: [
-      'Increased productivity by 40% for beta users',
-      'Reduced manual task management overhead',
-      'Enhanced workflow automation'
+    impact: [],
+    tech: ['C++', 'Python', 'Bayesian Analysis', 'Monte Carlo'],
+    links: {
+      demo: '#',
+      github: '#'
+    }
+  },
+  {
+    type: 'project',
+    title: 'Sidekick — Agentic Job Applier',
+    category: 'ML, NLP, Python',
+    period: 'March 2025 - Present',
+    description: 'Automatically tracks, applies and schedules interviews for jobs, universal compatibility across ATS.',
+    features: [
+      'Universal ATS compatibility for job applications',
+      'Custom ensemble model + structured I/O ensured quality of output',
+      'Automated interview scheduling and tracking',
+      'Intelligent job matching and application optimization'
     ],
-    tech: ['React', 'Node.js', 'OpenAI API', 'MongoDB', 'Express'],
+    impact: [],
+    tech: ['Python', 'ML', 'NLP'],
     links: {
       demo: '#',
       github: '#'
