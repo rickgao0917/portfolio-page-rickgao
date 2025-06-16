@@ -16,6 +16,7 @@ const Timeline = () => {
 
   return (
     <section className="py-24 px-8 lg:px-16 bg-white">
+      {/* Experience Section */}
       {/* Section separator line */}
       <div className="max-w-7xl mx-auto mb-16">
         <div className="w-1/3 h-px bg-gray-300"></div>
@@ -38,7 +39,7 @@ const Timeline = () => {
           
           {/* Content */}
           <div className="col-span-12 lg:col-span-9">
-            <div className="space-y-8 mb-24">
+            <div className="space-y-8">
               {experienceData.map((item, index) => (
                 <TimelineItem
                   key={index}
@@ -54,7 +55,7 @@ const Timeline = () => {
 
       {/* Projects Section */}
       {/* Section separator line */}
-      <div className="max-w-7xl mx-auto mb-16">
+      <div className="max-w-7xl mx-auto mb-16 mt-24">
         <div className="w-1/3 h-px bg-gray-300"></div>
       </div>
       
