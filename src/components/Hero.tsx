@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react';
+import AnimatedDotsBackground from './AnimatedDotsBackground';
 
 const Hero = () => {
   const scrollToTimeline = () => {
@@ -11,7 +12,10 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-end pb-20 px-8 lg:px-16 relative">
+    <section className="min-h-screen flex items-end pb-20 px-8 lg:px-16 relative overflow-hidden">
+      {/* Animated dots background */}
+      <AnimatedDotsBackground />
+      
       <div className="w-full max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-12 gap-8 items-end">
           {/* Main title area */}
@@ -44,7 +48,7 @@ const Hero = () => {
                   <a href="https://linkedin.com/rgao09" className="p-2 hover:bg-gray-50 rounded-full transition-colors duration-200">
                     <Linkedin className="w-4 h-4" />
                   </a>
-                  <a href="mailto:rickgao.contactme@gmail.com" className="p-2 hover:bg-gray-50 rounded-full transition-colors duration-200">
+                  <a href="mailto:rickgao.contact@gmail.com" className="p-2 hover:bg-gray-50 rounded-full transition-colors duration-200">
                     <Mail className="w-4 h-4" />
                   </a>
                 </div>
