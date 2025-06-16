@@ -9,9 +9,9 @@ const About = () => {
 
   const languages = ['Python', 'C/C++', 'SQL', 'R', 'KDB+', 'Q', 'JavaScript', 'TypeScript', 'Bash/Shell'];
   
-  const frameworks = ['PyTorch', 'NumPy', 'Pandas', 'SciPy', 'React', 'FastAPI', 'Flask', 'SQLAlchemy', 'Node.js', 'Express', 'Statsmodels', 'PyVCF', 'Django', 'Spring Boot', 'Celery', 'Redis'];
+  const frameworks = ['PyTorch', 'NumPy', 'Pandas', 'SciPy', 'React', 'FastAPI', 'Flask', 'SQLAlchemy', 'Node.js', 'Express', 'Statsmodels', 'PyVCF'];
   
-  const tools = ['Docker', 'AWS', 'Git', 'PostgreSQL', 'MongoDB', 'WebSocket', 'OpenAI API', 'GitHub', 'Kubernetes', 'Jenkins', 'Terraform', 'Nginx', 'Apache Kafka', 'RabbitMQ', 'Elasticsearch', 'GraphQL'];
+  const tools = ['Docker', 'AWS', 'Git', 'PostgreSQL', 'MongoDB', 'WebSocket', 'Kubernetes', 'GraphQL', 'Claude', 'Windsurf'];
 
   const SkillSection = ({ 
     title, 
