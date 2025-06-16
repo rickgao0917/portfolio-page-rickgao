@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 
 interface Dot {
@@ -40,7 +39,7 @@ const FluidBackground = () => {
     canvas.width = dimensions.width;
     canvas.height = dimensions.height;
 
-    // Initialize dots with more movement
+    // Initialize dots with random movement
     const numDots = Math.floor((dimensions.width * dimensions.height) / 15000);
     dotsRef.current = [];
     
@@ -50,8 +49,8 @@ const FluidBackground = () => {
       dotsRef.current.push({
         x,
         y,
-        vx: (Math.random() - 0.5) * 1.5, // Increased base velocity
-        vy: (Math.random() - 0.5) * 1.5,
+        vx: (Math.random() - 0.5) * 2, // Random initial velocity
+        vy: (Math.random() - 0.5) * 2,
         originalX: x,
         originalY: y,
       });
@@ -72,10 +71,10 @@ const FluidBackground = () => {
       const dots = dotsRef.current;
       const mouse = mouseRef.current;
       const repelDistance = 120;
-      const repelForce = 0.4;
-      const returnForce = 0.015; // Reduced to allow more free movement
+      const repelForce = 0.5;
+      const returnForce = 0.005; // Much weaker return force
       const connectionDistance = 140;
-      const maxSpeed = 3;
+      const maxSpeed = 2;
 
       // Update dot positions
       dots.forEach((dot) => {
@@ -91,19 +90,19 @@ const FluidBackground = () => {
           dot.vy += (dy / distance) * force * repelForce;
         }
 
-        // Gentle return to original position (much weaker)
+        // Very gentle return to original position (minimal influence)
         const returnDx = dot.originalX - dot.x;
         const returnDy = dot.originalY - dot.y;
         dot.vx += returnDx * returnForce;
         dot.vy += returnDy * returnForce;
 
-        // Add some random movement for organic feel
-        dot.vx += (Math.random() - 0.5) * 0.02;
-        dot.vy += (Math.random() - 0.5) * 0.02;
+        // Add continuous random movement for organic wandering
+        dot.vx += (Math.random() - 0.5) * 0.05;
+        dot.vy += (Math.random() - 0.5) * 0.05;
 
-        // Apply velocity with less damping for more movement
-        dot.vx *= 0.995;
-        dot.vy *= 0.995;
+        // Apply minimal damping to keep movement flowing
+        dot.vx *= 0.998;
+        dot.vy *= 0.998;
 
         // Limit maximum speed
         const speed = Math.sqrt(dot.vx * dot.vx + dot.vy * dot.vy);
@@ -115,13 +114,13 @@ const FluidBackground = () => {
         dot.x += dot.vx;
         dot.y += dot.vy;
 
-        // Boundary bouncing
+        // Boundary bouncing with velocity reversal
         if (dot.x < 0 || dot.x > dimensions.width) {
-          dot.vx *= -0.8;
+          dot.vx *= -0.7;
           dot.x = Math.max(0, Math.min(dimensions.width, dot.x));
         }
         if (dot.y < 0 || dot.y > dimensions.height) {
-          dot.vy *= -0.8;
+          dot.vy *= -0.7;
           dot.y = Math.max(0, Math.min(dimensions.height, dot.y));
         }
       });
