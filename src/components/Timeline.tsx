@@ -14,13 +14,6 @@ const Timeline = () => {
     );
   };
 
-  // Filter projects to only include those with valid links
-  const validProjectData = projectData.filter(project => {
-    const hasValidDemo = project.links?.demo && project.links.demo !== '#';
-    const hasValidGithub = project.links?.github && project.links.github !== '#';
-    return hasValidDemo || hasValidGithub;
-  });
-
   return (
     <section className="py-24 px-8 lg:px-16">
       <div className="max-w-5xl mx-auto">
@@ -35,16 +28,14 @@ const Timeline = () => {
         />
 
         {/* Projects Section */}
-        {validProjectData.length > 0 && (
-          <TimelineSection
-            sectionNumber="03"
-            title="Projects"
-            description="Selected projects spanning trading systems, AI research, and bioinformatics."
-            items={validProjectData}
-            expandedItems={expandedItems}
-            onToggleExpand={toggleExpand}
-          />
-        )}
+        <TimelineSection
+          sectionNumber="03"
+          title="Projects"
+          description="Selected projects spanning trading systems, AI research, and bioinformatics."
+          items={projectData}
+          expandedItems={expandedItems}
+          onToggleExpand={toggleExpand}
+        />
       </div>
     </section>
   );

@@ -10,6 +10,12 @@ interface TimelineItemProps {
 }
 
 const TimelineItem: React.FC<TimelineItemProps> = ({ item, isExpanded, onToggleExpand }) => {
+  // Check if project has valid links
+  const hasValidLinks = item.type === 'project' && item.links && (
+    (item.links.demo && item.links.demo !== '#') || 
+    (item.links.github && item.links.github !== '#')
+  );
+
   return (
     <div className="group">
       <div className={`bg-white rounded-lg border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden ${
@@ -114,11 +120,11 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ item, isExpanded, onToggleE
                 </div>
               )}
 
-              {/* Project links */}
-              {item.type === 'project' && item.links && (
+              {/* Project links - only render if there are valid links */}
+              {hasValidLinks && (
                 <div className="pt-2 border-t border-gray-100">
                   <div className="flex items-center space-x-4">
-                    {item.links.demo && item.links.demo !== '#' && (
+                    {item.links?.demo && item.links.demo !== '#' && (
                       <a 
                         href={item.links.demo} 
                         className="flex items-center space-x-2 text-sm text-gray-600 hover:text-gray-900 transition-colors duration-200 hover:bg-gray-50 px-3 py-2 rounded-md"
@@ -127,7 +133,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ item, isExpanded, onToggleE
                         <span>View Project</span>
                       </a>
                     )}
-                    {item.links.github && item.links.github !== '#' && (
+                    {item.links?.github && item.links.github !== '#' && (
                       <a 
                         href={item.links.github} 
                         className="flex items-center space-x-2 text-sm text-gray-600 hover:text-gray-900 transition-colors duration-200 hover:bg-gray-50 px-3 py-2 rounded-md"
