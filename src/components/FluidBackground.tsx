@@ -49,7 +49,7 @@ const FluidBackground = () => {
       dotsRef.current.push({
         x,
         y,
-        vx: (Math.random() - 0.5) * 2, // Random initial velocity
+        vx: (Math.random() - 0.5) * 2,
         vy: (Math.random() - 0.5) * 2,
         originalX: x,
         originalY: y,
@@ -72,7 +72,7 @@ const FluidBackground = () => {
       const mouse = mouseRef.current;
       const repelDistance = 120;
       const repelForce = 0.5;
-      const returnForce = 0.005; // Much weaker return force
+      const returnForce = 0.001; // Much weaker pull force
       const connectionDistance = 140;
       const maxSpeed = 2;
 
@@ -90,19 +90,19 @@ const FluidBackground = () => {
           dot.vy += (dy / distance) * force * repelForce;
         }
 
-        // Very gentle return to original position (minimal influence)
+        // Extremely weak return to original position
         const returnDx = dot.originalX - dot.x;
         const returnDy = dot.originalY - dot.y;
         dot.vx += returnDx * returnForce;
         dot.vy += returnDy * returnForce;
 
         // Add continuous random movement for organic wandering
-        dot.vx += (Math.random() - 0.5) * 0.05;
-        dot.vy += (Math.random() - 0.5) * 0.05;
+        dot.vx += (Math.random() - 0.5) * 0.08;
+        dot.vy += (Math.random() - 0.5) * 0.08;
 
         // Apply minimal damping to keep movement flowing
-        dot.vx *= 0.998;
-        dot.vy *= 0.998;
+        dot.vx *= 0.999;
+        dot.vy *= 0.999;
 
         // Limit maximum speed
         const speed = Math.sqrt(dot.vx * dot.vx + dot.vy * dot.vy);
