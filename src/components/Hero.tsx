@@ -10,19 +10,15 @@ const Hero = () => {
           {/* Main title area */}
           <div className="col-span-12 lg:col-span-8">
             <div className="space-y-2 mb-8">
-              <p className="text-sm font-mono tracking-wider text-gray-500 uppercase">
-                Portfolio 2024
-              </p>
+
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-light leading-none tracking-tight">
-                <span className="block">Rick Xiao</span>
-                <span className="block font-normal">Heng Gao</span>
+                <span className="block">Rick Gao</span>
               </h1>
             </div>
             
             <div className="space-y-6">
               <p className="text-lg md:text-xl text-gray-600 max-w-2xl leading-relaxed">
-                Computer Science student at Yale University specializing in systems programming, 
-                data structures, and deep learning applications.
+                Computer Science student at Yale University interested in software engineering and quantitative finance.
               </p>
               
               <div className="flex items-center space-x-6">
@@ -54,18 +50,18 @@ const Hero = () => {
             <div className="space-y-4 text-sm text-gray-500">
               <div>
                 <p className="font-mono mb-1">Currently</p>
-                <p>Undergraduate Researcher</p>
-                <p>@ Yale University</p>
+                <p>Intern</p>
+                <p>@ Verition Fund Management</p>
               </div>
               
               <div>
                 <p className="font-mono mb-1">Location</p>
-                <p>New Haven, CT</p>
+                <p>New York, NY</p>
               </div>
               
               <div>
                 <p className="font-mono mb-1">Phone</p>
-                <p>347-774-1504</p>
+                <p>718-737-5051</p>
               </div>
             </div>
           </div>

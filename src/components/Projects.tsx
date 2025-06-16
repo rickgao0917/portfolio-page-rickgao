@@ -3,32 +3,6 @@ import React from 'react';
 import { ExternalLink, Github } from 'lucide-react';
 
 const Projects = () => {
-  const projects = [
-    {
-      title: 'E-commerce Platform',
-      category: 'Full Stack Development',
-      year: '2024',
-      description: 'Modern e-commerce solution built with React, Node.js, and Stripe integration. Features real-time inventory management and advanced analytics.',
-      tech: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop'
-    },
-    {
-      title: 'Design System',
-      category: 'UI/UX & Development',
-      year: '2023',
-      description: 'Comprehensive design system for a fintech startup, including component library, documentation, and implementation guidelines.',
-      tech: ['React', 'Storybook', 'Figma', 'TypeScript'],
-      image: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800&h=600&fit=crop'
-    },
-    {
-      title: 'Data Visualization Dashboard',
-      category: 'Frontend Development',
-      year: '2023',
-      description: 'Interactive dashboard for IoT data visualization with real-time updates and custom chart components.',
-      tech: ['Vue.js', 'D3.js', 'WebSocket', 'Python'],
-      image: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800&h=600&fit=crop'
-    }
-  ];
 
   return (
     <section id="projects" className="py-24 px-8 lg:px-16">
