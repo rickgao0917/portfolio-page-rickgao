@@ -1,12 +1,11 @@
+
 import React from 'react';
 import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react';
-import FluidBackground from './FluidBackground';
 
 const Hero = () => {
   return (
-    <section className="min-h-screen flex items-end pb-20 px-8 lg:px-16 relative">
-      <FluidBackground />
-      <div className="w-full max-w-7xl mx-auto relative z-10">
+    <section className="min-h-screen flex items-end pb-20 px-8 lg:px-16">
+      <div className="w-full max-w-7xl mx-auto">
         <div className="grid grid-cols-12 gap-8 items-end">
           {/* Main title area */}
           <div className="col-span-12 lg:col-span-8">
