@@ -22,7 +22,7 @@ interface AnimatedDotsBackgroundProps {
 }
 
 const AnimatedDotsBackground: React.FC<AnimatedDotsBackgroundProps> = ({
-  dotCount = 80,
+  dotCount = 120, // Increased from 80 to 120 (50% increase)
   connectionDistance = 120,
   speed = 0.5,
   dotColor = 'rgba(156, 163, 175, 0.6)',
