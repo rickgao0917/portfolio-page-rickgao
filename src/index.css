@@ -106,12 +106,26 @@
 /* Custom animations for fluid background */
 @keyframes float {
   0%, 100% {
-    transform: translateY(-50%) translateX(0) scale(1);
+    transform: translateY(0) translateX(0) scale(1);
   }
-  33% {
-    transform: translateY(-60%) translateX(-20px) scale(1.05);
+  25% {
+    transform: translateY(-20px) translateX(-15px) scale(1.02);
   }
-  66% {
-    transform: translateY(-40%) translateX(15px) scale(0.95);
+  50% {
+    transform: translateY(-30px) translateX(10px) scale(0.98);
+  }
+  75% {
+    transform: translateY(-10px) translateX(20px) scale(1.01);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.08;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.12;
+    transform: scale(1.05);
   }
 }
