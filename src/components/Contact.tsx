@@ -59,7 +59,7 @@ const Contact = () => {
   };
 
   return (
-    <section className="py-24 px-8 lg:px-16 bg-gray-900 text-white">
+    <section className="py-24 px-8 lg:px-16 bg-gray-900/95 backdrop-blur-sm text-white relative z-20">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-12 gap-16">
           {/* Section header */}
@@ -101,7 +101,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-white focus:outline-none transition-colors duration-200"
+                    className="w-full px-4 py-3 bg-gray-800/80 backdrop-blur-sm border border-gray-700 rounded-lg focus:border-white focus:outline-none transition-colors duration-200"
                     placeholder="Your name"
                   />
                 </div>
@@ -113,7 +113,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-white focus:outline-none transition-colors duration-200"
+                    className="w-full px-4 py-3 bg-gray-800/80 backdrop-blur-sm border border-gray-700 rounded-lg focus:border-white focus:outline-none transition-colors duration-200"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -127,7 +127,7 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-white focus:outline-none transition-colors duration-200"
+                  className="w-full px-4 py-3 bg-gray-800/80 backdrop-blur-sm border border-gray-700 rounded-lg focus:border-white focus:outline-none transition-colors duration-200"
                   placeholder="Subject"
                 />
               </div>
@@ -140,7 +140,7 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-white focus:outline-none transition-colors duration-200 resize-none"
+                  className="w-full px-4 py-3 bg-gray-800/80 backdrop-blur-sm border border-gray-700 rounded-lg focus:border-white focus:outline-none transition-colors duration-200 resize-none"
                   placeholder="Contents"
                 />
               </div>

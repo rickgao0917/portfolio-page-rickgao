@@ -15,7 +15,7 @@ const Timeline = () => {
   };
 
   return (
-    <section className="pt-24 px-8 lg:px-16 bg-white">
+    <section className="pt-24 px-8 lg:px-16">
       {/* Experience Section */}
       {/* Section separator line */}
       <div className="max-w-7xl mx-auto mb-16">
