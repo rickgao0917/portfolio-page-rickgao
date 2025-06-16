@@ -110,7 +110,7 @@ export const projectData: TimelineItem[] = [
     type: 'project',
     title: 'QuantRooms',
     category: 'Chrome Extension, WebSocket, Full-Stack',
-    period: 'Present',
+    period: 'May 2025 - Present',
     description: 'Multiplayer quant finance interview preparation (WIP).',
     features: [
       'Multiplayer Chrome extension for QuantGuide.io with real-time collaborative coding',

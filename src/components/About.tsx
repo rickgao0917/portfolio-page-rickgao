@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { ChevronDown, Target, Code, Wrench, BookOpen } from 'lucide-react';
 
@@ -9,9 +8,9 @@ const About = () => {
 
   const languages = ['Python', 'C/C++', 'SQL', 'R', 'KDB+', 'Q', 'JavaScript', 'TypeScript', 'Bash/Shell'];
   
-  const frameworks = ['PyTorch', 'NumPy', 'Pandas', 'SciPy', 'React', 'FastAPI', 'Flask', 'SQLAlchemy', 'Node.js', 'Express', 'Statsmodels', 'PyVCF'];
+  const frameworks = ['PyTorch', 'NumPy', 'Pandas', 'SciPy', 'React', 'FastAPI', 'Flask', 'SQLAlchemy', 'Node.js', 'Express', 'Socket.io', 'Statsmodels', 'PyVCF'];
   
-  const tools = ['Docker', 'AWS', 'Git', 'PostgreSQL', 'MongoDB', 'WebSocket', 'Kubernetes', 'GraphQL', 'Claude', 'Windsurf'];
+  const tools = ['Docker', 'AWS', 'Git', 'PostgreSQL', 'MongoDB', 'WebSocket', 'Chrome Extension', 'OAuth 2.0', 'JWT', 'Kubernetes', 'GraphQL', 'Claude', 'Windsurf'];
 
   const SkillSection = ({ 
     title, 
