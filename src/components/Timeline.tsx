@@ -241,7 +241,7 @@ const Timeline = () => {
     <section className="py-24 px-8 lg:px-16">
       <div className="max-w-5xl mx-auto">
         <div className="mb-16">
-          <span className="font-mono text-sm text-gray-400">03</span>
+          <span className="font-mono text-sm text-gray-400">02</span>
           <h2 className="text-2xl lg:text-3xl font-light mt-2 mb-6">
             Experience & Projects
           </h2>
