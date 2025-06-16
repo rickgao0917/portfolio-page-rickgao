@@ -87,6 +87,52 @@ export const projectData: TimelineItem[] = [
   },
   {
     type: 'project',
+    title: 'Bond',
+    category: 'Python, React, FastAPI',
+    period: 'Jan 2025 - Mar 2025',
+    description: 'A comprehensive bond trading and analysis platform with real-time market data integration.',
+    features: [
+      'Real-time bond pricing and yield calculations',
+      'Portfolio optimization algorithms',
+      'Risk assessment and duration analysis',
+      'Interactive trading interface'
+    ],
+    impact: [
+      'Streamlined bond trading workflow',
+      'Reduced analysis time by 60%',
+      'Improved portfolio risk management'
+    ],
+    tech: ['Python', 'React', 'FastAPI', 'PostgreSQL', 'WebSocket'],
+    links: {
+      demo: '#',
+      github: '#'
+    }
+  },
+  {
+    type: 'project',
+    title: 'Sidekick',
+    category: 'React, Node.js, AI/ML',
+    period: 'Sep 2024 - Dec 2024',
+    description: 'An AI-powered personal assistant application with natural language processing capabilities.',
+    features: [
+      'Natural language processing for task management',
+      'Smart scheduling and calendar integration',
+      'Contextual recommendations and insights',
+      'Multi-platform synchronization'
+    ],
+    impact: [
+      'Increased productivity by 40% for beta users',
+      'Reduced manual task management overhead',
+      'Enhanced workflow automation'
+    ],
+    tech: ['React', 'Node.js', 'OpenAI API', 'MongoDB', 'Express'],
+    links: {
+      demo: '#',
+      github: '#'
+    }
+  },
+  {
+    type: 'project',
     title: 'Blacksmith: Mercor Hackathon',
     category: 'Python, Javascript',
     period: 'March 2025',
