@@ -7,6 +7,8 @@ interface Dot {
   vy: number;
   originalX: number;
   originalY: number;
+  life: number;
+  maxLife: number;
 }
 
 const FluidBackground = () => {
@@ -15,6 +17,7 @@ const FluidBackground = () => {
   const dotsRef = useRef<Dot[]>([]);
   const mouseRef = useRef({ x: 0, y: 0 });
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  const lastSpawnTime = useRef(0);
 
   useEffect(() => {
     const updateDimensions = () => {
@@ -39,20 +42,23 @@ const FluidBackground = () => {
     canvas.width = dimensions.width;
     canvas.height = dimensions.height;
 
-    // Initialize dots with random movement
-    const numDots = Math.floor((dimensions.width * dimensions.height) / 15000);
+    // Initialize fewer dots with lifespan
+    const numDots = Math.floor((dimensions.width * dimensions.height) / 20000);
     dotsRef.current = [];
     
     for (let i = 0; i < numDots; i++) {
       const x = Math.random() * dimensions.width;
       const y = Math.random() * dimensions.height;
+      const maxLife = 300 + Math.random() * 200; // 5-8 seconds at 60fps
       dotsRef.current.push({
         x,
         y,
-        vx: (Math.random() - 0.5) * 2,
-        vy: (Math.random() - 0.5) * 2,
+        vx: (Math.random() - 0.5) * 0.5, // Much slower initial velocity
+        vy: (Math.random() - 0.5) * 0.5,
         originalX: x,
         originalY: y,
+        life: maxLife,
+        maxLife: maxLife,
       });
     }
 
@@ -65,19 +71,50 @@ const FluidBackground = () => {
 
     window.addEventListener('mousemove', handleMouseMove);
 
-    const animate = () => {
+    const animate = (currentTime: number) => {
       ctx.clearRect(0, 0, dimensions.width, dimensions.height);
       
       const dots = dotsRef.current;
       const mouse = mouseRef.current;
       const repelDistance = 120;
-      const repelForce = 0.5;
-      const returnForce = 0.001; // Much weaker pull force
+      const repelForce = 0.3;
+      const returnForce = 0.0005; // Even weaker pull force
       const connectionDistance = 140;
-      const maxSpeed = 2;
+      const maxSpeed = 0.8; // Much slower max speed
 
-      // Update dot positions
-      dots.forEach((dot) => {
+      // Spawn new dots occasionally
+      if (currentTime - lastSpawnTime.current > 2000 + Math.random() * 3000) { // Every 2-5 seconds
+        if (dots.length < 50) { // Cap at 50 dots
+          const x = Math.random() * dimensions.width;
+          const y = Math.random() * dimensions.height;
+          const maxLife = 300 + Math.random() * 200;
+          dots.push({
+            x,
+            y,
+            vx: (Math.random() - 0.5) * 0.5,
+            vy: (Math.random() - 0.5) * 0.5,
+            originalX: x,
+            originalY: y,
+            life: maxLife,
+            maxLife: maxLife,
+          });
+        }
+        lastSpawnTime.current = currentTime;
+      }
+
+      // Update dot positions and handle lifespan
+      for (let i = dots.length - 1; i >= 0; i--) {
+        const dot = dots[i];
+        
+        // Decrease life
+        dot.life--;
+        
+        // Remove dots that have expired
+        if (dot.life <= 0) {
+          dots.splice(i, 1);
+          continue;
+        }
+
         // Calculate distance from mouse
         const dx = dot.x - mouse.x;
         const dy = dot.y - mouse.y;
@@ -96,13 +133,13 @@ const FluidBackground = () => {
         dot.vx += returnDx * returnForce;
         dot.vy += returnDy * returnForce;
 
-        // Add continuous random movement for organic wandering
-        dot.vx += (Math.random() - 0.5) * 0.08;
-        dot.vy += (Math.random() - 0.5) * 0.08;
+        // Add gentle continuous random movement
+        dot.vx += (Math.random() - 0.5) * 0.02;
+        dot.vy += (Math.random() - 0.5) * 0.02;
 
-        // Apply minimal damping to keep movement flowing
-        dot.vx *= 0.999;
-        dot.vy *= 0.999;
+        // Apply damping
+        dot.vx *= 0.995;
+        dot.vy *= 0.995;
 
         // Limit maximum speed
         const speed = Math.sqrt(dot.vx * dot.vx + dot.vy * dot.vy);
@@ -123,7 +160,7 @@ const FluidBackground = () => {
           dot.vy *= -0.7;
           dot.y = Math.max(0, Math.min(dimensions.height, dot.y));
         }
-      });
+      }
 
       // Draw connections with dynamic opacity based on distance
       ctx.strokeStyle = 'rgba(156, 163, 175, 0.2)';
@@ -137,7 +174,9 @@ const FluidBackground = () => {
 
           if (distance < connectionDistance) {
             const opacity = Math.pow((connectionDistance - distance) / connectionDistance, 2);
-            ctx.strokeStyle = `rgba(156, 163, 175, ${opacity * 0.4})`;
+            // Factor in dot life for fading effect
+            const lifeOpacity = Math.min(dots[i].life / 60, dots[j].life / 60, 1);
+            ctx.strokeStyle = `rgba(156, 163, 175, ${opacity * 0.4 * lifeOpacity})`;
             ctx.lineWidth = opacity * 1.5;
             ctx.beginPath();
             ctx.moveTo(dots[i].x, dots[i].y);
@@ -147,14 +186,17 @@ const FluidBackground = () => {
         }
       }
 
-      // Draw dots with slight glow effect
+      // Draw dots with fade effect based on life
       dots.forEach((dot) => {
+        const lifeRatio = dot.life / dot.maxLife;
+        const fadeOpacity = dot.life < 60 ? dot.life / 60 : 1; // Fade out in last second
+        
         // Glow effect
         ctx.shadowBlur = 8;
-        ctx.shadowColor = 'rgba(156, 163, 175, 0.3)';
-        ctx.fillStyle = 'rgba(156, 163, 175, 0.8)';
+        ctx.shadowColor = `rgba(156, 163, 175, ${0.3 * fadeOpacity})`;
+        ctx.fillStyle = `rgba(156, 163, 175, ${0.8 * fadeOpacity})`;
         ctx.beginPath();
-        ctx.arc(dot.x, dot.y, 2.5, 0, Math.PI * 2);
+        ctx.arc(dot.x, dot.y, 2.5 * lifeRatio, 0, Math.PI * 2);
         ctx.fill();
         
         // Reset shadow
@@ -164,7 +206,7 @@ const FluidBackground = () => {
       animationRef.current = requestAnimationFrame(animate);
     };
 
-    animate();
+    animate(0);
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
