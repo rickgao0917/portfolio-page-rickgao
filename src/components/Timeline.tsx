@@ -175,16 +175,14 @@ const Timeline = () => {
               const isExpanded = expandedItems.includes(index);
               return (
                 <div key={index} className="relative flex items-start group">
-                  {/* Timeline dot */}
-                  <div className={`relative z-10 flex-shrink-0 w-4 h-4 mt-3 rounded-full border-2 border-white shadow-lg transition-all duration-300 transform group-hover:scale-125 ${
+                  {/* Timeline indicator - Diamond shape */}
+                  <div className={`relative z-10 flex-shrink-0 w-4 h-4 mt-3 transform rotate-45 border-2 border-white shadow-lg transition-all duration-300 group-hover:scale-110 ${
                     item.type === 'experience' 
-                      ? 'bg-blue-500 group-hover:bg-blue-600 group-hover:shadow-blue-200' 
-                      : 'bg-green-500 group-hover:bg-green-600 group-hover:shadow-green-200'
+                      ? 'bg-gradient-to-br from-blue-400 to-blue-600 group-hover:from-blue-500 group-hover:to-blue-700' 
+                      : 'bg-gradient-to-br from-green-400 to-green-600 group-hover:from-green-500 group-hover:to-green-700'
                   }`}>
-                    {/* Subtle glow effect on hover */}
-                    <div className={`absolute inset-0 rounded-full opacity-0 group-hover:opacity-30 transition-opacity duration-300 ${
-                      item.type === 'experience' ? 'bg-blue-400' : 'bg-green-400'
-                    } blur-sm`}></div>
+                    {/* Inner shine effect */}
+                    <div className="absolute inset-1 bg-white opacity-20 rounded-sm"></div>
                   </div>
                   
                   {/* Flag-style content */}
