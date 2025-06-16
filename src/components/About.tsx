@@ -1,19 +1,18 @@
-
 import React from 'react';
 
 const About = () => {
   const skillCategories = [
     {
       title: 'Languages',
-      skills: ['Python', 'C/C++', 'SQL', 'R', 'KDB+', 'Q']
+      skills: ['Python', 'C/C++', 'SQL', 'R', 'KDB+', 'Q', 'JavaScript', 'TypeScript']
     },
     {
       title: 'Frameworks & Libraries',
-      skills: ['PyTorch', 'NumPy', 'Pandas', 'SciPy']
+      skills: ['PyTorch', 'NumPy', 'Pandas', 'SciPy', 'React', 'FastAPI', 'Flask', 'SQLAlchemy', 'Node.js', 'Express', 'Statsmodels', 'PyVCF']
     },
     {
       title: 'Tools & Platforms',
-      skills: ['Docker', 'AWS', 'Git']
+      skills: ['Docker', 'AWS', 'Git', 'PostgreSQL', 'MongoDB', 'WebSocket', 'OpenAI API', 'GitHub']
     }
   ];
 
