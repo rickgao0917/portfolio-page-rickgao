@@ -1,24 +1,72 @@
 
 import React, { useState } from 'react';
-import { ChevronDown, Target } from 'lucide-react';
+import { ChevronDown, Target, Code, Wrench, BookOpen } from 'lucide-react';
 
 const About = () => {
-  const [isSkillsExpanded, setIsSkillsExpanded] = useState(false);
+  const [isLanguagesExpanded, setIsLanguagesExpanded] = useState(false);
+  const [isFrameworksExpanded, setIsFrameworksExpanded] = useState(false);
+  const [isToolsExpanded, setIsToolsExpanded] = useState(false);
 
-  const skillCategories = [
-    {
-      title: 'Languages',
-      skills: ['Python', 'C/C++', 'SQL', 'R', 'KDB+', 'Q', 'JavaScript', 'TypeScript', 'Bash/Shell']
-    },
-    {
-      title: 'Frameworks & Libraries',
-      skills: ['PyTorch', 'NumPy', 'Pandas', 'SciPy', 'React', 'FastAPI', 'Flask', 'SQLAlchemy', 'Node.js', 'Express', 'Statsmodels', 'PyVCF', 'Django', 'Spring Boot', 'Celery', 'Redis']
-    },
-    {
-      title: 'Tools & Platforms',
-      skills: ['Docker', 'AWS', 'Git', 'PostgreSQL', 'MongoDB', 'WebSocket', 'OpenAI API', 'GitHub', 'Kubernetes', 'Jenkins', 'Terraform', 'Nginx', 'Apache Kafka', 'RabbitMQ', 'Elasticsearch', 'GraphQL']
-    }
-  ];
+  const languages = ['Python', 'C/C++', 'SQL', 'R', 'KDB+', 'Q', 'JavaScript', 'TypeScript', 'Bash/Shell'];
+  
+  const frameworks = ['PyTorch', 'NumPy', 'Pandas', 'SciPy', 'React', 'FastAPI', 'Flask', 'SQLAlchemy', 'Node.js', 'Express', 'Statsmodels', 'PyVCF', 'Django', 'Spring Boot', 'Celery', 'Redis'];
+  
+  const tools = ['Docker', 'AWS', 'Git', 'PostgreSQL', 'MongoDB', 'WebSocket', 'OpenAI API', 'GitHub', 'Kubernetes', 'Jenkins', 'Terraform', 'Nginx', 'Apache Kafka', 'RabbitMQ', 'Elasticsearch', 'GraphQL'];
+
+  const SkillSection = ({ 
+    title, 
+    skills, 
+    isExpanded, 
+    onToggle, 
+    icon: Icon,
+    description 
+  }: {
+    title: string;
+    skills: string[];
+    isExpanded: boolean;
+    onToggle: () => void;
+    icon: React.ElementType;
+    description: string;
+  }) => (
+    <div className="bg-white rounded-lg border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden">
+      {/* Header - Always visible */}
+      <div 
+        className="p-6 cursor-pointer hover:bg-gray-50 transition-colors duration-200"
+        onClick={onToggle}
+      >
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-3">
+            <Icon className="w-5 h-5 text-gray-600" />
+            <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
+          </div>
+          <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${
+            isExpanded ? 'rotate-180' : ''
+          }`} />
+        </div>
+        <p className="text-gray-600 text-sm mt-2">
+          {description}
+        </p>
+      </div>
+
+      {/* Expandable content */}
+      <div className={`transition-all duration-300 ease-in-out ${
+        isExpanded ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
+      } overflow-hidden`}>
+        <div className="px-6 pb-6 border-t border-gray-50">
+          <div className="pt-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+            {skills.map((skill, index) => (
+              <div 
+                key={index}
+                className="p-3 bg-gray-50 rounded-lg border border-gray-100 hover:border-gray-200 hover:bg-white transition-colors duration-200"
+              >
+                <span className="text-sm font-medium">{skill}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 
   return (
     <section className="py-24 px-8 lg:px-16 bg-gray-50">
@@ -61,54 +109,40 @@ const About = () => {
                 </p>
               </div>
               
-              {/* Skills expandable section */}
+              {/* Technical Skills sections */}
               <div className="pt-8 border-t border-gray-200">
-                <div className="bg-white rounded-lg border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden">
-                  {/* Header - Always visible */}
-                  <div 
-                    className="p-6 cursor-pointer hover:bg-gray-50 transition-colors duration-200"
-                    onClick={() => setIsSkillsExpanded(!isSkillsExpanded)}
-                  >
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-3">
-                        <Target className="w-5 h-5 text-gray-600" />
-                        <h3 className="text-lg font-semibold text-gray-900">Technical Skills</h3>
-                      </div>
-                      <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${
-                        isSkillsExpanded ? 'rotate-180' : ''
-                      }`} />
-                    </div>
-                    <p className="text-gray-600 text-sm mt-2">
-                      Programming languages, frameworks, and tools I work with
-                    </p>
-                  </div>
-
-                  {/* Expandable content */}
-                  <div className={`transition-all duration-300 ease-in-out ${
-                    isSkillsExpanded ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'
-                  } overflow-hidden`}>
-                    <div className="px-6 pb-6 border-t border-gray-50">
-                      <div className="pt-6 grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {skillCategories.map((category, categoryIndex) => (
-                          <div key={categoryIndex} className="space-y-4">
-                            <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wide">
-                              {category.title}
-                            </h4>
-                            <div className="space-y-2">
-                              {category.skills.map((skill, skillIndex) => (
-                                <div 
-                                  key={skillIndex}
-                                  className="p-3 bg-gray-50 rounded-lg border border-gray-100 hover:border-gray-200 hover:bg-white transition-colors duration-200"
-                                >
-                                  <span className="text-sm font-medium">{skill}</span>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
+                <div className="mb-8">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Technical Skills</h3>
+                  <p className="text-gray-600">My technical expertise across different areas</p>
+                </div>
+                
+                <div className="space-y-6">
+                  <SkillSection
+                    title="Programming Languages"
+                    skills={languages}
+                    isExpanded={isLanguagesExpanded}
+                    onToggle={() => setIsLanguagesExpanded(!isLanguagesExpanded)}
+                    icon={Code}
+                    description="Core programming languages I use for development"
+                  />
+                  
+                  <SkillSection
+                    title="Frameworks & Libraries"
+                    skills={frameworks}
+                    isExpanded={isFrameworksExpanded}
+                    onToggle={() => setIsFrameworksExpanded(!isFrameworksExpanded)}
+                    icon={BookOpen}
+                    description="Frameworks and libraries I work with regularly"
+                  />
+                  
+                  <SkillSection
+                    title="Tools & Platforms"
+                    skills={tools}
+                    isExpanded={isToolsExpanded}
+                    onToggle={() => setIsToolsExpanded(!isToolsExpanded)}
+                    icon={Wrench}
+                    description="Development tools, platforms, and technologies I use"
+                  />
                 </div>
               </div>
             </div>
