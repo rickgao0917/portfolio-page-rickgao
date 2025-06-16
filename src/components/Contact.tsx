@@ -21,7 +21,7 @@ const Contact = () => {
             <div className="space-y-4 text-sm">
               <div className="flex items-center space-x-3">
                 <Mail className="w-4 h-4 text-gray-400" />
-                <span>rickgao.contact@gmail.com</span>
+                <span>rickgao.contactme@gmail.com</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-4 h-4 text-gray-400" />

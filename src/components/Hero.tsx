@@ -44,7 +44,7 @@ const Hero = () => {
                   <a href="https://linkedin.com/rgao09" className="p-2 hover:bg-gray-50 rounded-full transition-colors duration-200">
                     <Linkedin className="w-4 h-4" />
                   </a>
-                  <a href="mailto:rickgao0917@gmail.com" className="p-2 hover:bg-gray-50 rounded-full transition-colors duration-200">
+                  <a href="mailto:rickgao.contactme@gmail.com" className="p-2 hover:bg-gray-50 rounded-full transition-colors duration-200">
                     <Mail className="w-4 h-4" />
                   </a>
                 </div>
@@ -68,7 +68,7 @@ const Hero = () => {
               
               <div>
                 <p className="font-mono mb-1">Phone</p>
-                <p>718-737-5051</p>
+                <p>347-774-1504</p>
               </div>
             </div>
           </div>
