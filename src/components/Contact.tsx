@@ -21,11 +21,11 @@ const Contact = () => {
             <div className="space-y-4 text-sm">
               <div className="flex items-center space-x-3">
                 <Mail className="w-4 h-4 text-gray-400" />
-                <span>rickgao0917@gmail.com</span>
+                <span>rickgao.contact@gmail.com</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-4 h-4 text-gray-400" />
-                <span>7187375051</span>
+                <span>3477741504</span>
               </div>
               <div className="flex items-center space-x-3">
                 <MapPin className="w-4 h-4 text-gray-400" />
