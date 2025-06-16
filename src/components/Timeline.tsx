@@ -30,7 +30,7 @@ const Timeline = () => {
               <h2 className="text-2xl lg:text-3xl font-light mt-2 mb-6">
                 Experience
               </h2>
-              <p className="text-gray-600 leading-relaxed mb-16">
+              <p className="text-gray-600 leading-relaxed">
                 My professional journey in financial technology, research, and technical development.
               </p>
             </div>
