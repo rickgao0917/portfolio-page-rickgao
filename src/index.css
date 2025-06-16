@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -99,5 +100,18 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Custom animations for fluid background */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(-50%) translateX(0) scale(1);
+  }
+  33% {
+    transform: translateY(-60%) translateX(-20px) scale(1.05);
+  }
+  66% {
+    transform: translateY(-40%) translateX(15px) scale(0.95);
   }
 }
