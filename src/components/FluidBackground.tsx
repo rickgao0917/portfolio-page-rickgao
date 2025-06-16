@@ -40,7 +40,7 @@ const FluidBackground = () => {
     canvas.width = dimensions.width;
     canvas.height = dimensions.height;
 
-    // Initialize dots
+    // Initialize dots with more movement
     const numDots = Math.floor((dimensions.width * dimensions.height) / 15000);
     dotsRef.current = [];
     
@@ -50,8 +50,8 @@ const FluidBackground = () => {
       dotsRef.current.push({
         x,
         y,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
+        vx: (Math.random() - 0.5) * 1.5, // Increased base velocity
+        vy: (Math.random() - 0.5) * 1.5,
         originalX: x,
         originalY: y,
       });
@@ -71,10 +71,11 @@ const FluidBackground = () => {
       
       const dots = dotsRef.current;
       const mouse = mouseRef.current;
-      const repelDistance = 150;
-      const repelForce = 0.3;
-      const returnForce = 0.02;
-      const connectionDistance = 120;
+      const repelDistance = 120;
+      const repelForce = 0.4;
+      const returnForce = 0.015; // Reduced to allow more free movement
+      const connectionDistance = 140;
+      const maxSpeed = 3;
 
       // Update dot positions
       dots.forEach((dot) => {
@@ -90,26 +91,42 @@ const FluidBackground = () => {
           dot.vy += (dy / distance) * force * repelForce;
         }
 
-        // Return to original position
+        // Gentle return to original position (much weaker)
         const returnDx = dot.originalX - dot.x;
         const returnDy = dot.originalY - dot.y;
         dot.vx += returnDx * returnForce;
         dot.vy += returnDy * returnForce;
 
-        // Apply velocity with damping
-        dot.vx *= 0.98;
-        dot.vy *= 0.98;
+        // Add some random movement for organic feel
+        dot.vx += (Math.random() - 0.5) * 0.02;
+        dot.vy += (Math.random() - 0.5) * 0.02;
+
+        // Apply velocity with less damping for more movement
+        dot.vx *= 0.995;
+        dot.vy *= 0.995;
+
+        // Limit maximum speed
+        const speed = Math.sqrt(dot.vx * dot.vx + dot.vy * dot.vy);
+        if (speed > maxSpeed) {
+          dot.vx = (dot.vx / speed) * maxSpeed;
+          dot.vy = (dot.vy / speed) * maxSpeed;
+        }
+
         dot.x += dot.vx;
         dot.y += dot.vy;
 
-        // Boundary check
-        if (dot.x < 0 || dot.x > dimensions.width) dot.vx *= -1;
-        if (dot.y < 0 || dot.y > dimensions.height) dot.vy *= -1;
-        dot.x = Math.max(0, Math.min(dimensions.width, dot.x));
-        dot.y = Math.max(0, Math.min(dimensions.height, dot.y));
+        // Boundary bouncing
+        if (dot.x < 0 || dot.x > dimensions.width) {
+          dot.vx *= -0.8;
+          dot.x = Math.max(0, Math.min(dimensions.width, dot.x));
+        }
+        if (dot.y < 0 || dot.y > dimensions.height) {
+          dot.vy *= -0.8;
+          dot.y = Math.max(0, Math.min(dimensions.height, dot.y));
+        }
       });
 
-      // Draw connections
+      // Draw connections with dynamic opacity based on distance
       ctx.strokeStyle = 'rgba(156, 163, 175, 0.2)';
       ctx.lineWidth = 1;
       
@@ -120,8 +137,9 @@ const FluidBackground = () => {
           const distance = Math.sqrt(dx * dx + dy * dy);
 
           if (distance < connectionDistance) {
-            const opacity = (connectionDistance - distance) / connectionDistance;
-            ctx.strokeStyle = `rgba(156, 163, 175, ${opacity * 0.3})`;
+            const opacity = Math.pow((connectionDistance - distance) / connectionDistance, 2);
+            ctx.strokeStyle = `rgba(156, 163, 175, ${opacity * 0.4})`;
+            ctx.lineWidth = opacity * 1.5;
             ctx.beginPath();
             ctx.moveTo(dots[i].x, dots[i].y);
             ctx.lineTo(dots[j].x, dots[j].y);
@@ -130,12 +148,18 @@ const FluidBackground = () => {
         }
       }
 
-      // Draw dots
-      ctx.fillStyle = 'rgba(156, 163, 175, 0.6)';
+      // Draw dots with slight glow effect
       dots.forEach((dot) => {
+        // Glow effect
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = 'rgba(156, 163, 175, 0.3)';
+        ctx.fillStyle = 'rgba(156, 163, 175, 0.8)';
         ctx.beginPath();
-        ctx.arc(dot.x, dot.y, 2, 0, Math.PI * 2);
+        ctx.arc(dot.x, dot.y, 2.5, 0, Math.PI * 2);
         ctx.fill();
+        
+        // Reset shadow
+        ctx.shadowBlur = 0;
       });
 
       animationRef.current = requestAnimationFrame(animate);
