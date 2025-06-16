@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Mail, MapPin, Phone } from 'lucide-react';
-import emailjs from '@emailjs/browser';
+// import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -10,8 +10,8 @@ const Contact = () => {
     subject: '',
     message: ''
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  // const [isSubmitting, setIsSubmitting] = useState(false);
+  // const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -23,6 +23,11 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    // TODO: Implement email functionality later
+    console.log('Form submitted:', formData);
+    
+    // Commented out email functionality for now
+    /*
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
@@ -50,6 +55,7 @@ const Contact = () => {
     } finally {
       setIsSubmitting(false);
     }
+    */
   };
 
   return (
@@ -139,6 +145,8 @@ const Contact = () => {
                 />
               </div>
               
+              {/* Commented out status messages for now */}
+              {/*
               {submitStatus === 'success' && (
                 <div className="p-4 bg-green-600 bg-opacity-20 border border-green-500 rounded-lg">
                   <p className="text-green-200">Message sent successfully! I'll get back to you soon.</p>
@@ -150,13 +158,14 @@ const Contact = () => {
                   <p className="text-red-200">Failed to send message. Please try again or email me directly.</p>
                 </div>
               )}
+              */}
               
               <button 
                 type="submit"
-                disabled={isSubmitting}
-                className="px-8 py-3 bg-white text-gray-900 font-medium rounded-lg hover:bg-gray-100 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                // disabled={isSubmitting}
+                className="px-8 py-3 bg-white text-gray-900 font-medium rounded-lg hover:bg-gray-100 transition-colors duration-200"
               >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
+                Send Message
               </button>
             </form>
           </div>
