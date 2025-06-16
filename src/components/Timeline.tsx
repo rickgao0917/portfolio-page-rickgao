@@ -15,7 +15,7 @@ const Timeline = () => {
   };
 
   return (
-    <section className="py-24 px-8 lg:px-16 bg-white">
+    <section className="pt-24 px-8 lg:px-16 bg-white">
       {/* Experience Section */}
       {/* Section separator line */}
       <div className="max-w-7xl mx-auto mb-16">
@@ -59,7 +59,7 @@ const Timeline = () => {
         <div className="w-1/3 h-px bg-gray-300"></div>
       </div>
       
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto pb-24">
         <div className="grid grid-cols-12 gap-16">
           {/* Section number and title */}
           <div className="col-span-12 lg:col-span-3">
