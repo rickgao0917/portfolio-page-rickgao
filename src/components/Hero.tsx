@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react';
 
@@ -11,10 +10,9 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-end pb-20 px-8 lg:px-16 relative">
+    <section className="min-h-screen flex items-end pb-20 px-8 lg:px-16 relative overflow-hidden">
       <div className="w-full max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-12 gap-8 items-end">
-          {/* Main title area */}
           <div className="col-span-12 lg:col-span-8">
             <div className="space-y-2 mb-8">
               <span className="font-mono text-sm text-gray-400">00</span>
@@ -44,7 +42,7 @@ const Hero = () => {
                   <a href="https://linkedin.com/in/rgao09" className="p-2 hover:bg-gray-50 rounded-full transition-colors duration-200">
                     <Linkedin className="w-4 h-4" />
                   </a>
-                  <a href="mailto:rickgao.contactme@gmail.com" className="p-2 hover:bg-gray-50 rounded-full transition-colors duration-200">
+                  <a href="mailto:rickgao.contact@gmail.com" className="p-2 hover:bg-gray-50 rounded-full transition-colors duration-200">
                     <Mail className="w-4 h-4" />
                   </a>
                 </div>
@@ -52,7 +50,6 @@ const Hero = () => {
             </div>
           </div>
           
-          {/* Side info */}
           <div className="col-span-12 lg:col-span-4 lg:text-right">
             <div className="space-y-4 text-sm text-gray-500">
               <div>

@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { ChevronDown, Target, Code, Wrench, BookOpen } from 'lucide-react';
 
@@ -27,10 +28,10 @@ const About = () => {
     icon: React.ElementType;
     description: string;
   }) => (
-    <div className="bg-white rounded-lg border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden">
+    <div className="bg-white/95 backdrop-blur-sm rounded-lg border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden relative z-20">
       {/* Header - Always visible */}
       <div 
-        className="p-6 cursor-pointer hover:bg-gray-50 transition-colors duration-200"
+        className="p-6 cursor-pointer hover:bg-gray-50/80 transition-colors duration-200"
         onClick={onToggle}
       >
         <div className="flex items-center justify-between">
@@ -56,7 +57,7 @@ const About = () => {
             {skills.map((skill, index) => (
               <div 
                 key={index}
-                className="p-3 bg-gray-50 rounded-lg border border-gray-100 hover:border-gray-200 hover:bg-white transition-colors duration-200"
+                className="p-3 bg-gray-50/80 rounded-lg border border-gray-100 hover:border-gray-200 hover:bg-white/90 transition-colors duration-200"
               >
                 <span className="text-sm font-medium">{skill}</span>
               </div>
@@ -68,7 +69,12 @@ const About = () => {
   );
 
   return (
-    <section className="py-24 px-8 lg:px-16 bg-gray-50">
+    <section className="py-24 px-8 lg:px-16">
+      {/* Section separator line */}
+      <div className="max-w-7xl mx-auto mb-16">
+        <div className="w-1/3 h-px bg-gray-300"></div>
+      </div>
+      
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-12 gap-16">
           {/* Section number and title */}
@@ -90,7 +96,7 @@ const About = () => {
                   systems programming, data structures, and deep learning applications.
                 </p>
                 
-                <div className="bg-white p-6 rounded-lg border border-gray-200">
+                <div className="bg-white/95 backdrop-blur-sm p-6 rounded-lg border border-gray-200 relative z-20">
                   <h3 className="text-lg font-semibold mb-4">Education</h3>
                   <div className="space-y-2">
                     <p className="font-medium">Yale University</p>

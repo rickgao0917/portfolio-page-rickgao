@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import TimelineSection from './TimelineSection';
+import TimelineItem from './TimelineItem';
 import { experienceData, projectData } from '../data/timelineData';
 
 const Timeline = () => {
@@ -15,27 +15,79 @@ const Timeline = () => {
   };
 
   return (
-    <section className="py-24 px-8 lg:px-16">
-      <div className="max-w-5xl mx-auto">
-        {/* Experience Section */}
-        <TimelineSection
-          sectionNumber="02"
-          title="Experience"
-          description="My professional journey in financial technology, research, and technical development."
-          items={experienceData}
-          expandedItems={expandedItems}
-          onToggleExpand={toggleExpand}
-        />
+    <section className="pt-24 px-8 lg:px-16">
+      {/* Experience Section */}
+      {/* Section separator line */}
+      <div className="max-w-7xl mx-auto mb-16">
+        <div className="w-1/3 h-px bg-gray-300"></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-12 gap-16">
+          {/* Section number and title */}
+          <div className="col-span-12 lg:col-span-3">
+            <div className="lg:sticky lg:top-24">
+              <span className="font-mono text-sm text-gray-400">02</span>
+              <h2 className="text-2xl lg:text-3xl font-light mt-2 mb-6">
+                Experience
+              </h2>
+              <p className="text-gray-600 leading-relaxed">
+                My professional journey in financial technology, research, and technical development.
+              </p>
+            </div>
+          </div>
+          
+          {/* Content */}
+          <div className="col-span-12 lg:col-span-9">
+            <div className="space-y-8">
+              {experienceData.map((item, index) => (
+                <TimelineItem
+                  key={index}
+                  item={item}
+                  isExpanded={expandedItems.includes(index)}
+                  onToggleExpand={() => toggleExpand(index)}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
 
-        {/* Projects Section */}
-        <TimelineSection
-          sectionNumber="03"
-          title="Projects"
-          description="Selected projects spanning trading systems, AI research, and bioinformatics."
-          items={projectData}
-          expandedItems={expandedItems}
-          onToggleExpand={toggleExpand}
-        />
+      {/* Projects Section */}
+      {/* Section separator line */}
+      <div className="max-w-7xl mx-auto mb-16 mt-24">
+        <div className="w-1/3 h-px bg-gray-300"></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto pb-24">
+        <div className="grid grid-cols-12 gap-16">
+          {/* Section number and title */}
+          <div className="col-span-12 lg:col-span-3">
+            <div className="lg:sticky lg:top-24">
+              <span className="font-mono text-sm text-gray-400">03</span>
+              <h2 className="text-2xl lg:text-3xl font-light mt-2 mb-6">
+                Projects
+              </h2>
+              <p className="text-gray-600 leading-relaxed">
+                Selected projects spanning trading systems, AI research, and bioinformatics.
+              </p>
+            </div>
+          </div>
+          
+          {/* Content */}
+          <div className="col-span-12 lg:col-span-9">
+            <div className="space-y-8">
+              {projectData.map((item, index) => (
+                <TimelineItem
+                  key={index + experienceData.length}
+                  item={item}
+                  isExpanded={expandedItems.includes(index + experienceData.length)}
+                  onToggleExpand={() => toggleExpand(index + experienceData.length)}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
