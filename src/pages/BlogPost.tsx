@@ -53,9 +53,11 @@ const BlogPost = () => {
           </h1>
           
           <div className="prose prose-lg max-w-none">
-            <p className="text-gray-700 leading-relaxed">
-              {post.content}
-            </p>
+            {post.content.split('\n\n').map((paragraph, index) => (
+              <p key={index} className="text-gray-700 leading-relaxed mb-6">
+                {paragraph}
+              </p>
+            ))}
           </div>
         </article>
       </div>
