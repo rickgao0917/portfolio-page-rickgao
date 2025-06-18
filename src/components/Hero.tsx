@@ -41,7 +41,7 @@ const Hero = () => {
                   <a href="https://github.com/rickgao0917" className="p-2 hover:bg-gray-50 rounded-full transition-colors duration-200">
                     <Github className="w-4 h-4" />
                   </a>
-                  <a href="https://linkedin.com/rgao09" className="p-2 hover:bg-gray-50 rounded-full transition-colors duration-200">
+                  <a href="https://linkedin.com/in/rgao09" className="p-2 hover:bg-gray-50 rounded-full transition-colors duration-200">
                     <Linkedin className="w-4 h-4" />
                   </a>
                   <a href="mailto:rickgao.contactme@gmail.com" className="p-2 hover:bg-gray-50 rounded-full transition-colors duration-200">
