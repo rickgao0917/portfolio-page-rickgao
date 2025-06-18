@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ArrowRight, Github, Linkedin, Mail, BookOpen, Brain } from 'lucide-react';
 
@@ -55,44 +54,34 @@ const Hero = () => {
                 Computer Science student at Yale University interested in software engineering and quantitative finance.
               </p>
               
-              {/* Redesigned navigation links in a 2x2 grid */}
-              <div className="grid grid-cols-2 gap-3 max-w-md">
+              {/* Low-profile navigation links */}
+              <div className="flex flex-wrap gap-1 text-sm text-gray-500">
                 <button 
                   onClick={scrollToExperience}
-                  className="group flex items-center justify-between p-3 border border-gray-200 rounded-lg hover:border-gray-300 hover:bg-gray-50 transition-all duration-200"
+                  className="px-3 py-1 hover:text-gray-700 hover:bg-gray-50 rounded transition-colors duration-200"
                 >
-                  <span className="text-sm font-medium">Experience</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
+                  Experience
                 </button>
-
+                <span className="px-2 py-1">•</span>
                 <button 
                   onClick={scrollToProjects}
-                  className="group flex items-center justify-between p-3 border border-gray-200 rounded-lg hover:border-gray-300 hover:bg-gray-50 transition-all duration-200"
+                  className="px-3 py-1 hover:text-gray-700 hover:bg-gray-50 rounded transition-colors duration-200"
                 >
-                  <span className="text-sm font-medium">Projects</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
+                  Projects
                 </button>
-
+                <span className="px-2 py-1">•</span>
                 <button 
                   onClick={scrollToBlog}
-                  className="group flex items-center justify-between p-3 border border-gray-200 rounded-lg hover:border-gray-300 hover:bg-gray-50 transition-all duration-200"
+                  className="px-3 py-1 hover:text-gray-700 hover:bg-gray-50 rounded transition-colors duration-200"
                 >
-                  <div className="flex items-center space-x-2">
-                    <BookOpen className="w-4 h-4" />
-                    <span className="text-sm font-medium">Blog</span>
-                  </div>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
+                  Blog
                 </button>
-
+                <span className="px-2 py-1">•</span>
                 <button 
                   onClick={scrollToRiddles}
-                  className="group flex items-center justify-between p-3 border border-gray-200 rounded-lg hover:border-gray-300 hover:bg-gray-50 transition-all duration-200"
+                  className="px-3 py-1 hover:text-gray-700 hover:bg-gray-50 rounded transition-colors duration-200"
                 >
-                  <div className="flex items-center space-x-2">
-                    <Brain className="w-4 h-4" />
-                    <span className="text-sm font-medium">Riddles</span>
-                  </div>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
+                  Math Riddles
                 </button>
               </div>
             </div>

@@ -11,18 +11,18 @@ export interface BlogPost {
 export const blogPosts: BlogPost[] = [
   {
     id: '1',
-    title: 'Building Trading Systems: Lessons from My Internship',
+    title: 'Lorem Ipsum Dolor Sit Amet: Consectetur Adipiscing',
     date: '2025-01-15',
-    excerpt: 'Reflections on developing financial tools and optimization algorithms during my time at Verition Fund Management...',
-    content: 'During my internship at Verition Fund Management, I had the opportunity to work on several critical trading systems...',
+    excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation...',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     readTime: '5 min read'
   },
   {
     id: '2',
-    title: 'From Research to Production: Scaling Bioinformatics Code',
+    title: 'Duis Aute Irure Dolor in Reprehenderit',
     date: '2025-01-10',
-    excerpt: 'How I transitioned from academic research code to production-ready systems processing 100GB of genomic data...',
-    content: 'Working in the Gerstein Laboratory taught me valuable lessons about scaling computational biology applications...',
+    excerpt: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident...',
+    content: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     readTime: '7 min read'
   }
 ];
