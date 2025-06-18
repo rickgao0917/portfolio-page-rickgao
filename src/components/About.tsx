@@ -69,7 +69,7 @@ const About = () => {
   );
 
   return (
-    <section className="py-24 px-8 lg:px-16">
+    <section className="py-16 px-8 lg:px-16">
       {/* Section separator line */}
       <div className="max-w-7xl mx-auto mb-16">
         <div className="w-1/3 h-px bg-gray-300"></div>
