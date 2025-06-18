@@ -71,7 +71,7 @@ export const projectData: TimelineItem[] = [
     title: 'Prediction Market Arbitrage/Market-Making',
     category: 'Python, C++, Statsmodels, Research',
     period: 'May 2025 - Present',
-    description: 'Developed fully featured event-driven backtester in C++ and BDA, including market impact analysis and PCA.',
+    description: 'Developed fully featured event-driven backtester in C++, including market impact analysis and PCA.',
     features: [
       'Live trading since May 2025, +22% since inception and largest drawdown of 8%',
       'Event-driven backtesting system built in C++',
