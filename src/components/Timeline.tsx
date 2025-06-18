@@ -55,6 +55,43 @@ const Timeline = () => {
         </div>
       </div>
 
+      {/* Projects Section */}
+      {/* Section separator line */}
+      <div className="max-w-7xl mx-auto mb-16 mt-16">
+        <div className="w-1/3 h-px bg-gray-300"></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto" data-section="projects">
+        <div className="grid grid-cols-12 gap-16">
+          {/* Section number and title */}
+          <div className="col-span-12 lg:col-span-3">
+            <div className="lg:sticky lg:top-24">
+              <span className="font-mono text-sm text-gray-400">03</span>
+              <h2 className="text-2xl lg:text-3xl font-light mt-2 mb-6">
+                Projects
+              </h2>
+              <p className="text-gray-600 leading-relaxed">
+                Selected projects spanning trading systems, AI research, and bioinformatics.
+              </p>
+            </div>
+          </div>
+          
+          {/* Content */}
+          <div className="col-span-12 lg:col-span-9">
+            <div className="space-y-8">
+              {projectData.map((item, index) => (
+                <TimelineItem
+                  key={index + experienceData.length}
+                  item={item}
+                  isExpanded={expandedItems.includes(index + experienceData.length)}
+                  onToggleExpand={() => toggleExpand(index + experienceData.length)}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Blog Section */}
       {/* Section separator line */}
       <div className="max-w-7xl mx-auto mb-16 mt-16">
@@ -65,7 +102,7 @@ const Timeline = () => {
         <div className="grid grid-cols-12 gap-16">
           <div className="col-span-12 lg:col-span-3">
             <div className="lg:sticky lg:top-24">
-              <span className="font-mono text-sm text-gray-400">03</span>
+              <span className="font-mono text-sm text-gray-400">04</span>
               <h2 className="text-2xl lg:text-3xl font-light mt-2 mb-6">
                 {blogSection.title}
               </h2>
@@ -91,7 +128,7 @@ const Timeline = () => {
         <div className="grid grid-cols-12 gap-16">
           <div className="col-span-12 lg:col-span-3">
             <div className="lg:sticky lg:top-24">
-              <span className="font-mono text-sm text-gray-400">04</span>
+              <span className="font-mono text-sm text-gray-400">05</span>
               <h2 className="text-2xl lg:text-3xl font-light mt-2 mb-6">
                 {riddleSection.title}
               </h2>
@@ -103,43 +140,6 @@ const Timeline = () => {
           
           <div className="col-span-12 lg:col-span-9">
             <RiddleSection />
-          </div>
-        </div>
-      </div>
-
-      {/* Projects Section */}
-      {/* Section separator line */}
-      <div className="max-w-7xl mx-auto mb-16 mt-16">
-        <div className="w-1/3 h-px bg-gray-300"></div>
-      </div>
-      
-      <div className="max-w-7xl mx-auto pb-24" data-section="projects">
-        <div className="grid grid-cols-12 gap-16">
-          {/* Section number and title */}
-          <div className="col-span-12 lg:col-span-3">
-            <div className="lg:sticky lg:top-24">
-              <span className="font-mono text-sm text-gray-400">05</span>
-              <h2 className="text-2xl lg:text-3xl font-light mt-2 mb-6">
-                Projects
-              </h2>
-              <p className="text-gray-600 leading-relaxed">
-                Selected projects spanning trading systems, AI research, and bioinformatics.
-              </p>
-            </div>
-          </div>
-          
-          {/* Content */}
-          <div className="col-span-12 lg:col-span-9">
-            <div className="space-y-8">
-              {projectData.map((item, index) => (
-                <TimelineItem
-                  key={index + experienceData.length}
-                  item={item}
-                  isExpanded={expandedItems.includes(index + experienceData.length)}
-                  onToggleExpand={() => toggleExpand(index + experienceData.length)}
-                />
-              ))}
-            </div>
           </div>
         </div>
       </div>
