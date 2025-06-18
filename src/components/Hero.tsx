@@ -46,14 +46,6 @@ const Hero = () => {
                   onClick={scrollToExperience}
                   className="group flex items-center space-x-2 text-sm font-medium tracking-wide hover:text-gray-600 transition-colors duration-200 w-fit"
                 >
-                  <span>View Work</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
-                </button>
-                
-                <button 
-                  onClick={scrollToExperience}
-                  className="group flex items-center space-x-2 text-sm font-medium tracking-wide hover:text-gray-600 transition-colors duration-200 w-fit"
-                >
                   <span>View Experience</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
                 </button>
