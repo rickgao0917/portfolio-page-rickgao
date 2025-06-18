@@ -109,6 +109,7 @@ export const projectData: TimelineItem[] = [
     category: 'Python, PyTorch',
     period: 'May 2025 - Present',
     description: 'Graph network implementation to determine relevancy of sources for agentic investment research.',
+    wip: true,
     features: [
       'RAG + Vector database to ensure data consistency and accurate source citation',
       'Custom ensemble model of Llama, Claude DeepSeek + GRPO, NLP and sentiment analysis models',
