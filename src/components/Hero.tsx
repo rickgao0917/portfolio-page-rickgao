@@ -1,11 +1,26 @@
+
 import React from 'react';
 import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react';
 
 const Hero = () => {
-  const scrollToTimeline = () => {
-    const timelineSection = document.querySelector('section:nth-of-type(3)'); // Timeline is the 3rd section (Hero, About, Timeline)
-    if (timelineSection) {
-      timelineSection.scrollIntoView({ behavior: 'smooth' });
+  const scrollToExperience = () => {
+    const experienceSection = document.querySelector('section:nth-of-type(3)'); // Timeline is the 3rd section (Hero, About, Timeline)
+    if (experienceSection) {
+      experienceSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const scrollToProjects = () => {
+    // Projects are within the Timeline component, so we need to scroll to a specific element
+    const projectsSection = document.querySelector('[data-section="projects"]');
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // Fallback: scroll to timeline and let user find projects
+      const timelineSection = document.querySelector('section:nth-of-type(3)');
+      if (timelineSection) {
+        timelineSection.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
@@ -26,26 +41,30 @@ const Hero = () => {
                 Computer Science student at Yale University interested in software engineering and quantitative finance.
               </p>
               
-              <div className="flex items-center space-x-6">
+              <div className="flex flex-col space-y-3">
                 <button 
-                  onClick={scrollToTimeline}
-                  className="group flex items-center space-x-2 text-sm font-medium tracking-wide hover:text-gray-600 transition-colors duration-200"
+                  onClick={scrollToExperience}
+                  className="group flex items-center space-x-2 text-sm font-medium tracking-wide hover:text-gray-600 transition-colors duration-200 w-fit"
                 >
                   <span>View Work</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
                 </button>
                 
-                <div className="flex items-center space-x-4">
-                  <a href="https://github.com/rickgao0917" className="p-2 hover:bg-gray-50 rounded-full transition-colors duration-200">
-                    <Github className="w-4 h-4" />
-                  </a>
-                  <a href="https://linkedin.com/in/rgao09" className="p-2 hover:bg-gray-50 rounded-full transition-colors duration-200">
-                    <Linkedin className="w-4 h-4" />
-                  </a>
-                  <a href="mailto:rickgao.contact@gmail.com" className="p-2 hover:bg-gray-50 rounded-full transition-colors duration-200">
-                    <Mail className="w-4 h-4" />
-                  </a>
-                </div>
+                <button 
+                  onClick={scrollToExperience}
+                  className="group flex items-center space-x-2 text-sm font-medium tracking-wide hover:text-gray-600 transition-colors duration-200 w-fit"
+                >
+                  <span>View Experience</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
+                </button>
+
+                <button 
+                  onClick={scrollToProjects}
+                  className="group flex items-center space-x-2 text-sm font-medium tracking-wide hover:text-gray-600 transition-colors duration-200 w-fit"
+                >
+                  <span>View Projects</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
+                </button>
               </div>
             </div>
           </div>
@@ -66,6 +85,20 @@ const Hero = () => {
               <div>
                 <p className="font-mono mb-1">Phone</p>
                 <p>347-774-1504</p>
+              </div>
+
+              <div className="pt-2">
+                <div className="flex items-center justify-end space-x-4">
+                  <a href="https://github.com/rickgao0917" className="p-2 hover:bg-gray-50 rounded-full transition-colors duration-200">
+                    <Github className="w-4 h-4" />
+                  </a>
+                  <a href="https://linkedin.com/in/rgao09" className="p-2 hover:bg-gray-50 rounded-full transition-colors duration-200">
+                    <Linkedin className="w-4 h-4" />
+                  </a>
+                  <a href="mailto:rickgao.contact@gmail.com" className="p-2 hover:bg-gray-50 rounded-full transition-colors duration-200">
+                    <Mail className="w-4 h-4" />
+                  </a>
+                </div>
               </div>
             </div>
           </div>

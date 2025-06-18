@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import TimelineItem from './TimelineItem';
 import { experienceData, projectData } from '../data/timelineData';
@@ -58,7 +59,7 @@ const Timeline = () => {
         <div className="w-1/3 h-px bg-gray-300"></div>
       </div>
       
-      <div className="max-w-7xl mx-auto pb-24">
+      <div className="max-w-7xl mx-auto pb-24" data-section="projects">
         <div className="grid grid-cols-12 gap-16">
           {/* Section number and title */}
           <div className="col-span-12 lg:col-span-3">
