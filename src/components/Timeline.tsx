@@ -1,7 +1,9 @@
 
 import React, { useState } from 'react';
 import TimelineItem from './TimelineItem';
-import { experienceData, projectData } from '../data/timelineData';
+import BlogSection from './BlogSection';
+import RiddleSection from './RiddleSection';
+import { experienceData, projectData, blogSection, riddleSection } from '../data/timelineData';
 
 const Timeline = () => {
   const [expandedItems, setExpandedItems] = useState<number[]>([]);
@@ -59,7 +61,7 @@ const Timeline = () => {
         <div className="w-1/3 h-px bg-gray-300"></div>
       </div>
       
-      <div className="max-w-7xl mx-auto pb-24" data-section="projects">
+      <div className="max-w-7xl mx-auto" data-section="projects">
         <div className="grid grid-cols-12 gap-16">
           {/* Section number and title */}
           <div className="col-span-12 lg:col-span-3">
@@ -86,6 +88,58 @@ const Timeline = () => {
                 />
               ))}
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Blog Section */}
+      {/* Section separator line */}
+      <div className="max-w-7xl mx-auto mb-16 mt-16">
+        <div className="w-1/3 h-px bg-gray-300"></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto" data-section="blog">
+        <div className="grid grid-cols-12 gap-16">
+          <div className="col-span-12 lg:col-span-3">
+            <div className="lg:sticky lg:top-24">
+              <span className="font-mono text-sm text-gray-400">04</span>
+              <h2 className="text-2xl lg:text-3xl font-light mt-2 mb-6">
+                {blogSection.title}
+              </h2>
+              <p className="text-gray-600 leading-relaxed">
+                {blogSection.description}
+              </p>
+            </div>
+          </div>
+          
+          <div className="col-span-12 lg:col-span-9">
+            <BlogSection />
+          </div>
+        </div>
+      </div>
+
+      {/* Riddle Section */}
+      {/* Section separator line */}
+      <div className="max-w-7xl mx-auto mb-16 mt-16">
+        <div className="w-1/3 h-px bg-gray-300"></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto pb-24" data-section="riddles">
+        <div className="grid grid-cols-12 gap-16">
+          <div className="col-span-12 lg:col-span-3">
+            <div className="lg:sticky lg:top-24">
+              <span className="font-mono text-sm text-gray-400">05</span>
+              <h2 className="text-2xl lg:text-3xl font-light mt-2 mb-6">
+                {riddleSection.title}
+              </h2>
+              <p className="text-gray-600 leading-relaxed">
+                {riddleSection.description}
+              </p>
+            </div>
+          </div>
+          
+          <div className="col-span-12 lg:col-span-9">
+            <RiddleSection />
           </div>
         </div>
       </div>

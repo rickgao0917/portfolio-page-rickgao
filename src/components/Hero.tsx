@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react';
+import { ArrowRight, Github, Linkedin, Mail, BookOpen, Brain } from 'lucide-react';
 
 const Hero = () => {
   const scrollToExperience = () => {
@@ -24,6 +24,20 @@ const Hero = () => {
     }
   };
 
+  const scrollToBlog = () => {
+    const blogSection = document.querySelector('[data-section="blog"]');
+    if (blogSection) {
+      blogSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const scrollToRiddles = () => {
+    const riddlesSection = document.querySelector('[data-section="riddles"]');
+    if (riddlesSection) {
+      riddlesSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="min-h-screen flex items-end pb-20 px-8 lg:px-16 relative overflow-hidden">
       <div className="w-full max-w-7xl mx-auto relative z-10">
@@ -41,20 +55,43 @@ const Hero = () => {
                 Computer Science student at Yale University interested in software engineering and quantitative finance.
               </p>
               
-              <div className="flex flex-col space-y-3">
+              {/* Redesigned navigation links in a 2x2 grid */}
+              <div className="grid grid-cols-2 gap-3 max-w-md">
                 <button 
                   onClick={scrollToExperience}
-                  className="group flex items-center space-x-2 text-sm font-medium tracking-wide hover:text-gray-600 transition-colors duration-200 w-fit"
+                  className="group flex items-center justify-between p-3 border border-gray-200 rounded-lg hover:border-gray-300 hover:bg-gray-50 transition-all duration-200"
                 >
-                  <span>View Experience</span>
+                  <span className="text-sm font-medium">Experience</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
                 </button>
 
                 <button 
                   onClick={scrollToProjects}
-                  className="group flex items-center space-x-2 text-sm font-medium tracking-wide hover:text-gray-600 transition-colors duration-200 w-fit"
+                  className="group flex items-center justify-between p-3 border border-gray-200 rounded-lg hover:border-gray-300 hover:bg-gray-50 transition-all duration-200"
                 >
-                  <span>View Projects</span>
+                  <span className="text-sm font-medium">Projects</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
+                </button>
+
+                <button 
+                  onClick={scrollToBlog}
+                  className="group flex items-center justify-between p-3 border border-gray-200 rounded-lg hover:border-gray-300 hover:bg-gray-50 transition-all duration-200"
+                >
+                  <div className="flex items-center space-x-2">
+                    <BookOpen className="w-4 h-4" />
+                    <span className="text-sm font-medium">Blog</span>
+                  </div>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
+                </button>
+
+                <button 
+                  onClick={scrollToRiddles}
+                  className="group flex items-center justify-between p-3 border border-gray-200 rounded-lg hover:border-gray-300 hover:bg-gray-50 transition-all duration-200"
+                >
+                  <div className="flex items-center space-x-2">
+                    <Brain className="w-4 h-4" />
+                    <span className="text-sm font-medium">Riddles</span>
+                  </div>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
                 </button>
               </div>
