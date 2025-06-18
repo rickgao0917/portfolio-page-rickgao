@@ -185,7 +185,7 @@ const AnimatedDotsBackground: React.FC<AnimatedDotsBackgroundProps> = ({
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full pointer-events-none"
+      className="absolute inset-0 w-full h-full pointer-events-none backdrop-blur-[0.5px]"
       style={{
         width: '100%',
         height: '100%',
