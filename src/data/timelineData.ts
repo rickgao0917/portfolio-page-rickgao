@@ -71,6 +71,7 @@ export const projectData: TimelineItem[] = [
     title: 'Graph-based collaborative LLM Editor',
     category: 'Python, Typescript',
     period: 'June 2025 - Present',
+    wip: true,
     description: 'Developing a new interface for synchronous collaboration on text documents + collaboration with LLM chats',
     features: [
       'Synchronous multi-user collaboration on the same LLM chat',
@@ -91,7 +92,6 @@ export const projectData: TimelineItem[] = [
     period: 'May 2025 - Present',
     description: 'Developed fully featured event-driven backtester in C++ and trading strategy, including market impact analysis.',
     features: [
-      'Trading since May 2025, substantially profitable',
       'Event-driven backtesting system built in C++',
       'Market impact analysis and principal component analysis',
       'Real-time trading implementation'
@@ -128,7 +128,7 @@ export const projectData: TimelineItem[] = [
     title: 'QuantRooms',
     category: 'Chrome Extension, WebSocket, Full-Stack',
     period: 'May 2025 - Present',
-    description: 'Multiplayer quant finance interview preparation (WIP).',
+    description: 'Multiplayer quant finance interview preparation.',
     wip: true,
     features: [
       'Multiplayer Chrome extension for QuantGuide.io with real-time collaborative coding',
@@ -153,7 +153,6 @@ export const projectData: TimelineItem[] = [
     description: 'Developed custom package integrating data cleaning, processing, and exploration in C++, Python.',
     features: [
       'Custom trading package with data processing capabilities',
-      'Implemented custom backtester with adversarial trading simulations',
       'Bayesian inferencing and Monte Carlo simulations for manual trading rounds'
     ],
     impact: [],
