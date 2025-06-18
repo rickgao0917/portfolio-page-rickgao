@@ -129,6 +129,7 @@ export const projectData: TimelineItem[] = [
     category: 'Chrome Extension, WebSocket, Full-Stack',
     period: 'May 2025 - Present',
     description: 'Multiplayer quant finance interview preparation (WIP).',
+    wip: true,
     features: [
       'Multiplayer Chrome extension for QuantGuide.io with real-time collaborative coding',
       'WebSocket-based synchronization using Socket.io for real-time communication',

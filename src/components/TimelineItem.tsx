@@ -30,6 +30,11 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ item, isExpanded, onToggleE
             <div className="flex-1">
               <div className="flex items-center space-x-2 mb-2">
                 <h3 className="text-lg font-semibold text-gray-900">{item.title}</h3>
+                {item.wip && (
+                  <span className="px-2 py-1 text-xs bg-orange-100 text-orange-700 rounded-full border border-orange-200 font-medium">
+                    WIP
+                  </span>
+                )}
               </div>
               {item.type === 'experience' ? (
                 <div className="flex items-center space-x-4 mb-2">

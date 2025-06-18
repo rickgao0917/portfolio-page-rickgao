@@ -12,6 +12,7 @@ export interface TimelineItem {
   features?: string[];
   impact?: string[];
   tech: string[];
+  wip?: boolean;
   links?: {
     demo?: string;
     github?: string;
