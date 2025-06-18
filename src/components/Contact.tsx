@@ -1,7 +1,8 @@
 
 import React, { useState } from 'react';
 import { Mail, MapPin, Phone } from 'lucide-react';
-// import emailjs from '@emailjs/browser';
+import emailjs from '@emailjs/browser';
+import { useToast } from '@/components/ui/use-toast';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -10,8 +11,8 @@ const Contact = () => {
     subject: '',
     message: ''
   });
-  // const [isSubmitting, setIsSubmitting] = useState(false);
-  // const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -23,39 +24,38 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Implement email functionality later
-    console.log('Form submitted:', formData);
-    
-    // Commented out email functionality for now
-    /*
     setIsSubmitting(true);
-    setSubmitStatus('idle');
 
     try {
-      // EmailJS configuration - users will need to set up their own EmailJS account
       const result = await emailjs.send(
-        'YOUR_SERVICE_ID', // User needs to replace with their EmailJS service ID
-        'YOUR_TEMPLATE_ID', // User needs to replace with their EmailJS template ID
+        'service_6g6oi1c', // Your service ID
+        'template_ytwgowe', // Your template ID
         {
-          from_name: formData.name,
-          from_email: formData.email,
-          subject: formData.subject,
+          name: formData.name,
+          email: formData.email,
+          title: formData.subject, // Using 'title' to match your template
           message: formData.message,
-          to_email: 'rickgao.contactme@gmail.com'
+          time: new Date().toLocaleString() // Adding timestamp as your template expects it
         },
-        'YOUR_PUBLIC_KEY' // User needs to replace with their EmailJS public key
+        'Ee3GnxY1hjDchJhK0' // Your public key
       );
 
       console.log('Email sent successfully:', result);
-      setSubmitStatus('success');
+      toast({
+        title: "Message sent!",
+        description: "Thanks for reaching out. I'll get back to you soon.",
+      });
       setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (error) {
       console.error('Email sending failed:', error);
-      setSubmitStatus('error');
+      toast({
+        title: "Failed to send message",
+        description: "Please try again or email me directly at rickgao.contactme@gmail.com",
+        variant: "destructive",
+      });
     } finally {
       setIsSubmitting(false);
     }
-    */
   };
 
   return (
@@ -145,27 +145,12 @@ const Contact = () => {
                 />
               </div>
               
-              {/* Commented out status messages for now */}
-              {/*
-              {submitStatus === 'success' && (
-                <div className="p-4 bg-green-600 bg-opacity-20 border border-green-500 rounded-lg">
-                  <p className="text-green-200">Message sent successfully! I'll get back to you soon.</p>
-                </div>
-              )}
-              
-              {submitStatus === 'error' && (
-                <div className="p-4 bg-red-600 bg-opacity-20 border border-red-500 rounded-lg">
-                  <p className="text-red-200">Failed to send message. Please try again or email me directly.</p>
-                </div>
-              )}
-              */}
-              
               <button 
                 type="submit"
-                // disabled={isSubmitting}
-                className="px-8 py-3 bg-white text-gray-900 font-medium rounded-lg hover:bg-gray-100 transition-colors duration-200"
+                disabled={isSubmitting}
+                className="px-8 py-3 bg-white text-gray-900 font-medium rounded-lg hover:bg-gray-100 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
             </form>
           </div>
