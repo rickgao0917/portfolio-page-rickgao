@@ -68,12 +68,30 @@ export const experienceData: TimelineItem[] = [
 export const projectData: TimelineItem[] = [
   {
     type: 'project',
-    title: 'Prediction Market Arbitrage/Market-Making',
+    title: 'Graph-based collaborative LLM Editor',
+    category: 'Python, Typescript',
+    period: 'June 2025 - Present',
+    description: 'Developing a new interface for synchronous collaboration on text documents + collaboration with LLM chats',
+    features: [
+      'Synchronous multi-user collaboration on the same LLM chat',
+      'Selective context on chats from document',
+      'Graph-based architecture allows for easy visualization of all LLM conversation branches',
+    ],
+    impact: [],
+    tech: ['Python', 'Typescript'],
+    links: {
+      demo: '#',
+      github: 'https://github.com/rickgao0917/noded'
+    }
+  },
+    {
+    type: 'project',
+    title: 'Weather Market Arbitrage',
     category: 'Python, C++, Statsmodels, Research',
     period: 'May 2025 - Present',
-    description: 'Developed fully featured event-driven backtester in C++, including market impact analysis and PCA.',
+    description: 'Developed fully featured event-driven backtester in C++ and trading strategy, including market impact analysis.',
     features: [
-      'Live trading since May 2025, +22% since inception and largest drawdown of 8%',
+      'Trading since May 2025, substantially profitable',
       'Event-driven backtesting system built in C++',
       'Market impact analysis and principal component analysis',
       'Real-time trading implementation'
@@ -90,12 +108,11 @@ export const projectData: TimelineItem[] = [
     title: 'Bond: End-to-End Agentic Market Intelligence Intelligence/Equity Research Platform',
     category: 'Python, PyTorch',
     period: 'May 2025 - Present',
-    description: 'Graph network implementation to determine relevancy of sources for agent research in geopolitical environment and labor cost analysis.',
+    description: 'Graph network implementation to determine relevancy of sources for agentic investment research.',
     features: [
       'RAG + Vector database to ensure data consistency and accurate source citation',
       'Custom ensemble model of Llama, Claude DeepSeek + GRPO, NLP and sentiment analysis models',
       'Tuned on multimodal data, video, news filings and pricing data',
-      'Advanced geopolitical and labor cost analysis capabilities'
     ],
     impact: [
       'Currently being trialed by PMs and analysts'
@@ -190,8 +207,6 @@ export const projectData: TimelineItem[] = [
     period: 'May 2023 - May 2024',
     description: 'Co-authored bioinformatics code generation benchmark consisting of approximately 500 novel bioinformatics-adjacent functions.',
     features: [
-      'Comprehensive bioinformatics code generation benchmark',
-      'Novel dataset of 500+ bioinformatics functions',
       'Evidence-based comparison of domain-specific vs general models',
       'Advanced evaluation metrics for code generation quality'
     ],
