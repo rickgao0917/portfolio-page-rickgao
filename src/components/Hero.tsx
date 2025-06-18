@@ -1,6 +1,12 @@
 import React from 'react';
 import { ArrowRight, Github, Linkedin, Mail, BookOpen, Brain } from 'lucide-react';
 
+// Feature flags - should match Timeline component
+const FEATURE_FLAGS = {
+  BLOG_ENABLED: false,
+  RIDDLES_ENABLED: false
+};
+
 const Hero = () => {
   const scrollToExperience = () => {
     const experienceSection = document.querySelector('section:nth-of-type(3)'); // Timeline is the 3rd section (Hero, About, Timeline)
@@ -54,7 +60,7 @@ const Hero = () => {
                 Computer Science student at Yale University interested in software engineering and quantitative finance.
               </p>
               
-              {/* Low-profile navigation links */}
+              {/* Low-profile navigation links - conditionally show based on feature flags */}
               <div className="flex flex-wrap gap-1 text-sm text-gray-500">
                 <button 
                   onClick={scrollToExperience}
@@ -69,20 +75,28 @@ const Hero = () => {
                 >
                   Projects
                 </button>
-                <span className="px-2 py-1">•</span>
-                <button 
-                  onClick={scrollToBlog}
-                  className="px-3 py-1 hover:text-gray-700 hover:bg-gray-50 rounded transition-colors duration-200"
-                >
-                  Blog
-                </button>
-                <span className="px-2 py-1">•</span>
-                <button 
-                  onClick={scrollToRiddles}
-                  className="px-3 py-1 hover:text-gray-700 hover:bg-gray-50 rounded transition-colors duration-200"
-                >
-                  Math Riddles
-                </button>
+                {FEATURE_FLAGS.BLOG_ENABLED && (
+                  <>
+                    <span className="px-2 py-1">•</span>
+                    <button 
+                      onClick={scrollToBlog}
+                      className="px-3 py-1 hover:text-gray-700 hover:bg-gray-50 rounded transition-colors duration-200"
+                    >
+                      Blog
+                    </button>
+                  </>
+                )}
+                {FEATURE_FLAGS.RIDDLES_ENABLED && (
+                  <>
+                    <span className="px-2 py-1">•</span>
+                    <button 
+                      onClick={scrollToRiddles}
+                      className="px-3 py-1 hover:text-gray-700 hover:bg-gray-50 rounded transition-colors duration-200"
+                    >
+                      Math Riddles
+                    </button>
+                  </>
+                )}
               </div>
             </div>
           </div>
