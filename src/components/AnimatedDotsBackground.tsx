@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useState } from 'react';
 
 interface Dot {
@@ -184,7 +185,7 @@ const AnimatedDotsBackground: React.FC<AnimatedDotsBackgroundProps> = ({
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full pointer-events-none backdrop-blur-sm"
+      className="absolute inset-0 w-full h-full pointer-events-none"
       style={{
         width: '100%',
         height: '100%',
