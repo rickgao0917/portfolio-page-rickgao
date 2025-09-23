@@ -1,4 +1,3 @@
-
 import { TimelineItem } from '../types/timeline';
 
 export const experienceData: TimelineItem[] = [
@@ -219,3 +218,17 @@ export const projectData: TimelineItem[] = [
     }
   }
 ];
+
+export const blogSection = {
+  type: 'blog' as const,
+  title: 'Latest Blog Post',
+  period: 'Updated regularly',
+  description: 'Thoughts on software engineering, quantitative finance, and technology.'
+};
+
+export const riddleSection = {
+  type: 'riddle' as const,
+  title: 'Daily Math Riddle',
+  period: 'Updated daily',
+  description: 'Brain teasers and mathematical puzzles for the quantitatively curious.'
+};

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import emailjs from '@emailjs/browser';
@@ -64,7 +63,7 @@ const Contact = () => {
         <div className="grid grid-cols-12 gap-16">
           {/* Section header */}
           <div className="col-span-12 lg:col-span-4">
-            <span className="font-mono text-sm text-gray-400">03</span>
+            <span className="font-mono text-sm text-gray-400">04</span>
             <h2 className="text-2xl lg:text-3xl font-light mt-2 mb-6">
               Let's Connect
             </h2>

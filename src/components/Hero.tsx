@@ -1,6 +1,12 @@
 
 import React from 'react';
-import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react';
+import { ArrowRight, Github, Linkedin, Mail, BookOpen, Brain } from 'lucide-react';
+
+// Feature flags - should match Timeline component
+const FEATURE_FLAGS = {
+  BLOG_ENABLED: false,
+  RIDDLES_ENABLED: false
+};
 
 const Hero = () => {
   const scrollToExperience = () => {
@@ -24,6 +30,20 @@ const Hero = () => {
     }
   };
 
+  const scrollToBlog = () => {
+    const blogSection = document.querySelector('[data-section="blog"]');
+    if (blogSection) {
+      blogSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const scrollToRiddles = () => {
+    const riddlesSection = document.querySelector('[data-section="riddles"]');
+    if (riddlesSection) {
+      riddlesSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="min-h-screen flex items-end pb-20 px-8 lg:px-16 relative overflow-hidden">
       <div className="w-full max-w-7xl mx-auto relative z-10">
@@ -38,22 +58,43 @@ const Hero = () => {
             
             <div className="space-y-6">
               
-              <div className="flex flex-col space-y-3">
+              {/* Low-profile navigation links - conditionally show based on feature flags */}
+              <div className="flex flex-wrap gap-1 text-sm text-gray-500">
                 <button 
                   onClick={scrollToExperience}
-                  className="group flex items-center space-x-2 text-sm font-medium tracking-wide hover:text-gray-600 transition-colors duration-200 w-fit"
+                  className="px-3 py-1 hover:text-gray-700 hover:bg-gray-50 rounded transition-colors duration-200"
                 >
-                  <span>View Experience</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
+                  Experience
                 </button>
-
+                <span className="px-2 py-1">•</span>
                 <button 
                   onClick={scrollToProjects}
-                  className="group flex items-center space-x-2 text-sm font-medium tracking-wide hover:text-gray-600 transition-colors duration-200 w-fit"
+                  className="px-3 py-1 hover:text-gray-700 hover:bg-gray-50 rounded transition-colors duration-200"
                 >
-                  <span>View Projects</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
+                  Projects
                 </button>
+                {FEATURE_FLAGS.BLOG_ENABLED && (
+                  <>
+                    <span className="px-2 py-1">•</span>
+                    <button 
+                      onClick={scrollToBlog}
+                      className="px-3 py-1 hover:text-gray-700 hover:bg-gray-50 rounded transition-colors duration-200"
+                    >
+                      Blog
+                    </button>
+                  </>
+                )}
+                {FEATURE_FLAGS.RIDDLES_ENABLED && (
+                  <>
+                    <span className="px-2 py-1">•</span>
+                    <button 
+                      onClick={scrollToRiddles}
+                      className="px-3 py-1 hover:text-gray-700 hover:bg-gray-50 rounded transition-colors duration-200"
+                    >
+                      Math Riddles
+                    </button>
+                  </>
+                )}
               </div>
             </div>
           </div>
@@ -83,6 +124,11 @@ const Hero = () => {
                   </a>
                   <a href="https://linkedin.com/in/rgao09" className="p-2 hover:bg-gray-50 rounded-full transition-colors duration-200">
                     <Linkedin className="w-4 h-4" />
+                  </a>
+                  <a href="https://x.com/stochasticClown" className="p-2 hover:bg-gray-50 rounded-full transition-colors duration-200">
+                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
                   </a>
                   <a href="mailto:rickgao.contact@gmail.com" className="p-2 hover:bg-gray-50 rounded-full transition-colors duration-200">
                     <Mail className="w-4 h-4" />
