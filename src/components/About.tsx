@@ -101,7 +101,7 @@ const About = () => {
                   <div className="space-y-2">
                     <p className="font-medium">Yale University</p>
                     <p className="text-gray-600">B.S. in Computer Science, Major GPA: 3.7</p>
-                    <p className="text-sm text-gray-500">Aug. 2022 - Present</p>
+                    <p className="text-sm text-gray-500">Aug. 2022 - </p>
                     <p className="text-sm text-gray-600 mt-2">
                       Relevant Courses: Systems Programming, Data Structures, Deep Learning Theory and Applications, Bayesian Statistics
                     </p>

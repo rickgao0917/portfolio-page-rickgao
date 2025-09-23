@@ -37,9 +37,6 @@ const Hero = () => {
             </div>
             
             <div className="space-y-6">
-              <p className="text-lg md:text-xl text-gray-600 max-w-2xl leading-relaxed">
-                Computer Science student at Yale University interested in software engineering and quantitative finance.
-              </p>
               
               <div className="flex flex-col space-y-3">
                 <button 
