@@ -1,11 +1,14 @@
 
 import React from 'react';
 import { ArrowRight, Github, Linkedin, Mail, BookOpen, Brain } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 // Feature flags - should match Timeline component
 const FEATURE_FLAGS = {
   BLOG_ENABLED: false,
-  RIDDLES_ENABLED: false
+  RIDDLES_ENABLED: false,
+  STUDY_NOTES_ENABLED: true,
+  EXERCISES_ENABLED: true
 };
 
 const Hero = () => {
@@ -60,14 +63,14 @@ const Hero = () => {
               
               {/* Low-profile navigation links - conditionally show based on feature flags */}
               <div className="flex flex-wrap gap-1 text-sm text-gray-500">
-                <button 
+                <button
                   onClick={scrollToExperience}
                   className="px-3 py-1 hover:text-gray-700 hover:bg-gray-50 rounded transition-colors duration-200"
                 >
                   Experience
                 </button>
                 <span className="px-2 py-1">•</span>
-                <button 
+                <button
                   onClick={scrollToProjects}
                   className="px-3 py-1 hover:text-gray-700 hover:bg-gray-50 rounded transition-colors duration-200"
                 >
@@ -76,7 +79,7 @@ const Hero = () => {
                 {FEATURE_FLAGS.BLOG_ENABLED && (
                   <>
                     <span className="px-2 py-1">•</span>
-                    <button 
+                    <button
                       onClick={scrollToBlog}
                       className="px-3 py-1 hover:text-gray-700 hover:bg-gray-50 rounded transition-colors duration-200"
                     >
@@ -87,12 +90,34 @@ const Hero = () => {
                 {FEATURE_FLAGS.RIDDLES_ENABLED && (
                   <>
                     <span className="px-2 py-1">•</span>
-                    <button 
+                    <button
                       onClick={scrollToRiddles}
                       className="px-3 py-1 hover:text-gray-700 hover:bg-gray-50 rounded transition-colors duration-200"
                     >
                       Math Riddles
                     </button>
+                  </>
+                )}
+                {FEATURE_FLAGS.STUDY_NOTES_ENABLED && (
+                  <>
+                    <span className="px-2 py-1">•</span>
+                    <Link
+                      to="/study-notes"
+                      className="px-3 py-1 hover:text-gray-700 hover:bg-gray-50 rounded transition-colors duration-200 inline-block"
+                    >
+                      Study Notes
+                    </Link>
+                  </>
+                )}
+                {FEATURE_FLAGS.EXERCISES_ENABLED && (
+                  <>
+                    <span className="px-2 py-1">•</span>
+                    <Link
+                      to="/exercises"
+                      className="px-3 py-1 hover:text-gray-700 hover:bg-gray-50 rounded transition-colors duration-200 inline-block"
+                    >
+                      Exercises
+                    </Link>
                   </>
                 )}
               </div>
