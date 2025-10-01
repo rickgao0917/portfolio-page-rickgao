@@ -14,4 +14,6 @@ export interface Exercise {
   problem: string;
   solution: string;
   hints?: string[];
+  date?: string;
+  tags?: string[];
 }

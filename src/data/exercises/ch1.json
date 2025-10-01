@@ -1,0 +1,742 @@
+{
+  "title": "Problems",
+  "sections": [
+    {
+      "id": "counting",
+      "title": "Counting",
+      "problems": [
+        {
+          "id": 1,
+          "question": "How many ways are there to permute the letters in the word MISSISSIPPI?",
+          "solution": "There are $11!$ ways to permute 11 letters. However, there are 4 indistinguishable $S$'s, 4 indistinguishable $I$'s, and 2 indistinguishable $P$'s, so we must divide by those to avoid overcounting, which gives us $$\\frac{11!}{4!4!2!}$$"
+        },
+        {
+          "id": 2,
+          "parts": [
+            {
+              "part": "a",
+              "question": "How many 7-digit phone numbers are possible, assuming that the first digit can't be a 0 or a 1?",
+              "solution": "Given the first cannot be a 0 or 1, we have 8 options, and then the remaining digits are free, so we have 10 options. $$8 \\times 10^6 = 8{,}000{,}000$$"
+            },
+            {
+              "part": "b",
+              "question": "Re-solve (a), except now assume also that the phone number is not allowed to start with 911 (since this is reserved for emergency use, and it would not be desirable for the system to wait to see whether more digits were going to be dialed after someone has dialed 911).",
+              "solution": "Now, any number whose first three digits start with 911 cannot exist, so our first three numbers are fixed to 911, and then there are 4 digits left, all with 10 options. $$8 \\times 10^6 - 10^4 = 7{,}990{,}000$$"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "context": "Fred is planning to go out to dinner each night of a certain week, Monday through Friday, with each dinner being at one of his ten favorite restaurants.",
+          "parts": [
+            {
+              "part": "a",
+              "question": "How many possibilities are there for Fred's schedule of dinners for that Monday through Friday, if Fred is not willing to eat at the same restaurant more than once?",
+              "solution": "This is simply sampling without replacement, so we have $n$ options for the first day, then $n-1$ options. $$n(n-1)\\cdots(n-k+1)$$ $$10 \\times 9 \\times 8 \\times 7 \\times 6=30{,}240$$"
+            },
+            {
+              "part": "b",
+              "question": "How many possibilities are there for Fred's schedule of dinners for that Monday through Friday, if Fred is willing to eat at the same restaurant more than once, but is not willing to eat at the same place twice in a row (or more)?",
+              "solution": "First we have 10 options, but then every day after, there's 9 options as Fred can eat at a restaurant that is not the same as the previous day. $$10 \\times 9^4 = 65{,}610$$"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "context": "A round-robin tournament is being held with $n$ tennis players; this means that every player will play against every other player exactly once.",
+          "parts": [
+            {
+              "part": "a",
+              "question": "How many possible outcomes are there for the tournament (the outcome lists out who won and who lost for each game)?",
+              "solution": "First, we need to find the number of games that will happen, which is equivalent to from $n$ players, choosing any 2 players: $\\binom{n}{2}$, or $\\frac{n(n-1)}{2}$. Then, we know that each pairing has either player $A$ or player $B$ win, so we have $$2^{\\frac{n(n-1)}{2}}$$"
+            },
+            {
+              "part": "b",
+              "question": "How many games are played in total?",
+              "solution": "$$\\binom{n}{2} = \\frac{n(n-1)}{2}$$"
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "context": "A knock-out tournament is being held with $2^n$ tennis players. This means that for each round, the winners move on to the next round and the losers are eliminated, until only one person remains. For example, if initially there are $2^4 = 16$ players, then there are 8 games in the first round, then the 8 winners move on to round 2, then the 4 winners move on to round 3, then the 2 winners move on to round 4, the winner of which is declared the winner of the tournament.",
+          "parts": [
+            {
+              "part": "a",
+              "question": "How many rounds are there?",
+              "solution": "Given that we start with $2^n$ players, and each round, half of the players get knocked out, we would need $n$ rounds to reach a winner."
+            },
+            {
+              "part": "b",
+              "question": "Count how many games in total are played, by adding up the numbers of games played in each round.",
+              "solution": "For each round, there is $2^{n-1}$ games, so in the end, we would have $$2^n-1$$"
+            },
+            {
+              "part": "c",
+              "question": "Count how many games in total are played, this time by directly thinking about it without doing almost any calculation.",
+              "solution": "Because each game eliminates one player, we would need $$2^n-1$$ games to eliminate all players except the winner."
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "question": "There are 20 people at a chess club on a certain day. They each find opponents and start playing. How many possibilities are there for how they are matched up, assuming that in each game it does matter who has the white pieces?",
+          "solution": "We have $20!$ ways to organize the people into their respective games, and then we end up overcounting by $10!$ as the ordering of the games does not matter. Then, if we didn't care about color, we would also divide by $2^{10}$, but since we do, we just have $$\\frac{20!}{10!}$$"
+        },
+        {
+          "id": 7,
+          "context": "Two chess players, A and B, are going to play 7 games. Each game has three possible outcomes: a win for A (which is a loss for B), a draw (tie), and a loss for A (which is a win for B). A win is worth 1 point, a draw is worth 0.5 points, and a loss is worth 0 points.",
+          "parts": [
+            {
+              "part": "a",
+              "question": "How many possible outcomes for the individual games are there, such that overall player A ends up with 3 wins, 2 draws, and 2 losses?",
+              "solution": "You first select 3 wins from 7 games, then 2 draws, and the remaining two losses. $$\\binom{7}{3}\\binom{4}{2}\\binom{2}{2} = 210$$"
+            },
+            {
+              "part": "b",
+              "question": "How many possible outcomes for the individual games are there, such that A ends up with 4 points and B ends up with 3 points?",
+              "solution": "Casework, you have these cases:\n- 4 wins, 3 losses: $\\binom{7}{4} = 35$\n- 3 wins, 2 draws, 2 losses: $\\binom{7}{3}\\binom{4}{2}\\binom{2}{2} = 210$\n- 2 wins, 4 draws, 1 loss: $\\binom{7}{2}\\binom{5}{4}\\binom{1}{1} = 105$\n- 1 win, 6 draws: $\\binom{7}{1} = 7$\n\nSummed: 357"
+            },
+            {
+              "part": "c",
+              "question": "Now assume that they are playing a best-of-7 match, where the match will end when either player has 4 points or when 7 games have been played, whichever is first. How many possible outcomes for the individual games are there, such that the match lasts for 7 games and A wins by a score of 4 to 3?",
+              "solution": "The idea here is that $B$ must reach 3 points before $A$ reaches 4, meaning the last game must be an $A$ win or draw. The following cases exist then:\n- 3W,3L: $\\binom{6}{3} =20$\n- 2W,2D,2L: $\\frac{6!}{2!2!2!} = 90$\n- 2W,3D,1L: $\\frac{6!}{2!3!} = 60$\n- 1W,4D,1L: $\\frac{6!}{4!} =30$\n- 1W,5D: $\\frac{6!}{5!} =6$\n- 6D: $\\frac{6!}{6!} =1$\n\nSummed: 267"
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "parts": [
+            {
+              "part": "a",
+              "question": "How many ways are there to split a dozen people into 3 teams, where one team has 2 people, and the other two teams have 5 people each?",
+              "solution": "You choose 5 from 12 for the first team, then 5 from 7, and then the remaining two form the last team. $$\\binom{12}{5}\\binom{7}{5}$$"
+            },
+            {
+              "part": "b",
+              "question": "How many ways are there to split a dozen people into 3 teams, where each team has 4 people?",
+              "solution": "We choose the first group of 4 from 12, then the second group of 4 from 8, then the remainder make the third team. $$\\binom{12}{4}\\binom{8}{4}$$"
+            }
+          ]
+        },
+        {
+          "id": 9,
+          "parts": [
+            {
+              "part": "a",
+              "question": "How many paths are there from the point $(0, 0)$ to the point $(110, 111)$ in the plane such that each step either consists of going one unit up or one unit to the right?",
+              "solution": "We will need to take a total of 221 steps, so we can either choose to make 110 horizontal steps from the start. $$\\binom{221}{110}$$"
+            },
+            {
+              "part": "b",
+              "question": "How many paths are there from $(0, 0)$ to $(210, 211)$, where each step consists of going one unit up or one unit to the right, and the path has to go through $(110, 111)$?",
+              "solution": "In this case, we can have the initial travel from 9a, so we have $\\binom{221}{110}$, and then from here, we have another 200 steps, of which we will choose 100 steps to go horizontal, so we have $$\\binom{221}{110}\\binom{200}{100}$$"
+            }
+          ]
+        },
+        {
+          "id": 10,
+          "context": "To fulfill the requirements for a certain degree, a student can choose to take any 7 out of a list of 20 courses, with the constraint that at least 1 of the 7 courses must be a statistics course. Suppose that 5 of the 20 courses are statistics courses.",
+          "parts": [
+            {
+              "part": "a",
+              "question": "How many choices are there for which 7 courses to take?",
+              "solution": "In this case, it is easier to take the complement, where we take 0 statistics courses, we would have $\\binom{15}{7}$, so our final solution would be $$\\binom{20}{7} - \\binom{15}{7}$$"
+            },
+            {
+              "part": "b",
+              "question": "Explain intuitively why the answer to (a) is not $\\binom{5}{1} \\cdot \\binom{19}{6}$.",
+              "solution": "It is not simply the above given that that only selects for **one** statistics course, while the student can choose to take more than one stats course."
+            }
+          ]
+        },
+        {
+          "id": 11,
+          "context": "Let $A$ and $B$ be sets with $|A| = n$, $|B| = m$.",
+          "parts": [
+            {
+              "part": "a",
+              "question": "How many functions are there from $A$ to $B$ (i.e., functions with domain $A$, assigning an element of $B$ to each element of $A$)?",
+              "solution": "For each element $a_i \\in A$, you have $m$ choices, so you will have $$m^n$$"
+            },
+            {
+              "part": "b",
+              "question": "How many one-to-one functions are there from $A$ to $B$?",
+              "solution": "The mapping between $A \\rightarrow B$ and $B \\rightarrow A$ must be unique, so we have $m$ options for $a_1$, and then $a_n = m-(n-1) = m-n+1$ for cases where $m\\geq n$ else 0."
+            }
+          ]
+        },
+        {
+          "id": 12,
+          "context": "Four players, named A, B, C, and D, are playing a card game. A standard, well-shuffled deck of cards is dealt to the players (so each player receives a 13-card hand).",
+          "parts": [
+            {
+              "part": "a",
+              "question": "How many possibilities are there for the hand that player A will get? (Within a hand, the order in which cards were received doesn't matter.)",
+              "solution": "Simply are you selecting 13 cards from 52. $$\\binom{52}{13} = 635{,}013{,}559{,}600$$"
+            },
+            {
+              "part": "b",
+              "question": "How many possibilities are there overall for what hands everyone will get, assuming that it matters which player gets which hand, but not the order of cards within a hand?",
+              "solution": "You are selecting without replacement, therefore you have $$\\binom{52}{13}\\binom{39}{13}\\binom{26}{13}\\approx 5.36\\times10^{28}$$"
+            },
+            {
+              "part": "c",
+              "question": "Explain intuitively why the answer to Part (b) is not the fourth power of the answer to Part (a).",
+              "solution": "It isn't because we are not replacing the cards, so the pile we are selecting from decreases."
+            }
+          ]
+        },
+        {
+          "id": 13,
+          "question": "A certain casino uses 10 standard decks of cards mixed together into one big deck, which we will call a superdeck. Thus, the superdeck has $52 \\cdot 10 = 520$ cards, with 10 copies of each card. How many different 10-card hands can be dealt from the superdeck? The order of the cards does not matter, nor does it matter which of the original 10 decks the cards came from. Express your answer as a binomial coefficient.",
+          "solution": "This is stars and bars, where we have 52 cards + 10 in a hand - 1 for the total of 61, and we choose 10. $$\\binom{61}{10}$$"
+        },
+        {
+          "id": 14,
+          "question": "You are ordering two pizzas. A pizza can be small, medium, large, or extra large, with any combination of 8 possible toppings (getting no toppings is allowed, as is getting all 8). How many possibilities are there for your two pizzas?",
+          "solution": "We have 4 options for pizzas, and then we have $2^8$ options for toppings. Then, we have a total of 1024 choices, and are looking to get 2, which means this is actually a stars and bars, giving us 1024+2-1 choose 2: $$\\binom{1025}{2}$$"
+        }
+      ]
+    },
+    {
+      "id": "story-proofs",
+      "title": "Story Proofs",
+      "problems": [
+        {
+          "id": 15,
+          "question": "Give a story proof that $\\sum_{k=0}^{n} \\binom{n}{k} = 2^n$.",
+          "solution": "Count by how many 1s each $n$-bit binary string has - there are $\\binom{n}{k}$ strings with exactly $k$ ones (choosing $k$ positions out of $n$ to be 1). Summing over all possible values of $k$ from 0 to $n$ gives $\\sum_{k=0}^{n} \\binom{n}{k}$."
+        },
+        {
+          "id": 16,
+          "question": "Show that for all positive integers $n$ and $k$ with $n \\geq k$, $$\\binom{n}{k} + \\binom{n}{k-1} = \\binom{n+1}{k},$$ doing this in two ways:",
+          "parts": [
+            {
+              "part": "a",
+              "title": "algebraically",
+              "solution": "$$\\binom{n}{k} + \\binom{n}{k-1} = \\binom{n+1}{k}$$\n\n$$\\frac{n!}{k!(n-k)!} + \\frac{n!}{(k-1)!(n-k+1)!} = \\frac{(n+1)!}{k!(n-k+1)!}$$\n\nSince the LHS LCD is $k!(n-k+1)!$, we want to multiply $\\frac{n!}{k!(n-k)!}$ by $n-k+1$ and the right hand side by $k$:\n\n$$\\frac{n!(n-k+1)}{k!(n-k)!(n-k+1)} + \\frac{n!k}{k(k-1)!(n-k+1)!} = \\frac{(n+1)!}{k!(n-k+1)!}$$\n\n$$\\frac{n!(n-k+1)}{k!(n-k+1)!} + \\frac{n!k}{k!(n-k+1)!} = \\frac{(n+1)!}{k!(n-k+1)!}$$\n\n$$\\frac{n!k + n!(n-k+1)}{k!(n-k+1)!} = \\frac{(n+1)!}{k!(n-k+1)!}$$\n\n$$\\frac{n!(k+[n-k+1])}{k!(n-k+1)!} = \\frac{(n+1)!}{k!(n-k+1)!}$$\n\n$$\\frac{n!(n+1)}{k!(n-k+1)!} = \\frac{(n+1)!}{k!(n-k+1)!}$$\n\n$$\\frac{(n+1)!}{k!(n-k+1)!} = \\frac{(n+1)!}{k!(n-k+1)!}$$"
+            },
+            {
+              "part": "b",
+              "title": "with a story",
+              "solution": "RHS is simply selecting $k$ people from $n+1$ group.\n\nLHS, let's focus on one person, either the person is in the group or they are not.\n- Person is in the committee, you have $\\binom{n}{k-1}$\n- Person is not in the committee, you have $\\binom{n}{k}$"
+            }
+          ]
+        },
+        {
+          "id": 17,
+          "question": "Give a story proof that $$\\sum_{k=0}^{n} \\binom{n}{k}^2 = \\binom{2n}{n},$$ for all positive integers $n$.",
+          "solution": "Consider two classes, each with $n$ students. You want to select exactly $n$ students total from both classes combined.\n\nRHS: Choose $n$ students from the $2n$ total students.\n\nLHS:\n- Choose $k$ students from the first class, and $n-k$ students from the second class, by symmetry, we have $\\binom{n}{k}\\binom{n}{n-k} = \\binom{n}{k}^2$\n- Sum across all $k$: $\\sum_{k=0}^n$"
+        },
+        {
+          "id": 18,
+          "question": "Give a story proof that $$\\sum_{k=1}^{n} k\\binom{n}{k}^2 = n\\binom{2n-1}{n-1},$$ for all positive integers $n$.",
+          "solution": "Consider two classes, each with $n$ students. You want to select exactly $n$ students total from both classes combined **and choose one of them as team captain**.\n\nRHS: Choose the captain first from the first class ($n$ options), then choose the remaining $n-1$ students from the remaining $2n-1$ students: $n\\binom{2n-1}{n-1}$ ways.\n\nLHS:\n- Choose $k$ students from the first class and $n-k$ students from the second class: $\\binom{n}{k}\\binom{n}{n-k} = \\binom{n}{k}^2$ ways\n- Choose the captain from the $k$ students selected from the first class: $k$ ways\n- This gives $k\\binom{n}{k}^2$ ways for each value of $k$\n- Sum across all $k$: $\\sum_{k=1}^{n} k\\binom{n}{k}^2$"
+        },
+        {
+          "id": 19,
+          "question": "Give a story proof that $$\\sum_{k=2}^{n} \\binom{k}{2}\\binom{n-k+2}{2} = \\binom{n+3}{5},$$ for all integers $n \\geq 2$.",
+          "solution": "Consider a class with $n+3$ students.\n\nRHS: you choose 5 from the students.\n\nLHS: let $m = k + 1$ as the center, then there is exactly $k$ students below the center, and there is $n-k+2$ students above. Then we choose 2 from both, and multiply them, and then implicitly you have 5 selected students, as you chose where to center on."
+        },
+        {
+          "id": 20,
+          "parts": [
+            {
+              "part": "a",
+              "question": "Show using a story proof that $$\\binom{k}{k} + \\binom{k+1}{k} + \\binom{k+2}{k} + \\cdots + \\binom{n}{k} = \\binom{n+1}{k+1},$$ where $n$ and $k$ are positive integers with $n \\geq k$. This is called the hockey stick identity.",
+              "solution": "Consider a group of $n+1$ people 0-indexed.\n\nRHS: You choose $k+1$ people where someone is the leader.\n\nLHS: Consider who the leader is, if $k$ is the leader, we will need $k$ more people to complete the group.\n- $k$ is leader, then we need $k$ more from $0$ to $k-1$: $\\binom{k}{k}$ ways\n- if $k+1$ is the leader, then we choose $k$ from $0$ to $k$: $\\binom{k+1}{k}$ ways\n- if $k+2$ is the leader, then we choose people from $0$ to $k+1$: $\\binom{k+2}{k}$ ways\n- etc.\n- if $n$ is the leader, then you choose $k$ from $0$ to $n-1$, where there is $\\binom{n}{k}$ ways\n\nFor each case, they are mutually exclusive, so we are allowed to sum them together."
+            },
+            {
+              "part": "b",
+              "question": "Suppose that a large pack of Haribo gummi bears can have anywhere between 30 and 50 gummi bears. There are 5 delicious flavors: pineapple (clear), raspberry (red), orange (orange), strawberry (green, mysteriously), and lemon (yellow). How many possibilities are there for the composition of such a pack of gummi bears?",
+              "solution": "We can use stars and bars, and at 50 gummies, and subtract out the case where we have less than 30 gummies. We have 5 flavors, so $\\binom{50+5-1}{5-1}$, and for the less than 30 case, we have $\\binom{29+5-1}{5-1}$, so we have: $$\\binom{54}{4} - \\binom{33}{4}$$"
+            }
+          ]
+        },
+        {
+          "id": 21,
+          "context": "Define $\\left\\{\\begin{matrix} n \\\\ k \\end{matrix}\\right\\}$ as the number of ways to partition $\\{1, 2, ..., n\\}$ into $k$ nonempty subsets. For example, $\\left\\{\\begin{matrix} 4 \\\\ 2 \\end{matrix}\\right\\} = 7$ because we have: $\\{1\\}, \\{2, 3, 4\\}$; $\\{2\\}, \\{1, 3, 4\\}$; $\\{3\\}, \\{1, 2, 4\\}$; $\\{4\\}, \\{1, 2, 3\\}$; $\\{1, 2\\}, \\{3, 4\\}$; $\\{1, 3\\}, \\{2, 4\\}$; $\\{1, 4\\}, \\{2, 3\\}$.",
+          "question": "Prove the following identities:",
+          "parts": [
+            {
+              "part": "a",
+              "formula": "$$\\left\\{\\begin{matrix} n+1 \\\\ k \\end{matrix}\\right\\} = \\left\\{\\begin{matrix} n \\\\ k-1 \\end{matrix}\\right\\} + k\\left\\{\\begin{matrix} n \\\\ k \\end{matrix}\\right\\}$$",
+              "solution": "Let us consider the $n+1$ element. There are two cases for this:\n\n**Case 1:** it becomes its own subset. Then we need to partition the remaining elements $\\{1,2,\\cdots,n\\}$ into $k-1$ nonempty subsets, which is notated by $\\left\\{\\begin{matrix} n \\\\ k-1 \\end{matrix}\\right\\}$\n\n**Case 2:** it joins one of the existing subsets. We would first partition $\\{1,2,\\cdots,n\\}$ into $k$ subsets, which is $\\left\\{\\begin{matrix} n \\\\ k \\end{matrix}\\right\\}$. Then, you choose which subset to add the $n+1$ element, which we have $k$ choices.\n\nThese two cases are mutually exclusive, therefore we can sum them together."
+            },
+            {
+              "part": "b",
+              "formula": "$$\\sum_{j=k}^{n} \\binom{n}{j}\\left\\{\\begin{matrix} j \\\\ k \\end{matrix}\\right\\} = \\left\\{\\begin{matrix} n+1 \\\\ k+1 \\end{matrix}\\right\\}$$",
+              "solution": "Partition the set $\\{0,1,2,\\dots,n\\}$ into $k+1$ nonempty subsets. Consider the block that contains the special element $0$ (the VIP).\n\n**Choose the other guests not with 0:** Suppose exactly $j$ of the ordinary guests are seated away from $0$. There are $\\binom{n}{j}$ ways to choose this set $U \\subseteq [n]$ of size $j$.\n\n**Partition those $j$ guests:** These $j$ guests must form the $k$ non-VIP tables, i.e. a partition of $U$ into $k$ nonempty blocks: $\\left\\{\\begin{matrix} j \\\\ k \\end{matrix}\\right\\}$\n\n**Form the VIP block:** The remaining $n-j$ guests automatically join $0$ in the VIP's block.\n\nTherefore, for each fixed $j$, the number of valid partitions is $\\binom{n}{j}\\left\\{\\begin{matrix} j \\\\ k \\end{matrix}\\right\\}$. Since $j$ can range from $k$ up to $n$, summing gives the result."
+            }
+          ]
+        },
+        {
+          "id": 22,
+          "context": "The Dutch mathematician R.J. Stroeker remarked: \"Every beginning student of number theory surely must have marveled at the miraculous fact that for each natural number $n$ the sum of the first $n$ positive consecutive cubes is a perfect square.\" Furthermore, it is the square of the sum of the first $n$ positive integers! That is, $$1^3 + 2^3 + \\cdots + n^3 = (1 + 2 + \\cdots + n)^2.$$",
+          "parts": [
+            {
+              "part": "a",
+              "question": "Give a story proof of the identity $$1 + 2 + \\cdots + n = \\binom{n+1}{2}.$$",
+              "solution": "Consider building up a round-robin tournament by adding players one at a time:\n\n- Start with 1 player: 0 games needed\n- Add the 2nd player: The new player must play 1 game (against the existing player)\n- Add the 3rd player: The new player must play 2 games (against the 2 existing players)\n- Add the $(n+1)$th player: The new player must play $n$ games (against the $n$ existing players)\n\nSo the total number of games when we have $n+1$ players is: $$1 + 2 + 3 + \\cdots + n$$\n\nBut we also know that in a complete round-robin tournament with $n+1$ players, the total number of games is $\\binom{n+1}{2}$ (choosing 2 players from $n+1$ to form each game)."
+            },
+            {
+              "part": "b",
+              "question": "Give a story proof of the identity $$1^3 + 2^3 + \\cdots + n^3 = 6\\binom{n+1}{4} + 6\\binom{n+1}{3} + \\binom{n+1}{2}.$$ Hint: Imagine choosing a number between 1 and $n$ and then choosing 3 numbers between 0 and $n$ smaller than the original number, with replacement. Then consider cases based on how many distinct numbers were chosen.",
+              "solution": "It is then just basic algebra (not required for this problem) to check that the square of the right-hand side in (a) is the right-hand side in (b)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "naive-probability",
+      "title": "Naive Definition of Probability",
+      "problems": [
+        {
+          "id": 23,
+          "question": "Three people get into an empty elevator at the first floor of a building that has 10 floors. Each presses the button for their desired floor (unless one of the others has already pressed that button). Assume that they are equally likely to want to go to floors 2 through 10 (independently of each other). What is the probability that the buttons for 3 consecutive floors are pressed?",
+          "solution": "There's 7 ways to have consecutive floors, $(2,3,4)$ through $(8,9,10)$ and within each way, there is $3!$ orders. There is $9^3$ arrangements, so we have $$\\frac{7 \\times 3!}{9^3} = \\frac{42}{729} = \\frac{14}{243}$$"
+        },
+        {
+          "id": 24,
+          "question": "A certain family has 6 children, consisting of 3 boys and 3 girls. Assuming that all birth orders are equally likely, what is the probability that the 3 eldest children are the 3 girls?",
+          "solution": "Total of $6!$ arrangements. We need all cases of $BBB,GGG$, so we have $3!$ ways to arrange the boys, and $3!$ ways to arrange the girls, giving us $$\\frac{3!3!}{6!} = \\frac{1}{20}$$"
+        },
+        {
+          "id": 25,
+          "question": "A city with 6 districts has 6 robberies in a particular week. Assume the robberies are located randomly, with all possibilities for which robbery occurred where equally likely. What is the probability that some district had more than 1 robbery?",
+          "solution": "Take the complement of no overlap: $$1 - \\frac{6!}{6^6}$$"
+        },
+        {
+          "id": 26,
+          "context": "A survey is being conducted in a city with 1 million residents. A random sample of size 1000 is chosen by choosing people one at a time, with replacement and with equal probabilities.",
+          "parts": [
+            {
+              "part": "a",
+              "question": "Explain how sampling with vs. without replacement here relates to the birthday problem.",
+              "solution": "Sampling with replacement is exactly like the birthday problem, where you're looking to avoid 'collisions', where the same person gets picked twice (so like the same birthday getting picked twice)."
+            },
+            {
+              "part": "b",
+              "question": "Find the probability that at least one person will get chosen more than once.",
+              "solution": "Take complement: $$P(\\text{at least one repeat}) = 1 - \\prod_{i=0}^{999} \\left(1 - \\frac{i}{1{,}000{,}000}\\right)$$"
+            }
+          ]
+        },
+        {
+          "id": 27,
+          "context": "A hash table is a commonly used data structure in computer science. Let there be $k$ people, with each person's phone number stored in a random location (with equal probabilities for each location, independently), represented by an integer between 1 and $n$.",
+          "question": "Find the probability that at least one location has more than one phone number stored there.",
+          "solution": "Same exact idea as the birthday problem, looking for collisions, taking the complement of no collisions: $$P(\\text{collision}) = 1 - \\prod_{i=0}^{k-1}\\frac{n-i}{n}$$"
+        },
+        {
+          "id": 28,
+          "question": "A college has 10 time slots for its courses, and blithely assigns courses to completely random time slots, independently. The college offers exactly 3 statistics courses. What is the probability that 2 or more of the statistics courses are in the same time slot?",
+          "solution": "Take complement of no collisions: $$P(\\text{collision}) = 1 - \\frac{10 \\times 9 \\times 8}{10^3} = 0.28$$"
+        },
+        {
+          "id": 29,
+          "question": "For each part, decide whether the blank should be filled in with =, <, or >, and give a clear explanation.",
+          "parts": [
+            {
+              "part": "a",
+              "question": "(probability that the total after rolling 4 fair dice is 21) _____ (probability that the total after rolling 4 fair dice is 22)",
+              "solution": "$21 > 22$, since 21 has 3 combos: $(6,6,6,3)$, $(6,6,5,4)$, $(6,5,5,5)$ while 22 only has 2: $(6,6,6,4)$, $(6,6,5,5)$"
+            },
+            {
+              "part": "b",
+              "question": "(probability that a random 2-letter word is a palindrome) _____ (probability that a random 3-letter word is a palindrome)",
+              "solution": "The middle letter does not matter, as it can be any letter.\n\n2 letters: $\\frac{26}{26^2} = \\frac{1}{26}$\n\n3 letters: $\\frac{26 \\times 26}{26^3}=\\frac{1}{26}$\n\nTherefore: $=$"
+            }
+          ]
+        },
+        {
+          "id": 30,
+          "question": "Find the probability that a random $n$-letter word is a palindrome for $n = 7$ and for $n = 8$.",
+          "solution": "$n = 7$: $$\\frac{26^4}{26^7}$$\n\n$n = 8$: $$\\frac{26^4}{26^8}$$"
+        },
+        {
+          "id": 31,
+          "context": "Elk dwell in a certain forest. There are $N$ elk, of which a simple random sample of size $n$ are captured and tagged. The captured elk are returned to the population, and then a new sample is drawn, this time with size $m$.",
+          "question": "What is the probability that exactly $k$ of the $m$ elk in the new sample were previously tagged?",
+          "solution": "We want to choose exactly the $k$ tagged elk first: $\\binom{n}{k}$. Then we want to complete our sample of $m-k$ untagged elk, coming from $N-n$ untagged elk, giving $\\binom{N-n}{m-k}$, then gives us $$\\frac{\\binom{n}{k}\\binom{N-n}{m-k}}{\\binom{N}{m}}$$"
+        },
+        {
+          "id": 32,
+          "context": "Four cards are face down on a table. You are told that two are red and two are black, and you need to guess which two are red and which two are black. You do this by pointing to the two cards you're guessing are red.",
+          "question": "Find the probability that exactly $j$ of your guesses are correct, for $j = 0, 1, 2, 3, 4$.",
+          "solution": "There is $\\binom{4}{2}$ ways to arrange 2 reds. We have $\\binom{2}{r}$ where $r$ are the reds, to select the correct reds, and by symmetry, we have $\\binom{2}{2-r}$ to select the number of black cards. Then we have $$\\frac{\\binom{2}{r}\\binom{2}{2-r}}{\\binom{4}{2}}$$\n\nWe have $P(j=1) = P(j=3) = 0$ since by symmetry the only corrects must be even.\n\n$P(j= 0) = \\frac{1}{6}$\n\n$P(j = 2) = \\frac{4}{6}$\n\n$P(j = 4) = \\frac{1}{6}$"
+        },
+        {
+          "id": 33,
+          "context": "A jar contains $r$ red balls and $g$ green balls, where $r$ and $g$ are fixed positive integers. A ball is drawn from the jar randomly, and then a second ball is drawn randomly.",
+          "parts": [
+            {
+              "part": "a",
+              "question": "Explain intuitively why the probability of the second ball being green is the same as the probability of the first ball being green.",
+              "solution": "The probability is the same because before any draws occur, there's perfect symmetry between the first and second positions - nothing distinguishes one draw from the other, so green balls are equally likely to appear in either position."
+            },
+            {
+              "part": "b",
+              "question": "Define notation for the sample space of the problem, and use this to compute the probabilities from (a) and show that they are the same.",
+              "solution": "Sample Space: $S = \\{(i,j) : i, j \\in \\{1,2,\\cdots, r+g\\}, i \\neq j\\}$, where balls $1$ to $g$ are green, and $g+1$ to $r+g$ are red.\n\nThen, first green:\n$$P(\\text{green first}) = \\frac{|\\{(i, j): i \\leq g, j \\neq i\\}|}{|S|} = \\frac{g(r+g-1)}{(r+g)(r+g-1)} = \\frac{g}{r+g}$$\n\nSecond green:\n$$P(\\text{green second}) = \\frac{|\\{(i, j): j \\leq g, i \\neq j\\}|}{|S|} = \\frac{g(r+g-1)}{(r+g)(r+g-1)} = \\frac{g}{r+g}$$"
+            },
+            {
+              "part": "c",
+              "question": "Suppose that there are 16 balls in total, and that the probability that the two balls are the same color is the same as the probability that they are different colors. What are $r$ and $g$ (list all possibilities)?",
+              "solution": "$P(\\text{Same}) = P(\\text{Diff})$\n\nBoth green: $\\frac{g}{16} \\times \\frac{g-1}{15}$\n\nBoth red: $\\frac{r}{16} \\times \\frac{r-1}{15}$\n\n$$P(\\text{same}) = \\frac{r(r-1)+g(g-1)}{240} = P(\\text{diff}) = \\frac{1}{2}$$\n\nSome math later: $(10,6), (6,10)$"
+            }
+          ]
+        },
+        {
+          "id": 34,
+          "context": "A random 5-card poker hand is dealt from a standard deck of cards.",
+          "question": "Find the probability of each of the following possibilities (in terms of binomial coefficients).",
+          "parts": [
+            {
+              "part": "a",
+              "question": "A flush (all 5 cards being of the same suit; do not count a royal flush).",
+              "solution": "Choose a suit: $\\binom{4}{1}$\n\nChoose five cards from suit: $\\binom{13}{5}$\n\nOvercounted the royals, so subtract 4: $$\\binom{4}{1}\\binom{13}{5} - 4$$"
+            },
+            {
+              "part": "b",
+              "question": "Two pair (e.g., two 3's, two 7's, and an ace).",
+              "solution": "Need two sets of 2: $\\binom{4}{2}^2$\n\nPick two ranks for pairs: $\\binom{13}{2}$\n\nRemaining card available: $44$\n\n$$\\binom{13}{2}\\binom{4}{2}^2 \\times 44$$"
+            }
+          ]
+        },
+        {
+          "id": 35,
+          "question": "A random 13-card hand is dealt from a standard deck of cards. What is the probability that the hand contains at least 3 cards of every suit?",
+          "solution": "You will have one suit that has 4 cards: $\\binom{13}{4}$, and the remaining 3 suits will have 3 cards: $\\binom{13}{3}$, and there's 4 suits, so multiply by 4: $$4 \\times \\binom{13}{4}\\binom{13}{3}^3$$"
+        },
+        {
+          "id": 36,
+          "question": "A group of 30 dice are thrown. What is the probability that 5 of each of the values 1, 2, 3, 4, 5, 6 appear?",
+          "solution": "Pick 5 spaces for each: $$P=\\frac{\\binom{30}{5}\\binom{25}{5}\\binom{20}{5}\\binom{15}{5}\\binom{10}{5}}{6^{30}}$$"
+        },
+        {
+          "id": 37,
+          "context": "A deck of cards is shuffled well. The cards are dealt one by one, until the first time an ace appears.",
+          "parts": [
+            {
+              "part": "a",
+              "question": "Find the probability that no kings, queens, or jacks appear before the first ace.",
+              "solution": "We can ignore all other cards except for $K,Q,J$, and since we must have the $A$ appear first. By symmetry, all are equally likely to appear first, so we have $\\frac{1}{4}$ for the $A$ to appear first."
+            },
+            {
+              "part": "b",
+              "question": "Find the probability that exactly one king, exactly one queen, and exactly one jack appear (in any order) before the first ace.",
+              "solution": "Ignore all other cards still. We have $\\binom{4}{1}^3$ for choosing one $K,Q,J$, and $\\frac{1}{4}$ for the $A$ coming last, out of a total of $4^4$ combos, so we have $\\frac{1}{16}$"
+            }
+          ]
+        },
+        {
+          "id": 38,
+          "context": "Tyrion, Cersei, and ten other people are sitting at a round table, with their seating arrangement having been randomly assigned.",
+          "question": "What is the probability that Tyrion and Cersei are sitting next to each other? Find this in two ways:",
+          "parts": [
+            {
+              "part": "a",
+              "question": "using a sample space of size 12!, where an outcome is fully detailed about the seating",
+              "solution": "Tyrion can sit in any of the seats: $12$\n\nCersei must be next to Tyrion, so: $2$\n\nEveryone else: $10!$\n\n$$\\frac{10! \\times 2 \\times 12}{12!} = \\frac{2}{11}$$"
+            },
+            {
+              "part": "b",
+              "question": "using a much smaller sample space, which focuses on Tyrion and Cersei",
+              "solution": "Cersei has a $\\frac{2}{11}$ since these are the only 2 seats adjacent to Tyrion."
+            }
+          ]
+        },
+        {
+          "id": 39,
+          "question": "An organization with $2n$ people consists of $n$ married couples. A committee of size $k$ is selected, with all possibilities equally likely. Find the probability that there are exactly $j$ married couples within the committee.",
+          "solution": "We first want to choose $j$ couples, so we have $\\binom{n}{j}$. The total combos is $\\binom{2n}{k}$. We now want to choose $k-2j$ remaining people from $n-j$ pairs of couples, where we want only one person from the couples to avoid going past $j$, which gives us $\\binom{n-j}{k-2j} \\times 2^{k-2j}$:\n\n$$\\frac{\\binom{n}{j}\\binom{n-j}{k-2j}2^{k-2j}}{\\binom{2n}{k}}$$"
+        },
+        {
+          "id": 40,
+          "context": "There are $n$ balls in a jar, labeled with the numbers $1, 2, ..., n$. A total of $k$ balls are drawn, one by one with replacement, to obtain a sequence of numbers.",
+          "parts": [
+            {
+              "part": "a",
+              "question": "What is the probability that the sequence obtained is strictly increasing?",
+              "solution": "Equivalent to drawing $k$ balls and sorting, so we have: $$\\frac{\\binom{n}{k}}{n^k}$$"
+            },
+            {
+              "part": "b",
+              "question": "What is the probability that the sequence obtained is increasing (but not necessarily strictly increasing, i.e., there can be repetitions)?",
+              "solution": "Stars and bars, since we now have $k$ balls into $n$ distinct buckets, as you can have more than one ball in one bucket: $$\\frac{\\binom{n+k-1}{k}}{n^k}$$"
+            }
+          ]
+        },
+        {
+          "id": 41,
+          "question": "Each of $n$ balls is independently placed into one of $n$ boxes, with all boxes equally likely. What is the probability that exactly one box is empty?",
+          "solution": "You have $n^n$ total outcomes. This also means that we have exactly one box with two items: $\\binom{n}{2}$. Then the rest is just $(n-1)!$, so we have: $$\\frac{\\binom{n}{2}(n-1)!}{n^n}$$"
+        },
+        {
+          "id": 42,
+          "context": "A norepeatword is a sequence of at least one (and possibly all) of the usual 26 letters a,b,c,...,z, with repetitions not allowed. A norepeatword is chosen randomly, with all norepeatwords equally likely.",
+          "question": "Show that the probability that it uses all 26 letters is very close to $1/e$.",
+          "solution": "First, we want to figure out number of all non-repeat words, which is just the permutation formula: $$\\sum_{k=1}^{26}\\frac{26!}{(26-k)!}$$\n\nNow we want our numerator, which is just $26!$, to use all 26 letters:\n$$\\frac{26!}{\\sum_{k=1}^{26}\\frac{26!}{(26-k)!}}$$\n\nWe can factor out the $26!$:\n$$\\frac{1}{\\sum_{k=1}^{26}\\frac{1}{(26-k)!}}$$\n\nLet $j = 26-k$, which will be from $0 \\leq j \\leq 25$, so we have:\n$$\\frac{1}{\\sum_{j=0}^{25}\\frac{1}{j!}}$$\n\nThis is the Maclaurin series for $e^x$ at $x = 1$:\n$$e^x = \\sum_{n=0}^\\infty\\frac{x^n}{n!} = 1 + x + \\frac{x^2}{2!}+\\frac{x^3}{3!}\\cdots$$\n\nwhich converges to $e$, giving us $\\frac{1}{e}$"
+        }
+      ]
+    },
+    {
+      "id": "axioms",
+      "title": "Axioms of Probability",
+      "problems": [
+        {
+          "id": 43,
+          "question": "Show that for any events $A$ and $B$, $$P(A) + P(B) - 1 \\leq P(A \\cap B) \\leq P(A \\cup B) \\leq P(A) + P(B).$$ For each of these three inequalities, give a simple criterion for when the inequality is actually an equality.",
+          "solution": "**First inequality: $P(A) + P(B) - 1 \\leq P(A \\cap B)$ (Bonferroni's Inequality)**\n\n$$P(A\\cup B) = P(A) + P(B) - P(A\\cap B)$$\n\nSince $P(A \\cup B) \\leq 1$ by definition:\n\n$$P(A) + P(B) - P(A\\cap B) \\leq 1$$\n\n$$P(A) + P(B) -1 \\leq P(A \\cap B)$$\n\nEquality holds when $P(A \\cup B) = 1$\n\n**Second inequality: $P(A \\cap B) \\leq P(A \\cup B)$**\n\n$A \\cap B \\subseteq A \\cup B$, then by monotonicity: $$P(A\\cap B) \\leq P(A \\cup B)$$\n\nEquality holds when $A = B$\n\n**Third inequality: $P(A \\cup B) \\leq P(A) + P(B)$**\n\n$P(A \\cup B) = P(A) + P(B) - P(A\\cap B)$\n\nSince $P(A\\cap B) \\geq 0$:\n$$P(A \\cup B) = P(A) + P(B) - P(A \\cap B) \\leq P(A) + P(B)$$\n\nEquality holds IFF $A$ and $B$ are disjoint."
+        },
+        {
+          "id": 44,
+          "context": "Let $A$ and $B$ be events. The difference $B - A$ is defined to be the set of all elements of $B$ that are not in $A$.",
+          "question": "Show that if $A \\subseteq B$, then $$P(B - A) = P(B) - P(A),$$ directly using the axioms of probability.",
+          "solution": "Given $A \\subseteq B$, $B$ can be written as the union of two disjoint sets: $$B = A \\cup (B-A)$$\n\nBy Axiom 3, we have $P(A \\cup B) = P(A) + P(B)$ if $A, B$ are disjoint.\n\nSince $B = A \\cup (B-A)$, we have:\n\n$$P(B) = P(A \\cup (B -A)) = P(A) + P(B-A)$$\n\nSolving for $P(B-A)$:\n\n$$P(B - A) = P(B) - P(A)$$"
+        },
+        {
+          "id": 45,
+          "context": "Let $A$ and $B$ be events. The symmetric difference $A \\triangle B$ is defined to be the set of all elements that are in $A$ or $B$ but not both.",
+          "question": "Show that $$P(A \\triangle B) = P(A) + P(B) - 2P(A \\cap B),$$ directly using the axioms of probability.",
+          "solution": "$A\\triangle B = (A-B)\\cup (B-A)$\n\nSo only elements in $A$ but not in $B$, and elements in $B$ but not in $A$. The $(A-B), (B-A)$ are disjoint as it is not possible for any element to be in both.\n\n$$A \\triangle B = (A - B) \\cup (B - A)$$\n\n$$(A - B) \\cap (B - A) = \\emptyset$$\n\n$$P(A \\triangle B) = P((A - B) \\cup (B - A))$$\n\n$$ = P(A - B) + P(B - A)$$\n\n$$P(A) = P(A \\cap B) + P(A - B)$$\n\n$$P(A - B) = P(A) - P(A \\cap B)$$\n\n$$P(B) = P(A \\cap B) + P(B - A)$$\n\n$$P(B - A) = P(B) - P(A \\cap B)$$\n\n$$P(A \\triangle B) = P(A - B) + P(B - A)$$\n\n$$ = [P(A) - P(A \\cap B)] + [P(B) - P(A \\cap B)]$$\n\n$$ = P(A) + P(B) - 2P(A \\cap B)$$"
+        },
+        {
+          "id": 46,
+          "context": "Let $A_1, A_2, ..., A_n$ be events. Let $B_k$ be the event exactly $k$ of the $A_i$ occur, and $C_k$ be the event that at least $k$ of the $A_i$ occur, for $0 \\leq k \\leq n$.",
+          "question": "Find a simple expression for $P(B_k)$ in terms of $P(C_k)$ and $P(C_{k+1})$.",
+          "solution": "$C_k$ is the event that at least $k$ events happen: $$C_k = B_k \\cup B_{k+1} \\cup B_{k+2} \\cup\\cdots\\cup B_n$$\n\n$C_{k+1}$ is the event that at least $k+1$ events happen: $$C_{k+1} = B_{k+1} \\cup B_{k+2} \\cup \\cdots \\cup B_n$$\n\nSince $B_j$ are mutually distinct:\n$$P(C_k) = P(B_k \\cup B_{k+1} \\cup \\cdots \\cup B_n)$$\n\n$$ = P(B_k) + P(B_{k+1}) + \\cdots + P(B_n)$$\n\n$$ = P(B_k) + P(B_{k+1} \\cup B_{k+2} \\cup \\cdots \\cup B_n)$$\n\n$$ = P(B_k) + P(C_{k+1})$$\n\nSolve for $B_k$: $$P(B_k) = P(C_k) - P(C_{k+1})$$"
+        },
+        {
+          "id": 47,
+          "context": "Events $A$ and $B$ are independent if $P(A \\cap B) = P(A)P(B)$.",
+          "parts": [
+            {
+              "part": "a",
+              "question": "Give an example of independent events $A$ and $B$ in a finite sample space $S$ (with neither equal to $\\emptyset$ or $S$).",
+              "solution": "$S = \\{1,2,3,4\\}$ uniform\n\n$A = \\{1,2\\}$\n\n$B = \\{1,3\\}$\n\n$$P(A) = P(\\{1, 2\\}) = \\frac{2}{4} = \\frac{1}{2}$$\n\n$$P(B) = P(\\{1, 3\\}) = \\frac{2}{4} = \\frac{1}{2}$$\n\n$$A \\cap B = \\{1, 2\\} \\cap \\{1, 3\\} = \\{1\\}$$\n\n$$P(A \\cap B) = P(\\{1\\}) = \\frac{1}{4}$$\n\n$$P(A) \\cdot P(B) = \\frac{1}{2} \\cdot \\frac{1}{2} = \\frac{1}{4}$$"
+            },
+            {
+              "part": "b",
+              "question": "Consider the experiment of picking a random point in the rectangle $R = \\{(x, y) : 0 < x < 1, 0 < y < 1\\}$. Let $A_1$ and $B_1$ be rectangles contained within $R$. Give a geometric description of when $A$ and $B$ are independent.",
+              "solution": "$A$ and $B$ are independent IFF $A$ and $B$ can be expressed as products of intervals:\n\n$$A = I_A \\times J_A, \\text{ where } I_A \\subseteq (0,1) \\text{ and } J_A \\subseteq(0,1)$$\n$$B = I_B \\times J_B, \\text{ where } I_B \\subseteq (0,1) \\text{ and } J_B \\subseteq(0,1)$$\n\n$$P(A) = \\text{area}(A_1) = |I_A| \\cdot |J_A|$$\n\n$$P(B) = \\text{area}(B_1) = |I_B| \\cdot |J_B|$$\n\n$$P(A \\cap B) = \\text{area}(A_1 \\cap B_1) = \\text{area}((I_A \\cap I_B) \\times (J_A \\cap J_B))$$\n\n$$ = |I_A \\cap I_B| \\cdot |J_A \\cap J_B| = |I_A||I_B| \\cdot |J_A||J_B| = P(A)P(B)$$\n\n**Independent example:** $A = (0, 0.3) \\times (0,1), B = (0,1) \\times (0,0.4)$\n\n**Dependent example:** $A = (0.1, 0.9) \\times (0.4, 0.6), B = (0.4, 0.7) \\times (0.3, 0.8)$"
+            },
+            {
+              "part": "c",
+              "question": "Show that if $A$ and $B$ are independent, then $$P(A \\cup B) = P(A) + P(B) - P(A)P(B) = 1 - P(A^c)P(B^c).$$",
+              "solution": "If $A$ and $B$ are independent, then $P(A \\cap B) = P(A)P(B)$.\n\n$$P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$$\n\n$$ = P(A) + P(B) - P(A)P(B)$$\n\nFor the second part:\n$$P(A^c \\cap B^c) = P((A \\cup B)^c) = 1 - P(A \\cup B)$$\n\n$$P(A^c)P(B^c) = (1-P(A))(1-P(B))$$\n\n$$ = 1 - P(A) - P(B) + P(A)P(B)$$\n\nTherefore:\n$$1 - P(A^c)P(B^c) = 1 - (1 - P(A) - P(B) + P(A)P(B)) = P(A) + P(B) - P(A)P(B)$$"
+            }
+          ]
+        },
+        {
+          "id": 48,
+          "context": "Arby has a belief system assigning a number $P_{Arby}(A)$ between 0 and 1 to every event $A$. Arby is willing to buy or sell certificates for $1000 \\cdot P_{Arby}(A)$ dollars that pay $1000 if $A$ occurs. Arby stubbornly refuses to accept the axioms of probability. In particular, suppose that there are two disjoint events $A$ and $B$ with $$P_{Arby}(A \\cup B) \\neq P_{Arby}(A) + P_{Arby}(B).$$",
+          "question": "Show how to make Arby go bankrupt, by giving a list of transactions Arby is willing to make that will guarantee that Arby will lose money.",
+          "solution": "There are 2 cases:\n\n**Case 1:** $P_a(A\\cup B) > P_a(A) + P_a(B)$\n\nIn this case, we would sell the $A \\cup B$ contract and buy one of $A$ and $B$, as the price of $A + B < A \\cup B$, letting us make risk-free profit.\n\n**Case 2:** $P_a(A \\cup B) < P_a(A) + P_a(B)$\n\nIn this case, we would buy the $A\\cup B$ contract and sell one of $A$ and $B$, as the price of $A \\cup B < A + B$, also allowing arbitrage."
+        }
+      ]
+    },
+    {
+      "id": "inclusion-exclusion",
+      "title": "Inclusion-Exclusion",
+      "problems": [
+        {
+          "id": 49,
+          "question": "A fair die is rolled $n$ times. What is the probability that at least 1 of the 6 values never appears?",
+          "solution": "$$ P(A_1 \\cup A_2 \\cup \\cdots \\cup A_6)$$\n\n$$ = \\sum_{i=1}^{6} P(A_i) - \\sum_{1 \\leq i < j \\leq 6} P(A_i \\cap A_j) + \\sum_{1 \\leq i < j < k \\leq 6} P(A_i \\cap A_j \\cap A_k)$$\n\n$$ \\quad - \\cdots + (-1)^{5} P(A_1 \\cap A_2 \\cap \\cdots \\cap A_6)$$\n\n$$ = \\binom{6}{1}\\left(\\frac{5}{6}\\right)^n - \\binom{6}{2}\\left(\\frac{4}{6}\\right)^n + \\binom{6}{3}\\left(\\frac{3}{6}\\right)^n$$\n\n$$ \\quad - \\binom{6}{4}\\left(\\frac{2}{6}\\right)^n + \\binom{6}{5}\\left(\\frac{1}{6}\\right)^n - \\binom{6}{6}\\left(\\frac{0}{6}\\right)^n$$\n\n$$P(\\text{at least 1 face never appears}) = 6\\left(\\frac{5}{6}\\right)^n - 15\\left(\\frac{4}{6}\\right)^n + 20\\left(\\frac{3}{6}\\right)^n$$\n\n$$ \\quad - 15\\left(\\frac{2}{6}\\right)^n + 6\\left(\\frac{1}{6}\\right)^n - 0^n$$"
+        },
+        {
+          "id": 50,
+          "question": "A card player is dealt a 13-card hand from a well-shuffled, standard deck of cards. What is the probability that the hand is void in at least one suit?",
+          "solution": "$$ P(A_1 \\cup A_2 \\cup A_3 \\cup A_4)$$\n\n$$ = \\binom{4}{1} \\cdot \\frac{\\binom{39}{13}}{\\binom{52}{13}} - \\binom{4}{2} \\cdot \\frac{\\binom{26}{13}}{\\binom{52}{13}} + \\binom{4}{3} \\cdot \\frac{\\binom{13}{13}}{\\binom{52}{13}} - \\binom{4}{4} \\cdot 0$$\n\n$$ = \\frac{4\\binom{39}{13} - 6\\binom{26}{13} + 4\\binom{13}{13}}{\\binom{52}{13}}$$\n\n$$ = \\frac{4\\binom{39}{13} - 6\\binom{26}{13} + 4}{\\binom{52}{13}}$$"
+        },
+        {
+          "id": 51,
+          "question": "For a group of 7 people, find the probability that all 4 seasons (winter, spring, summer, fall) occur at least once each among their birthdays, assuming that all seasons are equally likely.",
+          "solution": "$$P(A_1 \\cup A_2 \\cup A_3 \\cup A_4) = \\binom{4}{1}\\left(\\frac{3}{4}\\right)^7 - \\binom{4}{2}\\left(\\frac{1}{2}\\right)^7 + \\binom{4}{3}\\left(\\frac{1}{4}\\right)^7 - \\binom{4}{4} \\cdot 0$$\n\n$$ = 4\\left(\\frac{3}{4}\\right)^7 - 6\\left(\\frac{1}{2}\\right)^7 + 4\\left(\\frac{1}{4}\\right)^7$$\n\n$$P(\\text{all 4 seasons occur}) = 1 - \\left[4\\left(\\frac{3}{4}\\right)^7 - 6\\left(\\frac{1}{2}\\right)^7 + 4\\left(\\frac{1}{4}\\right)^7\\right]$$\n\n$$ = 1 - 4\\left(\\frac{3}{4}\\right)^7 + 6\\left(\\frac{1}{2}\\right)^7 - 4\\left(\\frac{1}{4}\\right)^7$$"
+        },
+        {
+          "id": 52,
+          "question": "A certain class has 20 students, and meets on Mondays and Wednesdays in a classroom with exactly 20 seats. In a certain week, everyone attends both days and chooses their seats completely randomly. Find the probability that no one sits in the same seat on both days.",
+          "solution": "$$\\frac{D_{20}}{20!} = \\frac{1}{0!} - \\frac{1}{1!} + \\frac{1}{2!} - \\frac{1}{3!} + \\frac{1}{4!} - \\cdots + \\frac{1}{20!}$$\n\n$$ = 1 - 1 + \\frac{1}{2} - \\frac{1}{6} + \\frac{1}{24} - \\frac{1}{120} + \\frac{1}{720} - \\cdots$$\n\n$$ \\approx \\frac{1}{e}$$"
+        },
+        {
+          "id": 53,
+          "context": "Fred needs to choose a password for a certain website. Assume that he will choose an 8-character password, and that the legal characters are the lowercase letters a-z, uppercase letters A-Z, and numbers 0-9.",
+          "parts": [
+            {
+              "part": "a",
+              "question": "How many possibilities are there if he is required to have at least one lowercase letter in his password?",
+              "solution": "$62^8 - 36^8$"
+            },
+            {
+              "part": "b",
+              "question": "How many possibilities are there if he is required to have at least one lowercase letter and at least one uppercase letter?",
+              "solution": "$62^8 - 2(36^8) + 10^8$"
+            },
+            {
+              "part": "c",
+              "question": "How many possibilities are there if he is required to have at least one lowercase letter, at least one uppercase letter, and at least one number?",
+              "solution": "$$ 62^8 - (36^8 + 36^8 + 52^8) + (10^8 + 26^8 + 26^8) - 0$$\n\n$$ = 62^8 - 2 \\cdot 36^8 - 52^8 + 10^8 + 2 \\cdot 26^8$$"
+            }
+          ]
+        },
+        {
+          "id": 54,
+          "context": "Alice attends a small college in which each class meets only once a week. She is deciding between 30 non-overlapping classes. There are 6 classes to choose from for each day of the week, Monday through Friday.",
+          "question": "Alice decides to register for 7 randomly selected classes. What is the probability that she will have classes every day, Monday through Friday?",
+          "solution": "$$P(A_1 \\cup \\cdots \\cup A_5) = \\binom{5}{1} \\cdot \\frac{\\binom{24}{7}}{\\binom{30}{7}} - \\binom{5}{2} \\cdot \\frac{\\binom{18}{7}}{\\binom{30}{7}} + \\binom{5}{3} \\cdot \\frac{\\binom{12}{7}}{\\binom{30}{7}}$$\n\n$$ = \\frac{5\\binom{24}{7} - 10\\binom{18}{7} + 10\\binom{12}{7}}{\\binom{30}{7}}$$\n\nThe probability she has classes every day is: $$1 - \\frac{5\\binom{24}{7} - 10\\binom{18}{7} + 10\\binom{12}{7}}{\\binom{30}{7}}$$"
+        },
+        {
+          "id": 55,
+          "context": "A club consists of 10 seniors, 12 juniors, and 15 sophomores. An organizing committee of size 5 is chosen randomly.",
+          "parts": [
+            {
+              "part": "a",
+              "question": "Find the probability that there are exactly 3 sophomores in the committee.",
+              "solution": "$$\\frac{\\binom{15}{3}\\binom{22}{2}}{\\binom{37}{5}}$$"
+            },
+            {
+              "part": "b",
+              "question": "Find the probability that the committee has at least one representative from each of the senior, junior, and sophomore classes.",
+              "solution": "$$P(\\text{at least one from each}) = 1 - \\left[\\frac{\\binom{27}{5} + \\binom{25}{5} + \\binom{22}{5}}{\\binom{37}{5}} - \\frac{\\binom{15}{5} + \\binom{12}{5} + \\binom{10}{5}}{\\binom{37}{5}}\\right]$$\n\n$$ = \\frac{\\binom{37}{5} - \\binom{27}{5} - \\binom{25}{5} - \\binom{22}{5} + \\binom{15}{5} + \\binom{12}{5} + \\binom{10}{5}}{\\binom{37}{5}}$$"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mixed-practice",
+      "title": "Mixed Practice",
+      "problems": [
+        {
+          "id": 56,
+          "question": "For each part, decide whether the blank should be filled in with =, <, or >, and give a clear explanation.",
+          "parts": [
+            {
+              "part": "a",
+              "question": "(number of ways to choose 5 people out of 10) _____ (number of ways to choose 6 people out of 10)",
+              "solution": "$>$, largest combos when $k$ closest to $\\frac{n}{2}$"
+            },
+            {
+              "part": "b",
+              "question": "(number of ways to break 10 people into 2 teams of 5) _____ (number of ways to break 10 people into a team of 6 and a team of 4)",
+              "solution": "$>$, $\\binom{10}{6} = \\binom{10}{4}$, and we already established that closer to $\\frac{n}{2}$ is larger."
+            },
+            {
+              "part": "c",
+              "question": "(probability that all 3 people in a group of 3 were born on January 1) _____ (probability that in a group of 3 people, 1 was born on each of January 1, 2, and 3)",
+              "solution": "$<$, since there is $3!$ ways to organize $1,2,3$"
+            },
+            {
+              "part": "d",
+              "context": "Martin and Gale play \"toss the coin\", where they toss a fair coin until the pattern HH or TH occurs. Martin wins if HH occurs before TH.",
+              "question": "(probability that Martin wins) _____ 1/2",
+              "solution": "$<$. Only way Martin can win is immediately getting $HH$, which happens at $\\frac{1}{4}$."
+            }
+          ]
+        },
+        {
+          "id": 57,
+          "context": "In the book Innumeracy, John Allen Paulos asks about the chances you just inhaled a molecule which Caesar exhaled in his dying breath. Assume one breath contains $10^{22}$ molecules, and there are $10^{44}$ molecules in the atmosphere. Assume molecules have been scattered completely randomly, and your breathing is sampled with replacement.",
+          "question": "Find the probability that at least one molecule in the breath you just took was shared with Caesar's last breath, and give a simple approximation in terms of $e$.",
+          "solution": "Any one molecule not sharing is $(1-10^{-22})$, there is $10^{22}$ molecules, so we have:\n\n$$P(\\text{at least one shared}) = 1 - (1-10^{-22})^{10^{22}}$$\n\nwhich is approximately equal to $1 - e^{-1} = 1 - \\frac{1}{e}$"
+        },
+        {
+          "id": 58,
+          "context": "A widget inspector inspects 12 widgets and finds that exactly 3 are defective. Unfortunately, the widgets get all mixed up and the inspector has to find the 3 defective widgets again by testing one by one.",
+          "parts": [
+            {
+              "part": "a",
+              "question": "Find the probability that the inspector will now have to test at least 9 widgets.",
+              "solution": "$$1 - \\frac{\\binom{8}{3}}{\\binom{12}{3}}$$"
+            },
+            {
+              "part": "b",
+              "question": "Find the probability that the inspector will now have to test at least 10 widgets.",
+              "solution": "$$1 - \\frac{\\binom{9}{3}}{\\binom{12}{3}}$$"
+            }
+          ]
+        },
+        {
+          "id": 59,
+          "context": "There are 15 chocolate bars and 10 children.",
+          "question": "In how many ways can the chocolate bars be distributed to the children, in each of the following scenarios?",
+          "parts": [
+            {
+              "part": "a",
+              "question": "The chocolate bars are fungible (interchangeable).",
+              "solution": "$$\\binom{24}{9}$$"
+            },
+            {
+              "part": "b",
+              "question": "The chocolate bars are fungible, and each child must receive at least one.",
+              "solution": "$$\\binom{14}{9}$$"
+            },
+            {
+              "part": "c",
+              "question": "The chocolate bars are not fungible.",
+              "solution": "$$10^{15}$$"
+            },
+            {
+              "part": "d",
+              "question": "The chocolate bars are not fungible, and each child must receive at least one.",
+              "solution": "$$\\sum_{k=1}^{10}(-1)^{k+1}\\binom{10}{k}(10-k)^{15}$$"
+            }
+          ]
+        },
+        {
+          "id": 60,
+          "context": "A bootstrap sample is a sequence $(x_1, x_2, ..., x_n)$ formed from $(a_1, ..., a_n)$ by sampling with replacement with equal probabilities.",
+          "parts": [
+            {
+              "part": "a",
+              "question": "How many possible bootstrap samples are there for $(a_1, ..., a_n)$?",
+              "solution": "$$n^n$$"
+            },
+            {
+              "part": "b",
+              "question": "How many possible bootstrap samples are there if order does not matter?",
+              "solution": "$$\\binom{n+n-1}{n-1} = \\binom{2n-1}{n-1}$$"
+            },
+            {
+              "part": "c",
+              "question": "Show that not all unordered bootstrap samples are equally likely. Find the most likely ($b_1$) and least likely ($b_2$) unordered bootstrap samples, their probabilities $p_1$ and $p_2$, and compute $p_1/p_2$ and the ratio of probabilities.",
+              "solution": "An unordered bootstrap sample can be represented as $(k_1, k_2, \\ldots, k_n)$ where $k_i$ is the number of times $a_i$ appears.\n\nThe probability is: $$P(k_1, \\ldots, k_n) = \\frac{1}{n^n} \\cdot \\frac{n!}{k_1! k_2! \\cdots k_n!}$$\n\n**Most likely:** $b_1 = (1, 1, 1, \\ldots, 1)$ (each $a_i$ appears exactly once)\n$$p_1 = \\frac{n!}{n^n}$$\n\n**Least likely:** $b_2 = (n, 0, 0, \\ldots, 0)$ (all samples are the same value)\n$$p_2 = \\frac{1}{n^n}$$\n\n**Ratio:** $$\\frac{p_1}{p_2} = n!$$\n\n**Ratio of probabilities of getting samples with these probabilities:**\n- Number of samples with probability $p_1$: 1\n- Number of samples with probability $p_2$: $n$\n\n$$\\frac{1 \\times p_1}{n \\times p_2} = \\frac{n!}{n} = (n-1)!$$"
+            }
+          ]
+        },
+        {
+          "id": 61,
+          "context": "There are 100 passengers lined up to board an airplane with 100 seats. The first passenger crazily decides to sit in a randomly chosen seat. Each subsequent passenger takes their assigned seat if available, and otherwise sits in a random available seat.",
+          "question": "What is the probability that the last passenger in line gets to sit in their assigned seat?",
+          "solution": "By symmetry: $\\frac{1}{2}$, since the only two seats that matter are seat 1 and seat 100.\n\n**Explanation:** If first passenger sits in his seat, then everyone sits correctly. If he sits in seat 100, then the last person cannot sit in the correct seat.\n\nNow, say the first passenger sits in some random seat $j$. At some point there will be a flip between seat 1 and seat 100, where if some other passenger $k$ sits at seat 1, then the last passenger will be correctly seated, and if not then the last passenger won't be. By symmetry, these are equally likely."
+        },
+        {
+          "id": 62,
+          "context": "In the birthday problem, we assumed all 365 days are equally likely. Let $\\mathbf{p} = (p_1, p_2, ..., p_{365})$ be the vector of birthday probabilities. The $k$th elementary symmetric polynomial is: $$e_k(x_1, ..., x_n) = \\sum_{1 \\leq j_1 < j_2 < \\cdots < j_k \\leq n} x_{j_1} \\cdots x_{j_k}$$",
+          "parts": [
+            {
+              "part": "a",
+              "question": "Find a simple expression for the probability that there is at least one birthday match, in terms of $\\mathbf{p}$ and an elementary symmetric polynomial.",
+              "solution": "We want to take the complement of no collisions. No collisions is provided by the $k$-th elementary polynomial, as you need to take all $k$ possible combos of birthday probabilities, summed together, multiplied by the $k!$ permutations available:\n\n$$P(\\text{at least one match}) = 1 - k!e_k(p_1,\\cdots,p_{365})$$"
+            },
+            {
+              "part": "b",
+              "question": "Explain intuitively why it makes sense that $P(\\text{at least one birthday match})$ is minimized when $p_j = \\frac{1}{365}$ for all $j$.",
+              "solution": "When $p_j = \\frac{1}{365}$, we have minimized the global probability for any collision. The closer $p_j$ approaches being uniform, the more evenly distributed it is. For example, if we consider the extreme case where $p_j = 1$, then you are guaranteed to have collisions, and if most $p_j = 0$, then collisions become more likely among the few non-zero probabilities."
+            },
+            {
+              "part": "c",
+              "question": "Using the arithmetic mean-geometric mean inequality and the identity $$e_k(x_1, ..., x_n) = x_1x_2e_{k-2}(x_3, ..., x_n) + (x_1 + x_2)e_{k-1}(x_3, ..., x_n) + e_k(x_3, ..., x_n),$$ show that the value of $\\mathbf{p}$ that minimizes the probability is $p_j = \\frac{1}{365}$ for all $j$.",
+              "solution": "**Verification of the identity:** For $k \\geq 2$ and $n \\geq 2$:\n\nWe partition terms based on how many of $\\{x_1, x_2\\}$ they contain:\n- **Both $x_1$ and $x_2$:** $x_1x_2 e_{k-2}(x_3, \\ldots, x_n)$\n- **Exactly one:** $(x_1 + x_2) e_{k-1}(x_3, \\ldots, x_n)$\n- **Neither:** $e_k(x_3, \\ldots, x_n)$\n\n**Applying to birthday problem:**\n\nDefine $\\mathbf{r} = (r_1, ..., r_{365})$ by $r_1 = r_2 = \\frac{p_1 + p_2}{2}$, $r_j = p_j$ for $3 \\leq j \\leq 365$.\n\nFrom the identity:\n$$e_k(\\mathbf{p}) = p_1p_2e_{k-2}(p_3, \\ldots, p_{365}) + (p_1 + p_2)e_{k-1}(p_3, \\ldots, p_{365}) + e_k(p_3, \\ldots, p_{365})$$\n\n$$e_k(\\mathbf{r}) = r_1r_2e_{k-2}(p_3, \\ldots, p_{365}) + (r_1 + r_2)e_{k-1}(p_3, \\ldots, p_{365}) + e_k(p_3, \\ldots, p_{365})$$\n\nSince $r_1 = r_2 = \\frac{p_1 + p_2}{2}$:\n- $r_1 + r_2 = p_1 + p_2$ (same)\n- $r_1r_2 = \\left(\\frac{p_1 + p_2}{2}\\right)^2 \\geq p_1p_2$ (by AM-GM)\n\nTherefore: $e_k(\\mathbf{r}) \\geq e_k(\\mathbf{p})$\n\nSince $P(\\text{at least one match}) = 1 - k! \\cdot e_k(\\mathbf{p})$:\n\n$$P(\\text{match}|\\mathbf{p}) \\geq P(\\text{match}|\\mathbf{r})$$\n\nwith strict inequality if $\\mathbf{p} \\neq \\mathbf{r}$.\n\n**Conclusion:** By repeatedly applying this transformation, the probability is minimized when all $p_j$ are equal, i.e., $p_j = \\frac{1}{365}$ for all $j$."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

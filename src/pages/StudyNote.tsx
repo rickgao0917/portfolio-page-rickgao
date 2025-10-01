@@ -3,7 +3,6 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { ArrowLeft, Calendar, Tag } from 'lucide-react';
 import { getStudyNoteById } from '@/data/studyNotes';
 import MarkdownRenderer from '@/components/MarkdownRenderer';
-import AnimatedDotsBackground from '@/components/AnimatedDotsBackground';
 
 const StudyNote = () => {
   const { id } = useParams<{ id: string }>();
@@ -14,18 +13,8 @@ const StudyNote = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white relative">
-      {/* Subtle animated background */}
-      <div className="fixed inset-0 z-0 opacity-30">
-        <AnimatedDotsBackground
-          dotCount={60}
-          connectionDistance={120}
-          speed={0.3}
-          maxOpacity={0.3}
-        />
-      </div>
-
-      <div className="relative z-10 max-w-4xl mx-auto px-8 py-16">
+    <div className="min-h-screen bg-white">
+      <div className="max-w-4xl mx-auto px-8 py-16">
         <div className="mb-8">
           <Link
             to="/study-notes"

@@ -1,6 +1,9 @@
 import { Exercise } from '@/types/study';
+import { blitzsteinChpt1Exercises } from './blitzstein-chpt1-exercises';
 
-export const allExercises: Exercise[] = [];
+export const allExercises: Exercise[] = [
+  blitzsteinChpt1Exercises,
+];
 
 export const getExerciseById = (id: string): Exercise | undefined => {
   return allExercises.find(exercise => exercise.id === id);

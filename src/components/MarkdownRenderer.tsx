@@ -15,10 +15,11 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content, className 
         remarkPlugins={[remarkMath]}
         rehypePlugins={[rehypeKatex]}
         components={{
-          h1: ({ children }) => <h1 className="text-3xl font-light mb-4">{children}</h1>,
-          h2: ({ children }) => <h2 className="text-2xl font-light mb-3 mt-6">{children}</h2>,
-          h3: ({ children }) => <h3 className="text-xl font-light mb-2 mt-4">{children}</h3>,
-          p: ({ children }) => <p className="text-gray-700 leading-relaxed mb-4">{children}</p>,
+          h1: ({ children }) => <h1 className="text-3xl font-light mb-6 mt-10">{children}</h1>,
+          h2: ({ children }) => <h2 className="text-2xl font-light mb-4 mt-8">{children}</h2>,
+          h3: ({ children }) => <h3 className="text-xl font-light mb-3 mt-6">{children}</h3>,
+          h4: ({ children }) => <h4 className="text-lg font-medium mb-3 mt-5">{children}</h4>,
+          p: ({ children }) => <p className="text-gray-700 leading-relaxed mb-5">{children}</p>,
           ul: ({ children }) => <ul className="list-disc list-inside mb-4 space-y-1">{children}</ul>,
           ol: ({ children }) => <ol className="list-decimal list-inside mb-4 space-y-1">{children}</ol>,
           li: ({ children }) => <li className="text-gray-700">{children}</li>,

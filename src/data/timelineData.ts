@@ -3,21 +3,10 @@ import { TimelineItem } from '../types/timeline';
 export const experienceData: TimelineItem[] = [
   {
     type: 'experience',
-    title: 'Institutional Service Intern',
-    company: 'Verition Fund Management LLC',
-    location: 'New York, NY',
-    period: 'May 2025',
-    description: '',
-    achievements: [],
-    responsibilities: [],
-    tech: []
-  },
-  {
-    type: 'experience',
     title: 'Treasury/SWE Intern',
     company: 'Verition Fund Management LLC',
     location: 'New York, NY',
-    period: 'May 2024 - May 2025',
+    period: 'May 2024 - Current',
     description: 'Developed tools for treasury operations, achieving financial and performance improvements.',
     achievements: [
       'Optimized financial systems and saved 10+ man-hours daily and thousands of dollars daily',
@@ -88,7 +77,7 @@ export const projectData: TimelineItem[] = [
     type: 'project',
     title: 'Weather Market Arbitrage',
     category: 'Python, C++, Statsmodels, Research',
-    period: 'May 2025 - Present',
+    period: 'May 2025 - August 2025',
     description: 'Developed fully featured event-driven backtester in C++ and trading strategy, including market impact analysis.',
     features: [
       'Event-driven backtesting system built in C++',
@@ -166,7 +155,7 @@ export const projectData: TimelineItem[] = [
     type: 'project',
     title: 'Sidekick — Agentic Job Applier',
     category: 'ML, NLP, Python',
-    period: 'March 2025 - Present',
+    period: 'March 2025 - July 2025',
     description: 'Automatically tracks, applies and schedules interviews for jobs, universal compatibility across ATS.',
     features: [
       'Universal ATS compatibility for job applications',

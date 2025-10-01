@@ -1,21 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Brain, Lightbulb } from 'lucide-react';
+import { ArrowLeft, Brain, Calendar } from 'lucide-react';
 import { allExercises } from '@/data/exercises';
 import AnimatedDotsBackground from '@/components/AnimatedDotsBackground';
 
 const Exercises = () => {
   return (
     <div className="min-h-screen bg-white relative">
-      {/* Subtle animated background */}
-      <div className="fixed inset-0 z-0 opacity-30">
-        <AnimatedDotsBackground
-          dotCount={60}
-          connectionDistance={120}
-          speed={0.3}
-          maxOpacity={0.3}
-        />
-      </div>
+      <AnimatedDotsBackground />
       <div className="relative z-10 max-w-4xl mx-auto px-8 py-16">
         <div className="mb-12">
           <Link
@@ -38,28 +30,43 @@ const Exercises = () => {
             <p>No exercises yet. Check back soon!</p>
           </div>
         ) : (
-          <div className="grid gap-4">
+          <div className="space-y-4">
             {allExercises.map(exercise => (
-              <Link
+              <article
                 key={exercise.id}
-                to={`/exercises/${exercise.id}`}
-                className="group border border-gray-200 rounded-lg p-4 hover:border-gray-300 hover:shadow-sm transition-all duration-200"
+                className="group hover:bg-gray-50 rounded-lg transition-colors duration-200 p-4 border border-gray-200"
               >
-                <div className="flex items-start space-x-3">
-                  <Brain className="w-5 h-5 text-gray-400 mt-1 flex-shrink-0" />
-                  <div className="flex-1">
-                    <h3 className="text-lg font-medium text-gray-900 group-hover:text-gray-600 transition-colors duration-200">
-                      {exercise.title}
-                    </h3>
-                    {exercise.hints && (
-                      <div className="flex items-center space-x-1 mt-2 text-sm text-gray-500">
-                        <Lightbulb className="w-4 h-4" />
-                        <span>{exercise.hints.length} hints available</span>
-                      </div>
-                    )}
+                {exercise.date && (
+                  <div className="flex items-center space-x-2 text-sm text-gray-500 mb-2">
+                    <Calendar className="w-4 h-4" />
+                    <span>{new Date(exercise.date).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric'
+                    })}</span>
                   </div>
-                </div>
-              </Link>
+                )}
+
+                <h3 className="text-xl font-light mb-2 group-hover:text-gray-600 transition-colors duration-200">
+                  <Link to={`/exercises/${exercise.id}`} className="flex items-center space-x-2">
+                    <Brain className="w-5 h-5" />
+                    <span>{exercise.title}</span>
+                  </Link>
+                </h3>
+
+                {exercise.tags && (
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    {exercise.tags.map(tag => (
+                      <span
+                        key={tag}
+                        className="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </article>
             ))}
           </div>
         )}

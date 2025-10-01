@@ -7,15 +7,7 @@ import AnimatedDotsBackground from '@/components/AnimatedDotsBackground';
 const StudyNotes = () => {
   return (
     <div className="min-h-screen bg-white relative">
-      {/* Subtle animated background */}
-      <div className="fixed inset-0 z-0 opacity-30">
-        <AnimatedDotsBackground
-          dotCount={60}
-          connectionDistance={120}
-          speed={0.3}
-          maxOpacity={0.3}
-        />
-      </div>
+      <AnimatedDotsBackground />
 
       <div className="relative z-10 max-w-4xl mx-auto px-8 py-16">
         <div className="mb-12">
@@ -29,7 +21,6 @@ const StudyNotes = () => {
 
           <h1 className="text-4xl lg:text-5xl font-light mb-4">Study Notes</h1>
           <p className="text-lg text-gray-600">
-            My study notes
           </p>
         </div>
 
