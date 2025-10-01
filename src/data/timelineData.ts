@@ -178,7 +178,7 @@ export const projectData: TimelineItem[] = [
     description: 'Designed a multi-modal reasoning model with GRPO and tree-of-thought with recursive tool creation and use.',
     features: [
       'Multi-modal reasoning capabilities',
-      'GRPO (Generalized Reward Policy Optimization) implementation',
+      'GRPO  implementation',
       'Tree-of-thought reasoning with recursive tool creation',
       'Advanced problem-solving through recursive methodologies'
     ],
