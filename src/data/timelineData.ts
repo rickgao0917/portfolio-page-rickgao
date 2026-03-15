@@ -3,6 +3,17 @@ import { TimelineItem } from '../types/timeline';
 export const experienceData: TimelineItem[] = [
   {
     type: 'experience',
+    title: 'Founding Engineer',
+    company: 'Verita AI',
+    location: 'Remote',
+    period: 'Dec. 2025 - Current',
+    description: 'Building out core infrastructure and platforms',
+    achievements: [],
+    responsibilities: [],
+    tech: []
+  },
+  {
+    type: 'experience',
     title: 'Treasury/SWE Intern',
     company: 'Verition Fund Management LLC',
     location: 'New York, NY',
