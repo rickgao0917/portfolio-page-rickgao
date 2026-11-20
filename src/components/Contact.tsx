@@ -79,11 +79,11 @@ const Contact = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-4 h-4 text-gray-400" />
-                <span>3477741504</span>
+                <span>201-304-7860</span>
               </div>
               <div className="flex items-center space-x-3">
                 <MapPin className="w-4 h-4 text-gray-400" />
-                <span>New York, NY</span>
+                <span>San Francisco, CA</span>
               </div>
             </div>
           </div>

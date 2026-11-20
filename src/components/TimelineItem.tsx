@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Calendar, MapPin, ExternalLink, Github, ChevronDown, Users, Award, Target } from 'lucide-react';
+import { Calendar, MapPin, ExternalLink, ChevronDown, Users, Award, Target } from 'lucide-react';
 import { TimelineItem as TimelineItemType } from '../types/timeline';
 
 interface TimelineItemProps {
@@ -12,8 +12,7 @@ interface TimelineItemProps {
 const TimelineItem: React.FC<TimelineItemProps> = ({ item, isExpanded, onToggleExpand }) => {
   // Check if project has valid links
   const hasValidLinks = item.type === 'project' && item.links && (
-    (item.links.demo && item.links.demo !== '#') || 
-    (item.links.github && item.links.github !== '#')
+    (item.links.demo && item.links.demo !== '#')
   );
 
   return (
@@ -30,10 +29,8 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ item, isExpanded, onToggleE
             <div className="flex-1">
               <div className="flex items-center space-x-2 mb-2">
                 <h3 className="text-lg font-semibold text-gray-900">{item.title}</h3>
-                {item.wip && (
-                  <span className="px-2 py-1 text-xs bg-orange-100 text-orange-700 rounded-full border border-orange-200 font-medium">
-                    WIP
-                  </span>
+                {item.type === 'project' && (
+                  <span className="text-xs text-gray-400 font-mono uppercase tracking-wide">Complete</span>
                 )}
               </div>
               {item.type === 'experience' ? (
@@ -53,16 +50,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ item, isExpanded, onToggleE
 
               {/* Tech stack - Show in collapsed view */}
               {item.tech.length > 0 && (
-                <div className="flex flex-wrap gap-2">
-                  {item.tech.map((tech: string, techIndex: number) => (
-                    <span 
-                      key={techIndex}
-                      className="px-2 py-1 text-xs bg-gray-100 text-gray-700 rounded-full border hover:bg-gray-200 transition-colors duration-200"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
+                <p className="text-xs text-gray-500 font-mono">{item.tech.join(' / ')}</p>
               )}
             </div>
             <div className="flex items-center space-x-3 flex-shrink-0 ml-6">
@@ -130,15 +118,6 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ item, isExpanded, onToggleE
                       >
                         <ExternalLink className="w-4 h-4" />
                         <span>View Project</span>
-                      </a>
-                    )}
-                    {item.links?.github && item.links.github !== '#' && (
-                      <a 
-                        href={item.links.github} 
-                        className="flex items-center space-x-2 text-sm text-gray-600 hover:text-gray-900 transition-colors duration-200 hover:bg-gray-50 px-3 py-2 rounded-md"
-                      >
-                        <Github className="w-4 h-4" />
-                        <span>View Code</span>
                       </a>
                     )}
                   </div>

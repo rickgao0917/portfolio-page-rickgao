@@ -3,11 +3,11 @@ import { TimelineItem } from '../types/timeline';
 export const experienceData: TimelineItem[] = [
   {
     type: 'experience',
-    title: 'Founding Engineer',
-    company: 'Verita AI',
-    location: 'Remote',
-    period: 'Dec. 2025 - Current',
-    description: 'Building out core infrastructure and platforms',
+    title: 'CEO',
+    company: 'Alkera AI',
+    location: 'San Francisco, CA',
+    period: 'May 2026 - Current',
+    description: 'Co-founder of a Y Combinator backed startup revolutionizing enterprise data work.',
     achievements: [],
     responsibilities: [],
     tech: []
@@ -17,7 +17,7 @@ export const experienceData: TimelineItem[] = [
     title: 'Treasury/SWE Intern',
     company: 'Verition Fund Management LLC',
     location: 'New York, NY',
-    period: 'May 2024 - Current',
+    period: 'May 2024 - May 2026',
     description: 'Developed tools for treasury operations, achieving financial and performance improvements.',
     achievements: [
       'Optimized financial systems and saved 10+ man-hours daily and thousands of dollars daily',
@@ -67,10 +67,9 @@ export const experienceData: TimelineItem[] = [
 export const projectData: TimelineItem[] = [
   {
     type: 'project',
-    title: 'Graph-based collaborative LLM Editor',
+    title: 'Graph-Based Collaborative LLM Editor',
     category: 'Python, Typescript',
-    period: 'June 2025 - Present',
-    wip: true,
+    period: 'June 2025 - January 2026',
     description: 'Developing a new interface for synchronous collaboration on text documents + collaboration with LLM chats',
     features: [
       'Synchronous multi-user collaboration on the same LLM chat',
@@ -106,9 +105,8 @@ export const projectData: TimelineItem[] = [
     type: 'project',
     title: 'Bond: End-to-End Agentic Market Intelligence Intelligence/Equity Research Platform',
     category: 'Python, PyTorch',
-    period: 'May 2025 - Present',
+    period: 'May 2025 - September 2025',
     description: 'Graph network implementation to determine relevancy of sources for agentic investment research.',
-    wip: true,
     features: [
       'RAG + Vector database to ensure data consistency and accurate source citation',
       'Custom ensemble model of Llama, Claude DeepSeek + GRPO, NLP and sentiment analysis models',
@@ -118,28 +116,6 @@ export const projectData: TimelineItem[] = [
       'Currently being trialed by PMs and analysts'
     ],
     tech: ['Python', 'PyTorch', 'RAG', 'Vector Database', 'NLP'],
-    links: {
-      demo: '#',
-      github: '#'
-    }
-  },
-  {
-    type: 'project',
-    title: 'QuantRooms',
-    category: 'Chrome Extension, WebSocket, Full-Stack',
-    period: 'May 2025 - Present',
-    description: 'Multiplayer quant finance interview preparation.',
-    wip: true,
-    features: [
-      'Multiplayer Chrome extension for QuantGuide.io with real-time collaborative coding',
-      'WebSocket-based synchronization using Socket.io for real-time communication',
-      'ELO-based matchmaking system with competitive scoring',
-      'Complete authentication system with Google OAuth 2.0 and JWT tokens',
-      'PostgreSQL database with user profiles, statistics, and game history',
-      'Auto-cleanup rooms and cross-account support across browser tabs'
-    ],
-    impact: [],
-    tech: ['JavaScript', 'Node.js', 'Express', 'Socket.io', 'PostgreSQL', 'Chrome Extension', 'OAuth 2.0', 'JWT'],
     links: {
       demo: '#',
       github: '#'

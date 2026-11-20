@@ -1,14 +1,11 @@
 
 import React from 'react';
-import { ArrowRight, Github, Linkedin, Mail, BookOpen, Brain } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react';
 
 // Feature flags - should match Timeline component
 const FEATURE_FLAGS = {
   BLOG_ENABLED: false,
-  RIDDLES_ENABLED: false,
-  STUDY_NOTES_ENABLED: true,
-  EXERCISES_ENABLED: true
+  RIDDLES_ENABLED: false
 };
 
 const Hero = () => {
@@ -98,28 +95,6 @@ const Hero = () => {
                     </button>
                   </>
                 )}
-                {FEATURE_FLAGS.STUDY_NOTES_ENABLED && (
-                  <>
-                    <span className="px-2 py-1">•</span>
-                    <Link
-                      to="/study-notes"
-                      className="px-3 py-1 hover:text-gray-700 hover:bg-gray-50 rounded transition-colors duration-200 inline-block"
-                    >
-                      Study Notes
-                    </Link>
-                  </>
-                )}
-                {FEATURE_FLAGS.EXERCISES_ENABLED && (
-                  <>
-                    <span className="px-2 py-1">•</span>
-                    <Link
-                      to="/exercises"
-                      className="px-3 py-1 hover:text-gray-700 hover:bg-gray-50 rounded transition-colors duration-200 inline-block"
-                    >
-                      Exercises
-                    </Link>
-                  </>
-                )}
               </div>
             </div>
           </div>
@@ -128,18 +103,18 @@ const Hero = () => {
             <div className="space-y-4 text-sm text-gray-500">
               <div>
                 <p className="font-mono mb-1">Currently</p>
-                <p>Intern</p>
-                <p>@ Verition Fund Management</p>
+                <p>CEO</p>
+                <p>@ <a href="https://alkera.ai" className="underline underline-offset-2 hover:text-gray-700">Alkera AI</a></p>
               </div>
               
               <div>
                 <p className="font-mono mb-1">Location</p>
-                <p>New York, NY</p>
+                <p>San Francisco, CA</p>
               </div>
               
               <div>
                 <p className="font-mono mb-1">Phone</p>
-                <p>347-774-1504</p>
+                <p>201-304-7860</p>
               </div>
 
               <div className="pt-2">
