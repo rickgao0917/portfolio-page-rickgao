@@ -15,6 +15,10 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ item, isExpanded, onToggleE
     (item.links.demo && item.links.demo !== '#')
   );
 
+  const hasDetails = item.type === 'experience'
+    ? item.achievements.length > 0 || item.responsibilities.length > 0
+    : (item.features?.length ?? 0) > 0 || (item.impact?.length ?? 0) > 0 || hasValidLinks;
+
   return (
     <div className="group">
       <div className={`bg-white rounded-lg border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden ${
@@ -22,16 +26,13 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ item, isExpanded, onToggleE
       }`}>
         {/* Header - Always visible */}
         <div 
-          className="p-4 sm:p-6 cursor-pointer hover:bg-gray-50 transition-colors duration-200"
-          onClick={onToggleExpand}
+          className={`p-4 sm:p-6 transition-colors duration-200 ${hasDetails ? 'cursor-pointer hover:bg-gray-50' : ''}`}
+          onClick={hasDetails ? onToggleExpand : undefined}
         >
           <div className="flex flex-col-reverse sm:flex-row sm:items-start sm:justify-between gap-3">
             <div className="flex-1 min-w-0">
               <div className="flex flex-wrap items-center gap-x-2 mb-2">
                 <h3 className="text-base sm:text-lg font-semibold text-gray-900 break-words">{item.title}</h3>
-                {item.type === 'project' && (
-                  <span className="text-xs text-gray-400 font-mono uppercase tracking-wide">Complete</span>
-                )}
               </div>
               {item.type === 'experience' ? (
                 <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mb-2">
@@ -58,9 +59,9 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ item, isExpanded, onToggleE
                 <Calendar className="w-3 h-3" />
                 <span>{item.period}</span>
               </div>
-              <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${
+              {hasDetails && <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${
                 isExpanded ? 'rotate-180' : ''
-              }`} />
+              }`} />}
             </div>
           </div>
         </div>

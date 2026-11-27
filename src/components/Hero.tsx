@@ -1,49 +1,8 @@
 
 import React from 'react';
-import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react';
-
-// Feature flags - should match Timeline component
-const FEATURE_FLAGS = {
-  BLOG_ENABLED: false,
-  RIDDLES_ENABLED: false
-};
+import { Github, Linkedin, Mail } from 'lucide-react';
 
 const Hero = () => {
-  const scrollToExperience = () => {
-    const experienceSection = document.querySelector('section:nth-of-type(3)'); // Timeline is the 3rd section (Hero, About, Timeline)
-    if (experienceSection) {
-      experienceSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const scrollToProjects = () => {
-    // Projects are within the Timeline component, so we need to scroll to a specific element
-    const projectsSection = document.querySelector('[data-section="projects"]');
-    if (projectsSection) {
-      projectsSection.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      // Fallback: scroll to timeline and let user find projects
-      const timelineSection = document.querySelector('section:nth-of-type(3)');
-      if (timelineSection) {
-        timelineSection.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  };
-
-  const scrollToBlog = () => {
-    const blogSection = document.querySelector('[data-section="blog"]');
-    if (blogSection) {
-      blogSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const scrollToRiddles = () => {
-    const riddlesSection = document.querySelector('[data-section="riddles"]');
-    if (riddlesSection) {
-      riddlesSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <section className="min-h-[100svh] flex items-end pb-12 sm:pb-20 pt-24 px-5 sm:px-8 lg:px-16 relative overflow-hidden">
       <div className="w-full max-w-7xl mx-auto relative z-10">
@@ -54,48 +13,6 @@ const Hero = () => {
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-light leading-none tracking-tight">
                 <span className="block">Rick Gao</span>
               </h1>
-            </div>
-            
-            <div className="space-y-6">
-              
-              {/* Low-profile navigation links - conditionally show based on feature flags */}
-              <div className="flex flex-wrap gap-1 text-sm text-gray-500">
-                <button
-                  onClick={scrollToExperience}
-                  className="px-3 py-1 hover:text-gray-700 hover:bg-gray-50 rounded transition-colors duration-200"
-                >
-                  Experience
-                </button>
-                <span className="px-2 py-1">•</span>
-                <button
-                  onClick={scrollToProjects}
-                  className="px-3 py-1 hover:text-gray-700 hover:bg-gray-50 rounded transition-colors duration-200"
-                >
-                  Projects
-                </button>
-                {FEATURE_FLAGS.BLOG_ENABLED && (
-                  <>
-                    <span className="px-2 py-1">•</span>
-                    <button
-                      onClick={scrollToBlog}
-                      className="px-3 py-1 hover:text-gray-700 hover:bg-gray-50 rounded transition-colors duration-200"
-                    >
-                      Blog
-                    </button>
-                  </>
-                )}
-                {FEATURE_FLAGS.RIDDLES_ENABLED && (
-                  <>
-                    <span className="px-2 py-1">•</span>
-                    <button
-                      onClick={scrollToRiddles}
-                      className="px-3 py-1 hover:text-gray-700 hover:bg-gray-50 rounded transition-colors duration-200"
-                    >
-                      Math Riddles
-                    </button>
-                  </>
-                )}
-              </div>
             </div>
           </div>
           
