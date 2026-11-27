@@ -14,11 +14,11 @@ export const experienceData: TimelineItem[] = [
   },
   {
     type: 'experience',
-    title: 'Treasury/SWE Intern',
+    title: 'SWE',
     company: 'Verition Fund Management LLC',
     location: 'New York, NY',
     period: 'May 2024 - May 2026',
-    description: 'Developed tools for treasury operations, achieving financial and performance improvements.',
+    description: 'Embedded SWE for treasury operations, provided significant optimizations on capital overhead.',
     achievements: [],
     responsibilities: [],
     tech: []
@@ -26,10 +26,10 @@ export const experienceData: TimelineItem[] = [
   {
     type: 'experience',
     title: 'Undergraduate Researcher',
-    company: 'Gerstein Laboratory — Yale University',
+    company: 'Gerstein Laboratory (Yale University)',
     location: 'New Haven, CT',
     period: 'Jan. 2023 - May 2024',
-    description: 'Conducted research in computational biology and deep learning, focusing on code generation and bioinformatics.',
+    description: 'Conducted research in computational biology and deep learning.',
     achievements: [],
     responsibilities: [],
     tech: []
@@ -46,17 +46,3 @@ export const experienceData: TimelineItem[] = [
     tech: []
   }
 ];
-
-export const blogSection = {
-  type: 'blog' as const,
-  title: 'Latest Blog Post',
-  period: 'Updated regularly',
-  description: 'Thoughts on software engineering, quantitative finance, and technology.'
-};
-
-export const riddleSection = {
-  type: 'riddle' as const,
-  title: 'Daily Math Riddle',
-  period: 'Updated daily',
-  description: 'Brain teasers and mathematical puzzles for the quantitatively curious.'
-};
