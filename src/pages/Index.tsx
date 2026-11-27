@@ -3,7 +3,6 @@ import React from 'react';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Timeline from '@/components/Timeline';
-import Contact from '@/components/Contact';
 import AnimatedDotsBackground from '@/components/AnimatedDotsBackground';
 
 const Index = () => {
@@ -24,7 +23,6 @@ const Index = () => {
         <Hero />
         <About />
         <Timeline />
-        <Contact />
       </div>
     </div>
   );
