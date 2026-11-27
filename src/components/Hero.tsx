@@ -45,7 +45,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-end pb-20 px-8 lg:px-16 relative overflow-hidden">
+    <section className="min-h-[100svh] flex items-end pb-12 sm:pb-20 pt-24 px-5 sm:px-8 lg:px-16 relative overflow-hidden">
       <div className="w-full max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-12 gap-8 items-end">
           <div className="col-span-12 lg:col-span-8">
@@ -99,7 +99,7 @@ const Hero = () => {
             </div>
           </div>
           
-          <div className="col-span-12 lg:col-span-4 lg:text-right">
+          <div className="col-span-12 lg:col-span-4 lg:text-right mt-4 lg:mt-0">
             <div className="space-y-4 text-sm text-gray-500">
               <div>
                 <p className="font-mono mb-1">Currently</p>
@@ -118,7 +118,7 @@ const Hero = () => {
               </div>
 
               <div className="pt-2">
-                <div className="flex items-center justify-end space-x-4">
+                <div className="flex items-center justify-start lg:justify-end space-x-4 -ml-2 lg:ml-0">
                   <a href="https://github.com/rickgao0917" className="p-2 hover:bg-gray-50 rounded-full transition-colors duration-200">
                     <Github className="w-4 h-4" />
                   </a>

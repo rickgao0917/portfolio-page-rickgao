@@ -22,19 +22,19 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ item, isExpanded, onToggleE
       }`}>
         {/* Header - Always visible */}
         <div 
-          className="p-6 cursor-pointer hover:bg-gray-50 transition-colors duration-200"
+          className="p-4 sm:p-6 cursor-pointer hover:bg-gray-50 transition-colors duration-200"
           onClick={onToggleExpand}
         >
-          <div className="flex items-start justify-between">
-            <div className="flex-1">
-              <div className="flex items-center space-x-2 mb-2">
-                <h3 className="text-lg font-semibold text-gray-900">{item.title}</h3>
+          <div className="flex flex-col-reverse sm:flex-row sm:items-start sm:justify-between gap-3">
+            <div className="flex-1 min-w-0">
+              <div className="flex flex-wrap items-center gap-x-2 mb-2">
+                <h3 className="text-base sm:text-lg font-semibold text-gray-900 break-words">{item.title}</h3>
                 {item.type === 'project' && (
                   <span className="text-xs text-gray-400 font-mono uppercase tracking-wide">Complete</span>
                 )}
               </div>
               {item.type === 'experience' ? (
-                <div className="flex items-center space-x-4 mb-2">
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mb-2">
                   <span className="text-gray-700 font-medium">{item.company}</span>
                   <div className="flex items-center space-x-1 text-sm text-gray-500">
                     <MapPin className="w-3 h-3" />
@@ -53,7 +53,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ item, isExpanded, onToggleE
                 <p className="text-xs text-gray-500 font-mono">{item.tech.join(' / ')}</p>
               )}
             </div>
-            <div className="flex items-center space-x-3 flex-shrink-0 ml-6">
+            <div className="flex items-center justify-between sm:justify-end space-x-3 flex-shrink-0 sm:ml-6">
               <div className="flex items-center space-x-1 text-sm text-gray-500">
                 <Calendar className="w-3 h-3" />
                 <span>{item.period}</span>
@@ -69,7 +69,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ item, isExpanded, onToggleE
         <div className={`transition-all duration-300 ease-in-out ${
           isExpanded ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'
         } overflow-hidden`}>
-          <div className="px-6 pb-6 border-t border-gray-50">
+          <div className="px-4 sm:px-6 pb-6 border-t border-gray-50">
             <div className="pt-4 space-y-6">
               {/* Achievements/Features */}
               {(item.type === 'experience' ? item.achievements : item.features)?.length > 0 && (

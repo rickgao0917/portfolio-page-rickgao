@@ -3,14 +3,14 @@ import React from 'react';
 
 const About = () => {
   return (
-    <section className="py-16 px-8 lg:px-16">
+    <section className="py-12 sm:py-16 px-5 sm:px-8 lg:px-16">
       {/* Section separator line */}
       <div className="max-w-7xl mx-auto mb-16">
         <div className="w-1/3 h-px bg-gray-300"></div>
       </div>
       
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-12 gap-16">
+        <div className="grid grid-cols-12 gap-8 lg:gap-16">
           {/* Section number and title */}
           <div className="col-span-12 lg:col-span-3">
             <div className="lg:sticky lg:top-24">
@@ -25,11 +25,7 @@ const About = () => {
           <div className="col-span-12 lg:col-span-9">
             <div className="space-y-8">
               <div className="space-y-6 text-gray-700 leading-relaxed">
-                <p className="text-lg md:text-xl font-light">
-                  Co-founder of Y Combinator backed startup revolutionizing enterprise data work.
-                </p>
-                
-                <div className="bg-white/95 backdrop-blur-sm p-6 rounded-lg border border-gray-200 relative z-20">
+                <div className="bg-white/95 backdrop-blur-sm p-4 sm:p-6 rounded-lg border border-gray-200 relative z-20">
                   <h3 className="text-lg font-semibold mb-4">Education</h3>
                   <div className="space-y-2">
                     <p className="font-medium">Yale University</p>

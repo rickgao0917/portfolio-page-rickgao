@@ -23,7 +23,7 @@ const Timeline = () => {
   };
 
   return (
-    <section className="py-16 px-8 lg:px-16">
+    <section className="py-12 sm:py-16 px-5 sm:px-8 lg:px-16">
       {/* Experience Section */}
       {/* Section separator line */}
       <div className="max-w-7xl mx-auto mb-16">
@@ -31,7 +31,7 @@ const Timeline = () => {
       </div>
       
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-12 gap-16">
+        <div className="grid grid-cols-12 gap-8 lg:gap-16">
           {/* Section number and title */}
           <div className="col-span-12 lg:col-span-3">
             <div className="lg:sticky lg:top-24">
@@ -65,7 +65,7 @@ const Timeline = () => {
       </div>
       
       <div className="max-w-7xl mx-auto" data-section="projects">
-        <div className="grid grid-cols-12 gap-16">
+        <div className="grid grid-cols-12 gap-8 lg:gap-16">
           {/* Section number and title */}
           <div className="col-span-12 lg:col-span-3">
             <div className="lg:sticky lg:top-24">
@@ -104,7 +104,7 @@ const Timeline = () => {
           </div>
           
           <div className="max-w-7xl mx-auto" data-section="blog">
-            <div className="grid grid-cols-12 gap-16">
+            <div className="grid grid-cols-12 gap-8 lg:gap-16">
               <div className="col-span-12 lg:col-span-3">
                 <div className="lg:sticky lg:top-24">
                   <span className="font-mono text-sm text-gray-400">04</span>
@@ -134,7 +134,7 @@ const Timeline = () => {
           </div>
           
           <div className="max-w-7xl mx-auto" data-section="riddles">
-            <div className="grid grid-cols-12 gap-16">
+            <div className="grid grid-cols-12 gap-8 lg:gap-16">
               <div className="col-span-12 lg:col-span-3">
                 <div className="lg:sticky lg:top-24">
                   <span className="font-mono text-sm text-gray-400">05</span>
