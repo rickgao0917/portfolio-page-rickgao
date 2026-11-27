@@ -32,9 +32,6 @@ const About = () => {
                     <p className="text-sm text-gray-500">On leave</p>
                     <p className="text-gray-600">B.S. in Computer Science</p>
                     <p className="text-sm text-gray-500">Aug. 2022 - </p>
-                    <p className="text-sm text-gray-600 mt-2">
-                      Relevant Courses: Systems Programming, Data Structures, Deep Learning Theory and Applications, Bayesian Statistics
-                    </p>
                   </div>
                 </div>
               </div>

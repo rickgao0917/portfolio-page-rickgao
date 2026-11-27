@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import TimelineItem from './TimelineItem';
 import BlogSection from './BlogSection';
 import RiddleSection from './RiddleSection';
@@ -12,16 +12,6 @@ const FEATURE_FLAGS = {
 };
 
 const Timeline = () => {
-  const [expandedItems, setExpandedItems] = useState<number[]>([]);
-
-  const toggleExpand = (index: number) => {
-    setExpandedItems(prev => 
-      prev.includes(index) 
-        ? prev.filter(i => i !== index)
-        : [...prev, index]
-    );
-  };
-
   return (
     <section className="py-12 sm:py-16 px-5 sm:px-8 lg:px-16">
       {/* Experience Section */}
@@ -46,12 +36,7 @@ const Timeline = () => {
           <div className="col-span-12 lg:col-span-9">
             <div className="space-y-8">
               {experienceData.map((item, index) => (
-                <TimelineItem
-                  key={index}
-                  item={item}
-                  isExpanded={expandedItems.includes(index)}
-                  onToggleExpand={() => toggleExpand(index)}
-                />
+                <TimelineItem key={index} item={item} />
               ))}
             </div>
           </div>
