@@ -9,7 +9,6 @@ const Hero = () => {
         <div className="grid grid-cols-12 gap-8 items-end">
           <div className="col-span-12 lg:col-span-8">
             <div className="space-y-2 mb-8">
-              <span className="font-mono text-sm text-gray-400">00</span>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-light leading-none tracking-tight">
                 <span className="block">Rick Gao</span>
               </h1>

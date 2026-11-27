@@ -25,8 +25,7 @@ const Timeline = () => {
           {/* Section number and title */}
           <div className="col-span-12 lg:col-span-3">
             <div className="lg:sticky lg:top-24">
-              <span className="font-mono text-sm text-gray-400">02</span>
-              <h2 className="text-2xl lg:text-3xl font-light mt-2 mb-6">
+              <h2 className="text-2xl lg:text-3xl font-light mb-6">
                 Experience
               </h2>
             </div>
@@ -55,8 +54,7 @@ const Timeline = () => {
             <div className="grid grid-cols-12 gap-8 lg:gap-16">
               <div className="col-span-12 lg:col-span-3">
                 <div className="lg:sticky lg:top-24">
-                  <span className="font-mono text-sm text-gray-400">04</span>
-                  <h2 className="text-2xl lg:text-3xl font-light mt-2 mb-6">
+                  <h2 className="text-2xl lg:text-3xl font-light mb-6">
                     {blogSection.title}
                   </h2>
                   <p className="text-gray-600 leading-relaxed">
@@ -85,8 +83,7 @@ const Timeline = () => {
             <div className="grid grid-cols-12 gap-8 lg:gap-16">
               <div className="col-span-12 lg:col-span-3">
                 <div className="lg:sticky lg:top-24">
-                  <span className="font-mono text-sm text-gray-400">05</span>
-                  <h2 className="text-2xl lg:text-3xl font-light mt-2 mb-6">
+                  <h2 className="text-2xl lg:text-3xl font-light mb-6">
                     {riddleSection.title}
                   </h2>
                   <p className="text-gray-600 leading-relaxed">
